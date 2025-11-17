@@ -21,7 +21,7 @@ export default function GatheringsSection() {
               <div className="h-48 bg-primary-200 overflow-hidden">
                 <div 
                   className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/assets/1763402076513-7_nw_84fb547f.jpg')" }}
+                  style={{ backgroundImage: "url('/assets/1763402076513-48_nw_a493105e.jpg')" }}
                 ></div>
               </div>
               <div className="p-6">

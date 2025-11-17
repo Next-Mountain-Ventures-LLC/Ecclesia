@@ -115,14 +115,17 @@ export default function EcosystemSection() {
     }
   };
 
-  // Function to render the circular indicator with the proper angle
+  // Function to position elements evenly in a triangle around the center circle
   const getCirclePosition = (position: number) => {
-    // Calculate angle based on position (0, 1, 2)
-    const angle = position * (2 * Math.PI / 3) - Math.PI / 2; // Start at top position
-    const radius = 140; // Distance from center
+    // Use triangular layout instead of a full circle
+    // 0 = top, 1 = bottom right, 2 = bottom left
+    const positions = [
+      { x: 0, y: -120 },    // Top (gather)
+      { x: 120, y: 60 },    // Bottom right (mentor)
+      { x: -120, y: 60 }    // Bottom left (serve)
+    ];
     
-    const x = Math.cos(angle) * radius;
-    const y = Math.sin(angle) * radius;
+    const { x, y } = positions[position];
     
     return {
       transform: `translate(${x}px, ${y}px)`
@@ -146,25 +149,34 @@ export default function EcosystemSection() {
         <div className="max-w-6xl mx-auto">
           {/* Desktop Layout */}
           <div className="hidden md:flex flex-col items-center">
-            {/* Circular Navigation */}
-            <div className="relative w-full max-w-3xl aspect-square mx-auto mb-12"
+            {/* Central Interactive Element */}
+            <div className="relative w-full max-w-2xl mx-auto mb-12"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              {/* Center circle with active content */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-white rounded-full shadow-lg flex flex-col items-center justify-center p-4 z-20">
+              {/* Center circle with content area */}
+              <div className="relative mx-auto w-96 h-96 bg-white rounded-full shadow-lg flex flex-col items-center justify-center p-8 z-20 overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-200 to-transparent"></div>
+                
+                {/* Icon */}
                 <div className="mb-4 w-16 h-16 p-3 rounded-full bg-primary-100 text-primary-600">
                   {ecosystemElements[activeElement].icon}
                 </div>
-                <h3 className="text-xl font-display font-medium text-primary-800 mb-2 text-center">
+                
+                {/* Title */}
+                <h3 className="text-xl font-display font-medium text-primary-800 mb-3 text-center">
                   {ecosystemElements[activeElement].title}
                 </h3>
-                <p className="text-primary-600 text-sm text-center line-clamp-3 mb-2">
-                  {ecosystemElements[activeElement].description[0].substring(0, 100)}...
+                
+                {/* Description - shortened for better fit */}
+                <p className="text-primary-600 text-sm text-center mb-3 max-w-xs">
+                  {ecosystemElements[activeElement].description[0].substring(0, 120)}...
                 </p>
+                
+                {/* Link */}
                 <a 
                   href={ecosystemElements[activeElement].linkHref} 
-                  className="inline-flex items-center text-accent-600 text-sm font-medium hover:text-accent-700 transition-colors mt-2"
+                  className="inline-flex items-center text-accent-600 text-sm font-medium hover:text-accent-700 transition-colors mt-auto"
                 >
                   {ecosystemElements[activeElement].linkText}
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
@@ -174,7 +186,7 @@ export default function EcosystemSection() {
                 </a>
               </div>
 
-              {/* Orbital elements */}
+              {/* Surrounding elements in triangular layout */}
               {Object.entries(ecosystemElements).map(([key, element]) => {
                 const isActive = activeElement === key;
                 
@@ -186,7 +198,8 @@ export default function EcosystemSection() {
                   >
                     <button
                       onClick={() => setActiveElement(key)}
-                      className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 z-10
+                      onMouseEnter={() => setActiveElement(key)}
+                      className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 z-10
                         ${isActive ? colorClasses.active.background + ' ' + colorClasses.active.shadow : colorClasses.inactive.background + ' ' + colorClasses.inactive.shadow}
                         ${!isActive && colorClasses.inactive.hover}`}
                     >
@@ -195,60 +208,13 @@ export default function EcosystemSection() {
                       </div>
 
                       {/* Label for each element */}
-                      <span className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium ${isActive ? 'text-primary-800' : 'text-primary-600'} whitespace-nowrap`}>
+                      <span className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium ${isActive ? 'text-primary-800' : 'text-primary-600'} whitespace-nowrap bg-white px-2 py-0.5 rounded-full shadow-sm`}>
                         {key.charAt(0).toUpperCase() + key.slice(1)}
                       </span>
                     </button>
                   </div>
                 );
               })}
-
-              {/* Circular path */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[330px] h-[330px] rounded-full border-2 border-dashed border-primary-300 z-0"></div>
-
-              {/* Arrows between elements */}
-              <svg className="absolute top-0 left-0 w-full h-full z-0" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                {/* Define the curved arrow path */}
-                <defs>
-                  <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                      refX="0" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#9CA3AF" />
-                  </marker>
-                </defs>
-                
-                {/* Arrow from Gather to Mentor */}
-                <path 
-                  d="M 200 60 Q 280 120 340 200" 
-                  stroke="#9CA3AF" 
-                  strokeWidth="2"
-                  strokeDasharray={activeElement === "gather" ? "0" : "4 4"}
-                  className={activeElement === "gather" ? "stroke-primary-500" : "stroke-gray-400"}
-                  markerEnd="url(#arrowhead)" 
-                  fill="transparent"
-                />
-                
-                {/* Arrow from Mentor to Serve */}
-                <path 
-                  d="M 340 200 Q 280 280 200 340" 
-                  stroke="#9CA3AF" 
-                  strokeWidth="2" 
-                  strokeDasharray={activeElement === "mentor" ? "0" : "4 4"}
-                  className={activeElement === "mentor" ? "stroke-primary-500" : "stroke-gray-400"}
-                  markerEnd="url(#arrowhead)" 
-                  fill="transparent"
-                />
-                
-                {/* Arrow from Serve back to Gather */}
-                <path 
-                  d="M 200 340 Q 120 280 60 200 Q 120 120 200 60" 
-                  stroke="#9CA3AF" 
-                  strokeWidth="2" 
-                  strokeDasharray={activeElement === "serve" ? "0" : "4 4"}
-                  className={activeElement === "serve" ? "stroke-primary-500" : "stroke-gray-400"}
-                  markerEnd="url(#arrowhead)" 
-                  fill="transparent"
-                />
-              </svg>
             </div>
 
             {/* Content Area */}
@@ -295,52 +261,54 @@ export default function EcosystemSection() {
           {/* Mobile Layout */}
           <div className="md:hidden">
             <div className="flex flex-col space-y-8">
-              {/* Mobile Circular Navigation */}
-              <div className="relative mx-auto w-64 h-64">
-                {/* Center circle */}
-                <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-300"></div>
+              {/* Mobile Navigation */}
+              <div className="relative mx-auto w-full max-w-xs">
+                {/* Central content area */}
+                <div className="w-full bg-white rounded-xl shadow-lg p-6 mb-10">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-14 h-14 p-3 rounded-full bg-primary-100 text-primary-600">
+                      {ecosystemElements[activeElement].icon}
+                    </div>
+                  </div>
+                  
+                  <h3 className="text-xl font-display font-medium text-primary-800 mb-3 text-center">
+                    {ecosystemElements[activeElement].title}
+                  </h3>
+                  
+                  <p className="text-primary-600 text-sm text-center mb-3">
+                    {ecosystemElements[activeElement].description[0].substring(0, 100)}...
+                  </p>
+                </div>
                 
-                {/* Elements positioned around the circle */}
-                {Object.entries(ecosystemElements).map(([key, element], idx) => {
-                  const isActive = activeElement === key;
-                  const angle = (idx * 2 * Math.PI / 3) - Math.PI/2; // Start from top
-                  const radius = 90; // Slightly smaller for mobile
-                  
-                  const x = 32 + Math.cos(angle) * radius;
-                  const y = 32 + Math.sin(angle) * radius;
-                  
-                  return (
-                    <button
-                      key={key}
-                      onClick={() => setActiveElement(key)}
-                      className={`absolute w-16 h-16 rounded-full transform -translate-x-1/2 -translate-y-1/2 flex items-center justify-center transition-all duration-300
-                        ${isActive ? colorClasses.active.background + ' ' + colorClasses.active.shadow : colorClasses.inactive.background + ' ' + colorClasses.inactive.shadow}
-                        ${!isActive && colorClasses.inactive.hover}`}
-                      style={{ left: `${x}%`, top: `${y}%` }}
-                    >
-                      <div className={`w-8 h-8 ${isActive ? colorClasses.active.text : colorClasses.inactive.text}`}>
-                        {element.icon}
-                      </div>
+                {/* Icon Navigation Buttons */}
+                <div className="flex justify-around mb-6">
+                  {Object.entries(ecosystemElements).map(([key, element]) => {
+                    const isActive = activeElement === key;
+                    
+                    return (
+                      <button
+                        key={key}
+                        onClick={() => setActiveElement(key)}
+                        className={`w-20 h-20 rounded-full flex flex-col items-center justify-center transition-all duration-300
+                          ${isActive ? colorClasses.active.background + ' ' + colorClasses.active.shadow : colorClasses.inactive.background + ' ' + colorClasses.inactive.shadow}
+                          ${!isActive && colorClasses.inactive.hover}`}
+                      >
+                        <div className={`w-8 h-8 ${isActive ? colorClasses.active.text : colorClasses.inactive.text}`}>
+                          {element.icon}
+                        </div>
 
-                      {/* Label for each element */}
-                      <span className={`absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs font-medium ${isActive ? 'text-primary-800' : 'text-primary-600'} whitespace-nowrap bg-white px-2 py-0.5 rounded-full`}>
-                        {key.charAt(0).toUpperCase() + key.slice(1)}
-                      </span>
-                    </button>
-                  );
-                })}
-
-                {/* Center content preview */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-white shadow-md flex items-center justify-center text-center text-xs font-medium text-primary-700 p-2">
-                  <span>{ecosystemElements[activeElement].title}</span>
+                        {/* Label below icon */}
+                        <span className={`mt-2 text-xs font-medium ${isActive ? 'text-primary-800' : 'text-primary-600'}`}>
+                          {key.charAt(0).toUpperCase() + key.slice(1)}
+                        </span>
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
 
               {/* Mobile Content */}
               <div className="p-6 rounded-xl bg-white shadow-lg">
-                <h3 className="text-xl font-display font-medium mb-4 text-primary-800">
-                  {ecosystemElements[activeElement].title}
-                </h3>
                 <div 
                   className="w-full h-40 mb-4 rounded-lg bg-cover bg-center" 
                   style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
