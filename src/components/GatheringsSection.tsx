@@ -26,7 +26,7 @@ export default function GatheringsSection() {
               </div>
               <div className="p-6">
                 <div className="inline-block rounded-full px-4 py-1 bg-primary-100 text-primary-700 font-medium text-xs mb-4">
-                  Fridays at 6:30 PM
+                  Sundays at 5:00 PM
                 </div>
                 <h3 className="text-xl font-display font-medium text-primary-800 mb-2">
                   Midtown Gathering

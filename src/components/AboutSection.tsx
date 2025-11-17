@@ -1,11 +1,43 @@
 import React, { useState, useEffect } from "react";
 
 export default function AboutSection() {
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [hovering, setHovering] = useState(false);
 
+  const values = [
+    {
+      key: "community",
+      title: "Community",
+      description: "We believe the church is not a building but a community of believers growing together in Christ.",
+      image: "/assets/1763402076513-43_nw_9f4b1f4b.jpg"
+    },
+    {
+      key: "fellowship",
+      title: "Fellowship",
+      description: "Authentic relationships form as we share meals, discussions, and life together.",
+      image: "/assets/family_gathering_nw_f63ba1cb.jpg"
+    },
+    {
+      key: "scripture",
+      title: "Scripture",
+      description: "We study God's Word together, applying biblical principles to everyday life.",
+      image: "/assets/1763402076513-11_nw_c0a95c81.jpg"
+    },
+    {
+      key: "prayer",
+      title: "Prayer",
+      description: "Prayer connects us to God and each other, bringing spiritual transformation.",
+      image: "/assets/prayer_circle_nw_96b2ff2b.jpg"
+    },
+    {
+      key: "service",
+      title: "Service",
+      description: "Following Jesus' example, we serve one another and our community with love.",
+      image: "/assets/1763402076513-21_nw_29328aa6.jpg"
+    }
+  ];
+
+  // Thumbnail gallery images - more than the values above for visual richness
   const galleryImages = [
     "/assets/family_gathering_nw_f63ba1cb.jpg",
     "/assets/1763402076513-20_nw_b4ff1a4a.jpg",
@@ -13,140 +45,55 @@ export default function AboutSection() {
     "/assets/1763402076513-12_nw_c0840049.jpg",
     "/assets/1763402076513-13_nw_e65b03b1.jpg",
     "/assets/1763402076513-16_nw_3f0a5106.jpg",
-    "/assets/1763402076513-18_nw_c03fb031.jpg",
-    "/assets/1763402076513-29_nw_72ed5df2.jpg"
+    "/assets/1763402076513-21_nw_29328aa6.jpg",
+    "/assets/1763402076513-22_nw_952a4e27.jpg",
+    "/assets/1763402076513-34_nw_ec1bc736.jpg",
+    "/assets/1763402076513-37_nw_65b81d79.jpg"
   ];
 
-  // Auto-rotate through images
+  // Auto-rotate through values
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!hovering) {
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setActiveImageIndex((prev) => (prev + 1) % galleryImages.length);
-          setIsTransitioning(false);
-        }, 500);
-      }
-    }, 5000);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setActiveIndex((prev) => (prev + 1) % values.length);
+        setIsTransitioning(false);
+      }, 500);
+    }, 6000);
 
     return () => clearInterval(interval);
-  }, [galleryImages.length, hovering]);
-  
-  // We're no longer animating all thumbnails, so we don't need this global animation
-  // Instead, we'll handle hover effects at the individual thumbnail level
+  }, [values.length]);
 
-  // Handle mouse movement
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const bounds = e.currentTarget.getBoundingClientRect();
-    const x = (e.clientX - bounds.left) / bounds.width;
-    const y = (e.clientY - bounds.top) / bounds.height;
-    setMousePosition({ x, y });
-  };
-
-  // Helper function for dynamic positioning of thumbnails
-  const getRandomizedPosition = (index: number, total: number) => {
-    // Generate a more sporadic, clustered layout that favors the right side
-    // Using a combination of randomness and pattern to create a trail-like effect
-    
-    // Base positions are now asymmetric with preference to bottom-right quadrant
-    const positions = [
-      { x: 40, y: -10 },  // top-right
-      { x: 60, y: 10 },   // right
-      { x: 70, y: 30 },   // bottom-right
-      { x: 50, y: 50 },   // bottom
-      { x: 20, y: 40 },   // bottom-left
-      { x: -10, y: 20 },  // left
-      { x: 10, y: -20 },  // top-left
-    ];
-    
-    // Get base position from our designed pattern
-    const posIndex = index % positions.length;
-    const { x, y } = positions[posIndex];
-    
-    // Add slight randomization to make it feel more natural
-    // This is just a small offset so positions are still recognizable
-    const randomOffset = 10;
-    const randomX = (Math.random() - 0.5) * randomOffset;
-    const randomY = (Math.random() - 0.5) * randomOffset;
-    
-    return { x: x + randomX, y: y + randomY };
+  // Handle clicking on a value card
+  const handleValueClick = (index: number) => {
+    if (index !== activeIndex) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setActiveIndex(index);
+        setIsTransitioning(false);
+      }, 300);
+    }
   };
 
   return (
-    <div className="w-full py-20 bg-white">
-      <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <div 
-              className="relative w-full aspect-square max-w-lg mx-auto"
-              onMouseMove={handleMouseMove}
-              onMouseEnter={() => setHovering(true)}
-              onMouseLeave={() => setHovering(false)}
-            >
-              {/* Main circular frame */}
-              <div className="absolute inset-[10%] rounded-full overflow-hidden border-4 border-primary-100 shadow-2xl z-10">
-                <div 
-                  className={`w-full h-full bg-cover bg-center transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
-                  style={{ backgroundImage: `url('${galleryImages[activeImageIndex]}')` }}
-                ></div>
-              </div>
-              
-              {/* Floating thumbnails */}
-              <div className="absolute inset-0 m-auto w-full h-full">
-                {galleryImages.map((img, idx) => {
-                  if (idx === activeImageIndex) return null;
-                  
-                  const { x, y } = getRandomizedPosition(idx, galleryImages.length - 1);
-                  // Position is now more static, with the center of our layout to the right of the main circle
-                  const centerX = 60; // Shifted right from center
-                  const centerY = 50; // Vertically centered
-                  const posX = centerX + x;
-                  const posY = centerY + y;
-                  
-                  // We'll store the original position for hover effects
-                  const originalPos = { x: posX, y: posY };
-                  
-                  return (
-                    <div
-                      key={idx}
-                      className="absolute w-14 h-14 rounded-full overflow-hidden cursor-pointer border-2 border-white shadow-md transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-125"
-                      style={{ 
-                        left: `${posX}%`, 
-                        top: `${posY}%`,
-                        zIndex: idx
-                      }}
-                      onClick={() => {
-                        setIsTransitioning(true);
-                        setTimeout(() => {
-                          setActiveImageIndex(idx);
-                          setIsTransitioning(false);
-                        }, 300);
-                      }}
-                      onMouseEnter={() => {
-                        // Change the main image on hover
-                        setIsTransitioning(true);
-                        setTimeout(() => {
-                          setActiveImageIndex(idx);
-                          setIsTransitioning(false);
-                        }, 300);
-                      }}
-                    >
-                      <div 
-                        className="w-full h-full bg-cover bg-center"
-                        style={{ backgroundImage: `url('${img}')` }}
-                      ></div>
-                    </div>
-                  );
-                })}
-              </div>
-              
-              {/* Background gradient shape */}
-              <div className="absolute -z-10 -bottom-6 -left-6 w-2/3 h-2/3 bg-gradient-to-br from-secondary-200 to-secondary-100 rounded-full opacity-70"></div>
-              <div className="absolute -z-10 -top-6 -right-6 w-1/2 h-1/2 bg-gradient-to-br from-accent-200 to-accent-100 rounded-full opacity-50"></div>
+    <div id="about" className="relative w-full py-20 bg-white overflow-hidden">
+      {/* Background image collage - fixed position, subtle opacity */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <div className="grid grid-cols-4 md:grid-cols-6 grid-rows-3 gap-1 h-full">
+          {galleryImages.slice(0, 12).map((img, idx) => (
+            <div key={idx} className="w-full h-full overflow-hidden">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url('${img}')` }}
+              ></div>
             </div>
-          </div>
-          
-          <div className="order-1 md:order-2">
+          ))}
+        </div>
+      </div>
+
+      <div className="container relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
             <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-6">
               <span className="relative inline-block">
                 What is
@@ -198,13 +145,47 @@ export default function AboutSection() {
                 our community together.
               </p>
             </div>
+          </div>
 
-            <div className="mt-6">
-              <div className="flex flex-wrap gap-2">
-                {['community', 'fellowship', 'authenticity', 'relationship', 'scripture', 'prayer', 'service'].map((tag) => (
-                  <span key={tag} className="inline-block bg-primary-50 rounded-full px-3 py-1 text-sm font-medium text-primary-700">
-                    {tag}
-                  </span>
+          {/* Interactive value cards */}
+          <div>
+            <div className="relative">
+              {/* Main featured value image */}
+              <div className="relative rounded-xl overflow-hidden mb-6 shadow-lg">
+                <div
+                  className={`aspect-video w-full bg-cover bg-center transition-opacity duration-500 ${
+                    isTransitioning ? "opacity-0" : "opacity-100"
+                  }`}
+                  style={{ backgroundImage: `url('${values[activeIndex].image}')` }}
+                ></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
+                  <h3 className="text-2xl font-display text-white mb-2">{values[activeIndex].title}</h3>
+                  <p className="text-white/90 text-sm md:text-base">{values[activeIndex].description}</p>
+                </div>
+              </div>
+
+              {/* Value tiles */}
+              <div className="grid grid-cols-5 gap-2">
+                {values.map((value, idx) => (
+                  <button
+                    key={value.key}
+                    onClick={() => handleValueClick(idx)}
+                    className={`relative rounded-lg overflow-hidden transition-all duration-300 ${
+                      idx === activeIndex 
+                        ? "ring-2 ring-primary-500 ring-offset-2" 
+                        : "opacity-80 hover:opacity-100"
+                    }`}
+                  >
+                    <div className="aspect-square">
+                      <div
+                        className="w-full h-full bg-cover bg-center"
+                        style={{ backgroundImage: `url('${value.image}')` }}
+                      ></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-2">
+                        <span className="text-white text-xs font-medium">{value.title}</span>
+                      </div>
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>

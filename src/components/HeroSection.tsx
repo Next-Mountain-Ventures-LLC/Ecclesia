@@ -62,7 +62,7 @@ export default function HeroSection() {
                 Join a Gathering
               </a>
               <a 
-                href="/who-we-are" 
+                href="#about" 
                 className={buttonVariants({ 
                   variant: 'outline', 
                   size: 'lg',
@@ -78,7 +78,7 @@ export default function HeroSection() {
                 <path d="M18.6 18.6L12 12V2.5"></path>
                 <circle cx="12" cy="12" r="10"></circle>
               </svg>
-              <span>Fridays at 6:30 PM in Midtown Tulsa</span>
+              <span>Sundays at 5:00 PM in Midtown Tulsa</span>
             </div>
           </div>
           

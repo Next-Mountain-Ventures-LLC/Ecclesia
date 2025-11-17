@@ -120,7 +120,7 @@ export default function ContactSection() {
                 <div>
                   <h3 className="text-lg font-medium text-primary-800 mb-1">Join Us</h3>
                   <p className="text-muted-foreground">
-                    Fridays at 6:30 PM in Midtown Tulsa
+                    Sundays at 5:00 PM in Midtown Tulsa
                   </p>
                 </div>
               </div>
