@@ -6,7 +6,7 @@ export default function EcosystemSection() {
 
   return (
     <div className="w-full py-16 bg-primary-50">
-      <div className="container">
+      <div className="container px-4 sm:px-6 md:px-8 mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
             Our Ecosystem
@@ -18,7 +18,8 @@ export default function EcosystemSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-16 items-center max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-16 items-center">
           <div className="relative">
             <div className="rounded-2xl overflow-hidden bg-white shadow-xl">
               <Tabs defaultValue="gather" value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -147,6 +148,7 @@ export default function EcosystemSection() {
               )}
             </div>
             <div className="absolute -z-10 inset-0 -translate-x-4 translate-y-4 bg-accent-200 rounded-2xl"></div>
+          </div>
           </div>
         </div>
 
