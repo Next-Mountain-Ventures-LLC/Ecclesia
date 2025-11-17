@@ -121,8 +121,8 @@ export default function EcosystemSection() {
                     <div className="w-12 h-12">
                       {element.icon}
                     </div>
-                    <div className={`absolute bottom-0 w-full text-center font-medium transition-all ${isActive ? 'text-white' : 'text-primary-700'}`}>
-                      <span className="text-sm">
+                    <div className={`absolute bottom-0 w-full text-center font-medium transition-all`}>
+                      <span className={`text-sm px-2 py-1 rounded ${isActive ? 'bg-primary-800 text-white' : 'bg-white text-primary-700'}`}>
                         {key.charAt(0).toUpperCase() + key.slice(1)}
                       </span>
                     </div>
@@ -136,7 +136,7 @@ export default function EcosystemSection() {
               <h3 className="text-2xl font-display font-medium text-primary-800 mb-3">
                 {ecosystemElements[activeElement].title}
               </h3>
-              <div className="text-muted-foreground space-y-3">
+              <div className="text-primary-700 space-y-3">
                 {ecosystemElements[activeElement].description.map((paragraph, idx) => (
                   <p key={idx} className="text-sm">
                     {paragraph}
@@ -186,8 +186,8 @@ export default function EcosystemSection() {
                       <div className="w-8 h-8">
                         {element.icon}
                       </div>
-                      <div className={`absolute -bottom-6 w-full text-center font-medium ${isActive ? 'text-primary-800' : 'text-primary-700'}`}>
-                        <span className="text-xs">
+                      <div className="absolute -bottom-8 w-full text-center font-medium">
+                        <span className={`text-xs px-2 py-1 rounded bg-white ${isActive ? 'text-primary-800 border-2 border-primary-800' : 'text-primary-700'}`}>
                           {key.charAt(0).toUpperCase() + key.slice(1)}
                         </span>
                       </div>
@@ -202,7 +202,7 @@ export default function EcosystemSection() {
               <h3 className="text-xl font-display font-medium text-primary-800 mb-2">
                 {ecosystemElements[activeElement].title}
               </h3>
-              <div className="text-muted-foreground space-y-2">
+              <div className="text-primary-700 space-y-2">
                 {ecosystemElements[activeElement].description.map((paragraph, idx) => (
                   <p key={idx} className="text-xs">
                     {paragraph}
