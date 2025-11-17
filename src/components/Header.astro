@@ -15,22 +15,22 @@ import { buttonVariants } from "@/components/ui/button";
       </a>
     </div>
     <div class="flex flex-1 items-center justify-end space-x-4">
-      <nav class="hidden md:flex items-center space-x-2">
+      <nav class="hidden md:flex items-center space-x-6">
         <a
           href="/"
-          class="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors"
+          class="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors px-3 py-2"
         >
           Home
         </a>
         <a
           href="/who-we-are"
-          class="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors"
+          class="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors px-3 py-2"
         >
           Who We Are
         </a>
         <a
           href="/contact"
-          class="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors"
+          class="text-foreground/80 hover:text-foreground text-sm font-medium transition-colors px-3 py-2"
         >
           Contact Us
         </a>
@@ -38,7 +38,7 @@ import { buttonVariants } from "@/components/ui/button";
           href="https://www.paypal.com"
           target="_blank"
           rel="noreferrer"
-          class={buttonVariants({ variant: 'default', size: 'sm' })}
+          class={buttonVariants({ variant: 'default', size: 'sm', className: 'px-5' })}
         >
           Donate
         </a>

@@ -18,7 +18,7 @@ export default function EcosystemSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-16 items-center max-w-6xl mx-auto">
           <div className="relative">
             <div className="rounded-2xl overflow-hidden bg-white shadow-xl">
               <Tabs defaultValue="gather" value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -134,16 +134,16 @@ export default function EcosystemSection() {
             <div className="absolute -z-10 inset-0 translate-x-4 translate-y-4 bg-secondary-200 rounded-2xl"></div>
           </div>
 
-          <div className="hidden lg:block relative">
+          <div className="hidden xl:block relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden">
               {activeTab === "gather" && (
-                <div className="w-full h-full bg-cover bg-center transition-opacity duration-500" style={{ backgroundImage: "url('/src/assets/family_gathering_nw_f63ba1cb.jpg')" }}></div>
+                <div className="w-full h-full bg-cover bg-center transition-opacity duration-500" style={{ backgroundImage: "url('/family_gathering_nw_f63ba1cb.jpg')" }}></div>
               )}
               {activeTab === "mentor" && (
-                <div className="w-full h-full bg-cover bg-center transition-opacity duration-500" style={{ backgroundImage: "url('/src/assets/prayer_circle_nw_96b2ff2b.jpg')" }}></div>
+                <div className="w-full h-full bg-cover bg-center transition-opacity duration-500" style={{ backgroundImage: "url('/prayer_circle_nw_96b2ff2b.jpg')" }}></div>
               )}
               {activeTab === "serve" && (
-                <div className="w-full h-full bg-cover bg-center transition-opacity duration-500" style={{ backgroundImage: "url('/src/assets/baptism_nw_f24fce58.jpg')" }}></div>
+                <div className="w-full h-full bg-cover bg-center transition-opacity duration-500" style={{ backgroundImage: "url('/baptism_nw_f24fce58.jpg')" }}></div>
               )}
             </div>
             <div className="absolute -z-10 inset-0 -translate-x-4 translate-y-4 bg-accent-200 rounded-2xl"></div>
