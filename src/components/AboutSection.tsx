@@ -1,19 +1,113 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function AboutSection() {
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hovering, setHovering] = useState(false);
+
+  const galleryImages = [
+    "/assets/family_gathering_nw_f63ba1cb.jpg",
+    "/assets/1763402076513-20_nw_b4ff1a4a.jpg",
+    "/assets/1763402076513-10_nw_96329f18.jpg",
+    "/assets/1763402076513-12_nw_c0840049.jpg",
+    "/assets/1763402076513-13_nw_e65b03b1.jpg",
+    "/assets/1763402076513-16_nw_3f0a5106.jpg",
+    "/assets/1763402076513-18_nw_c03fb031.jpg",
+    "/assets/1763402076513-29_nw_72ed5df2.jpg"
+  ];
+
+  // Auto-rotate through images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!hovering) {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setActiveImageIndex((prev) => (prev + 1) % galleryImages.length);
+          setIsTransitioning(false);
+        }, 500);
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [galleryImages.length, hovering]);
+
+  // Handle mouse movement
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const bounds = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - bounds.left) / bounds.width;
+    const y = (e.clientY - bounds.top) / bounds.height;
+    setMousePosition({ x, y });
+  };
+
+  // Helper function for dynamic positioning of thumbnails
+  const getCircularPosition = (index: number, total: number) => {
+    const angle = (index / total) * 2 * Math.PI;
+    const radius = 130; // adjust as needed
+    const offsetX = Math.cos(angle) * radius;
+    const offsetY = Math.sin(angle) * radius;
+    return { x: offsetX, y: offsetY };
+  };
+
   return (
     <div className="w-full py-20 bg-white">
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
-            <div className="relative">
-              <div className="relative z-10 rounded-2xl overflow-hidden shadow-lg">
+            <div 
+              className="relative w-full aspect-square max-w-lg mx-auto"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setHovering(true)}
+              onMouseLeave={() => setHovering(false)}
+            >
+              {/* Main circular frame */}
+              <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-primary-100 shadow-2xl z-10">
                 <div 
-                  className="aspect-[4/3] bg-cover bg-center"
-                  style={{ backgroundImage: "url('/src/assets/family_gathering_nw_f63ba1cb.jpg')" }}
+                  className={`w-full h-full bg-cover bg-center transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
+                  style={{ backgroundImage: `url('${galleryImages[activeImageIndex]}')` }}
                 ></div>
               </div>
-              <div className="absolute -z-10 bottom-6 left-6 w-2/3 h-2/3 bg-secondary-200 rounded-2xl"></div>
+              
+              {/* Floating thumbnails */}
+              <div className="absolute inset-0 m-auto w-full h-full">
+                {galleryImages.map((img, idx) => {
+                  if (idx === activeImageIndex) return null;
+                  
+                  const { x, y } = getCircularPosition(idx, galleryImages.length - 1);
+                  const centerX = 50 + (hovering ? mousePosition.x * 10 - 5 : 0);
+                  const centerY = 50 + (hovering ? mousePosition.y * 10 - 5 : 0);
+                  const posX = centerX + x;
+                  const posY = centerY + y;
+                  
+                  return (
+                    <div
+                      key={idx}
+                      className="absolute w-16 h-16 rounded-full overflow-hidden cursor-pointer border-2 border-white shadow-md transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 hover:scale-110"
+                      style={{ 
+                        left: `${posX}%`, 
+                        top: `${posY}%`,
+                        zIndex: idx
+                      }}
+                      onClick={() => {
+                        setIsTransitioning(true);
+                        setTimeout(() => {
+                          setActiveImageIndex(idx);
+                          setIsTransitioning(false);
+                        }, 300);
+                      }}
+                    >
+                      <div 
+                        className="w-full h-full bg-cover bg-center"
+                        style={{ backgroundImage: `url('${img}')` }}
+                      ></div>
+                    </div>
+                  );
+                })}
+              </div>
+              
+              {/* Background gradient shape */}
+              <div className="absolute -z-10 -bottom-6 -left-6 w-2/3 h-2/3 bg-gradient-to-br from-secondary-200 to-secondary-100 rounded-full opacity-70"></div>
+              <div className="absolute -z-10 -top-6 -right-6 w-1/2 h-1/2 bg-gradient-to-br from-accent-200 to-accent-100 rounded-full opacity-50"></div>
             </div>
           </div>
           
@@ -68,6 +162,16 @@ export default function AboutSection() {
                 pattern through gathering weekly, mentoring through smaller groups, and serving 
                 our community together.
               </p>
+            </div>
+
+            <div className="mt-6">
+              <div className="flex flex-wrap gap-2">
+                {['community', 'fellowship', 'authenticity', 'relationship', 'scripture', 'prayer', 'service'].map((tag) => (
+                  <span key={tag} className="inline-block bg-primary-50 rounded-full px-3 py-1 text-sm font-medium text-primary-700">
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
