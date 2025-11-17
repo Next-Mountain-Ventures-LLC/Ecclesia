@@ -86,7 +86,7 @@ export default function HeroSection() {
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
               <div 
                 className="aspect-[4/3] bg-cover bg-center"
-                style={{ backgroundImage: "url('/src/assets/prayer_circle_nw_96b2ff2b.jpg')" }}
+                style={{ backgroundImage: "url('/assets/1763402076513-53_nw_2b7647e8.jpg')" }}
               ></div>
             </div>
             
