@@ -7,7 +7,7 @@ export default function HeroSection() {
       {/* Wood texture overlay with reduced opacity */}
       <div 
         className="absolute inset-0 bg-cover bg-center opacity-10"
-        style={{ backgroundImage: "url('/src/assets/logo_wood_bg_nw_1efb2b0b.jpg')" }}
+        style={{ backgroundImage: "url('/logo_wood_bg_nw_1efb2b0b.jpg')" }}
       ></div>
       
       <div className="container relative z-10 py-20 md:py-28">
@@ -86,7 +86,7 @@ export default function HeroSection() {
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
               <div 
                 className="aspect-[4/3] bg-cover bg-center"
-                style={{ backgroundImage: "url('/src/assets/prayer_circle_nw_96b2ff2b.jpg')" }}
+                style={{ backgroundImage: "url('/prayer_circle_nw_96b2ff2b.jpg')" }}
               ></div>
             </div>
             
