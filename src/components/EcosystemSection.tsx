@@ -20,9 +20,9 @@ export default function EcosystemSection() {
 
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 xl:gap-16 items-center">
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden bg-white shadow-xl">
-              <Tabs defaultValue="gather" value={activeTab} onValueChange={setActiveTab} className="w-full">
+          <div className="relative w-full max-w-full">
+            <div className="rounded-2xl overflow-hidden bg-white shadow-xl w-full">
+              <Tabs defaultValue="gather" value={activeTab} onValueChange={setActiveTab} className="w-full h-full">
                 <TabsList className="w-full grid grid-cols-3 bg-primary-100/50 rounded-t-xl rounded-b-none p-1">
                   <TabsTrigger 
                     value="gather"
@@ -62,7 +62,7 @@ export default function EcosystemSection() {
                     </div>
                   </TabsTrigger>
                 </TabsList>
-                <div className="p-6 md:p-8">
+                <div className="p-6 md:p-8 w-full">
                   <TabsContent value="gather" className="mt-0 focus-visible:outline-none focus-visible:ring-0">
                     <div className="space-y-4">
                       <h3 className="text-2xl font-display font-medium text-primary-800">
@@ -132,7 +132,7 @@ export default function EcosystemSection() {
                 </div>
               </Tabs>
             </div>
-            <div className="absolute -z-10 inset-0 translate-x-4 translate-y-4 bg-secondary-200 rounded-2xl"></div>
+            <div className="absolute -z-10 inset-0 translate-x-4 translate-y-4 bg-secondary-200 rounded-2xl w-full h-full"></div>
           </div>
 
           <div className="hidden xl:block relative">
