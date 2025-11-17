@@ -11,13 +11,14 @@ export default function EcosystemSection() {
         "We share food, brainstorm ways we can help those around us, and enjoy each other's company. Currently, we meet every Friday night in Midtown and are constantly looking for additional opportunities to hang out."
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-full w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path>
         </svg>
       ),
       image: "/family_gathering_nw_f63ba1cb.jpg",
       linkText: "Learn more about our gatherings",
-      linkHref: "/who-we-are"
+      linkHref: "/who-we-are",
+      color: "amber"
     },
     mentor: {
       title: "Mentorship & Discipleship",
@@ -26,7 +27,7 @@ export default function EcosystemSection() {
         "Our mentorship meetings include prayer, confession, Bible study, mutual support, and fellowship—creating space for authentic spiritual growth and community."
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-full w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v2z"></path>
           <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"></path>
           <path d="M4 15V5a1 1 0 0 1 1-1h4"></path>
@@ -35,7 +36,8 @@ export default function EcosystemSection() {
       ),
       image: "/prayer_circle_nw_96b2ff2b.jpg",
       linkText: "Learn more about discipleship",
-      linkHref: "/who-we-are"
+      linkHref: "/who-we-are",
+      color: "teal"
     },
     serve: {
       title: "Serving Our Community",
@@ -44,174 +46,201 @@ export default function EcosystemSection() {
         "You do not need to attend a gathering to serve with us. If you would like to serve alongside us, please reach out and let us know how to get plugged in."
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-full w-full">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z"></path>
           <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"></path>
         </svg>
       ),
       image: "/baptism_nw_f24fce58.jpg",
       linkText: "Contact us to serve together",
-      linkHref: "/contact"
+      linkHref: "/contact",
+      color: "orange"
     }
   };
 
-  // Helper function to get position in the cycle
-  const getPosition = (type, isMobile = false) => {
-    const positions = {
-      gather: { main: "top-0 left-1/2 -translate-x-1/2", mobile: "left-0" },
-      mentor: { main: "bottom-0 right-0", mobile: "left-1/2 -translate-x-1/2" },
-      serve: { main: "bottom-0 left-0", mobile: "right-0" }
-    };
-    return isMobile ? positions[type].mobile : positions[type].main;
+  // Color mappings
+  const colorClasses = {
+    amber: {
+      light: "bg-amber-100", 
+      medium: "bg-amber-200",
+      dark: "bg-amber-800",
+      text: "text-amber-800",
+      border: "border-amber-300",
+      shadow: "shadow-amber-100",
+      hover: "group-hover:text-amber-800"
+    },
+    teal: {
+      light: "bg-teal-100", 
+      medium: "bg-teal-200",
+      dark: "bg-teal-800",
+      text: "text-teal-800",
+      border: "border-teal-300",
+      shadow: "shadow-teal-100",
+      hover: "group-hover:text-teal-800"
+    },
+    orange: {
+      light: "bg-orange-100", 
+      medium: "bg-orange-200",
+      dark: "bg-orange-800",
+      text: "text-orange-800",
+      border: "border-orange-300",
+      shadow: "shadow-orange-100",
+      hover: "group-hover:text-orange-800"
+    }
   };
-
-  const getRotation = () => {
-    if (activeElement === "gather") return "rotate-0";
-    if (activeElement === "mentor") return "rotate-[240deg]";
-    return "rotate-[120deg]";
-  };
-
+  
   return (
-    <div className="w-full py-24 bg-primary-50">
+    <section className="w-full py-24 bg-primary-50">
       <div className="container px-4 sm:px-6 md:px-8 mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
             Our Ecosystem
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-primary-700 max-w-2xl mx-auto">
             The vision of Ecclesia, Greek for "gathering," follows the precepts outlined in 
             Acts 2:42. Our ecosystem is built on three foundational elements that guide 
             everything we do.
           </p>
         </div>
-
-        {/* Desktop Cycle Version */}
-        <div className="hidden md:block relative max-w-6xl mx-auto">
-          <div className="relative h-[600px] w-full">
-            {/* Cycle outer ring with connection lines */}
-            <div className="absolute inset-0 mx-auto my-auto rounded-full border-2 border-dashed border-primary-300 h-[450px] w-[450px] transition-all duration-700">
-              {/* Connection lines */}
-              <div className="absolute inset-0 m-auto w-3/4 h-3/4">
-                <svg viewBox="0 0 100 100" className={`w-full h-full transition-transform duration-700 ${getRotation()}`}>
-                  <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" strokeWidth="0.5" className="text-primary-300" />
-                  <line x1="13.4" y1="75" x2="86.6" y2="75" stroke="currentColor" strokeWidth="0.5" className="text-primary-300" />
-                  <line x1="13.4" y1="75" x2="50" y2="0" stroke="currentColor" strokeWidth="0.5" className="text-primary-300" />
-                  <line x1="86.6" y1="75" x2="50" y2="0" stroke="currentColor" strokeWidth="0.5" className="text-primary-300" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Interactive elements */}
-            {Object.entries(ecosystemElements).map(([key, element]) => {
-              const isActive = activeElement === key;
-              const positionClass = getPosition(key);
-
-              return (
-                <div 
-                  key={key}
-                  className={`absolute transition-all duration-700 ease-in-out ${positionClass}`}
-                >
-                  <div 
-                    className={`relative flex items-center justify-center rounded-full cursor-pointer transition-all duration-300
-                      ${isActive 
-                        ? 'h-32 w-32 bg-primary-800 text-white shadow-xl z-20 scale-110' 
-                        : 'h-24 w-24 bg-white text-primary-700 shadow-md hover:shadow-lg hover:scale-105 z-10'}`}
-                    onClick={() => setActiveElement(key)}
-                  >
-                    <div className="w-12 h-12">
-                      {element.icon}
-                    </div>
-                    <div className={`absolute bottom-0 w-full text-center font-medium transition-all`}>
-                      <span className={`text-sm px-2 py-1 rounded ${isActive ? 'bg-primary-800 text-white' : 'bg-white text-primary-700'}`}>
+        
+        <div className="max-w-6xl mx-auto">
+          {/* Desktop Layout */}
+          <div className="hidden md:block">
+            <div className="flex flex-col items-center">
+              {/* Navigation Tabs */}
+              <div className="flex gap-8 mb-8 border-b border-primary-200 w-full max-w-3xl mx-auto">
+                {Object.entries(ecosystemElements).map(([key, element]) => {
+                  const isActive = activeElement === key;
+                  const color = colorClasses[element.color];
+                  
+                  return (
+                    <button 
+                      key={key}
+                      onClick={() => setActiveElement(key)}
+                      className={`group relative px-6 py-4 flex-1 flex flex-col items-center transition-all duration-300 ${isActive ? '-mb-px' : 'opacity-80 hover:opacity-100'}`}
+                    >
+                      <div className={`w-16 h-16 p-4 rounded-full mb-3 transition-all duration-300 ${isActive ? color.medium : 'bg-white'} ${isActive ? '' : 'group-hover:bg-gray-50'}`}>
+                        <div className={`w-full h-full transition-colors duration-300 ${isActive ? color.text : 'text-primary-400'} ${color.hover}`}>
+                          {element.icon}
+                        </div>
+                      </div>
+                      <span className={`font-medium transition-colors duration-300 ${isActive ? color.text : 'text-primary-400'} ${color.hover}`}>
                         {key.charAt(0).toUpperCase() + key.slice(1)}
                       </span>
+                      {isActive && (
+                        <div className={`absolute bottom-0 left-0 w-full h-0.5 ${color.medium} rounded-t-full`}></div>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Content Area */}
+              <div className="w-full overflow-hidden rounded-xl bg-white shadow-lg">
+                <div className="grid grid-cols-2 items-center">
+                  {/* Text Content */}
+                  <div className="p-8 md:p-12">
+                    <h3 className={`text-2xl font-display font-medium mb-6 ${colorClasses[ecosystemElements[activeElement].color].text}`}>
+                      {ecosystemElements[activeElement].title}
+                    </h3>
+                    <div className="text-primary-700 space-y-4">
+                      {ecosystemElements[activeElement].description.map((paragraph, idx) => (
+                        <p key={idx}>
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                    <div className="mt-8">
+                      <a 
+                        href={ecosystemElements[activeElement].linkHref} 
+                        className={`inline-flex items-center ${colorClasses[ecosystemElements[activeElement].color].text} font-medium hover:underline transition-colors`}
+                      >
+                        {ecosystemElements[activeElement].linkText}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4">
+                          <path d="M5 12h14"></path>
+                          <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                      </a>
                     </div>
                   </div>
-                </div>
-              );
-            })}
 
-            {/* Center content based on active element */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[350px] text-center opacity-100 transition-opacity duration-300">
-              <h3 className="text-2xl font-display font-medium text-primary-800 mb-3">
-                {ecosystemElements[activeElement].title}
-              </h3>
-              <div className="text-primary-700 space-y-3">
-                {ecosystemElements[activeElement].description.map((paragraph, idx) => (
-                  <p key={idx} className="text-sm">
-                    {paragraph}
-                  </p>
-                ))}
-                <div className="pt-3">
-                  <a 
-                    href={ecosystemElements[activeElement].linkHref} 
-                    className="inline-flex items-center text-accent-600 font-medium hover:text-accent-700 transition-colors text-sm"
-                  >
-                    {ecosystemElements[activeElement].linkText}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  {/* Image */}
+                  <div className="relative">
+                    <div 
+                      className="aspect-[4/3] w-full h-full bg-cover bg-center transition-opacity duration-500"
+                      style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
+                    ></div>
+                    <div className={`absolute inset-0 opacity-30 ${colorClasses[ecosystemElements[activeElement].color].light} mix-blend-multiply`}></div>
+                  </div>
                 </div>
+              </div>
+              
+              {/* Visual Connector */}
+              <div className="relative w-full max-w-xl mx-auto mt-16 h-16">
+                <div className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-full h-px bg-primary-300"></div>
+                <div className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-px h-12 bg-primary-300"></div>
+                <div className="absolute left-3/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-px h-12 bg-primary-300"></div>
+                <div className={`absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full ${colorClasses[ecosystemElements[activeElement].color].medium} flex items-center justify-center`}>
+                  <div className={`w-4 h-4 ${colorClasses[ecosystemElements[activeElement].color].text}`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M4.5 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM14.25 8.625a3.375 3.375 0 1 1 6.75 0 3.375 3.375 0 0 1-6.75 0ZM1.5 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM17.25 19.128l-.001.144a2.25 2.25 0 0 1-.233.96 10.088 10.088 0 0 0 5.06-1.01.75.75 0 0 0 .42-.643 4.875 4.875 0 0 0-6.957-4.611 8.586 8.586 0 0 1 1.71 5.157v.003Z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute left-1/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary-200"></div>
+                <div className="absolute left-3/4 -translate-x-1/2 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-primary-200"></div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* Mobile Version */}
-        <div className="md:hidden relative max-w-xs mx-auto">
-          <div className="relative flex flex-col items-center">
-            {/* Mobile ecosystem visualization */}
-            <div className="relative h-52 w-52 mb-8">
-              <div className="absolute inset-0 rounded-full border-2 border-dashed border-primary-300"></div>
-              
-              {/* Mobile interactive elements */}
-              {Object.entries(ecosystemElements).map(([key, element]) => {
-                const isActive = activeElement === key;
-                const positionClass = `absolute top-1/2 transform -translate-y-1/2 ${getPosition(key, true)}`;
-
-                return (
-                  <div 
-                    key={key}
-                    className={positionClass}
-                  >
-                    <div 
-                      className={`relative flex items-center justify-center rounded-full cursor-pointer transition-all duration-300
-                        ${isActive 
-                          ? 'h-20 w-20 bg-primary-800 text-white shadow-xl z-20' 
-                          : 'h-16 w-16 bg-white text-primary-700 shadow-md hover:shadow-lg hover:scale-105 z-10'}`}
+          {/* Mobile Layout */}
+          <div className="md:hidden">
+            <div className="flex flex-col space-y-8">
+              {/* Mobile Navigation */}
+              <div className="grid grid-cols-3 gap-2 w-full">
+                {Object.entries(ecosystemElements).map(([key, element]) => {
+                  const isActive = activeElement === key;
+                  const color = colorClasses[element.color];
+                  
+                  return (
+                    <button
+                      key={key}
                       onClick={() => setActiveElement(key)}
+                      className={`flex flex-col items-center p-4 rounded-lg transition-all duration-300 
+                        ${isActive ? color.light : 'bg-white'}
+                        ${isActive ? 'ring-2 ' + color.border : ''}`}
                     >
-                      <div className="w-8 h-8">
+                      <div className={`w-10 h-10 p-2 mb-2 ${isActive ? color.text : 'text-primary-400'}`}>
                         {element.icon}
                       </div>
-                      <div className="absolute -bottom-8 w-full text-center font-medium">
-                        <span className={`text-xs px-2 py-1 rounded bg-white ${isActive ? 'text-primary-800 border-2 border-primary-800' : 'text-primary-700'}`}>
-                          {key.charAt(0).toUpperCase() + key.slice(1)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                      <span className={`text-xs font-medium ${isActive ? color.text : 'text-primary-600'}`}>
+                        {key.charAt(0).toUpperCase() + key.slice(1)}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
 
-            {/* Mobile content */}
-            <div className="bg-white rounded-xl shadow-md p-4 text-center w-full mt-8">
-              <h3 className="text-xl font-display font-medium text-primary-800 mb-2">
-                {ecosystemElements[activeElement].title}
-              </h3>
-              <div className="text-primary-700 space-y-2">
-                {ecosystemElements[activeElement].description.map((paragraph, idx) => (
-                  <p key={idx} className="text-xs">
-                    {paragraph}
-                  </p>
-                ))}
-                <div className="pt-2">
+              {/* Mobile Content */}
+              <div className={`p-6 rounded-xl bg-white shadow-lg border-l-4 ${colorClasses[ecosystemElements[activeElement].color].border}`}>
+                <h3 className={`text-xl font-display font-medium mb-4 ${colorClasses[ecosystemElements[activeElement].color].text}`}>
+                  {ecosystemElements[activeElement].title}
+                </h3>
+                <div 
+                  className="w-full h-40 mb-4 rounded-lg bg-cover bg-center" 
+                  style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
+                ></div>
+                <div className="text-primary-700 space-y-3">
+                  {ecosystemElements[activeElement].description.map((paragraph, idx) => (
+                    <p key={idx} className="text-sm">
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+                <div className="mt-4">
                   <a 
                     href={ecosystemElements[activeElement].linkHref} 
-                    className="inline-flex items-center text-accent-600 font-medium hover:text-accent-700 transition-colors text-xs"
+                    className={`inline-flex items-center text-sm ${colorClasses[ecosystemElements[activeElement].color].text} font-medium hover:underline transition-colors`}
                   >
                     {ecosystemElements[activeElement].linkText}
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
@@ -234,6 +263,6 @@ export default function EcosystemSection() {
           </blockquote>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
