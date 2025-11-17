@@ -1,19 +1,47 @@
-<footer class="border-t py-6 md:px-8 md:py-0">
+<footer class="border-t py-12 bg-primary-50">
   <div
-    class="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row"
+    class="container flex flex-col items-center justify-between gap-8 md:flex-row"
   >
-    <p
-      class="text-muted-foreground text-center text-sm leading-loose md:text-left"
-    >
-      Built with{' '}
-      <a
-        href="https://new.website"
-        target="_blank"
-        rel="noreferrer"
-        class="font-medium underline underline-offset-4"
-      >
-        new.website
-      </a>
-    </p>
+    <div class="flex flex-col items-center md:items-start gap-4">
+      <span class="font-display text-xl font-medium text-primary-800">Ecclesia Tulsa</span>
+      <p class="text-muted-foreground text-center md:text-left text-sm max-w-xs">
+        A community of believers gathering in homes throughout Tulsa to live out Acts 2:42-47.
+      </p>
+    </div>
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <div class="flex flex-col items-center md:items-end gap-1">
+        <div class="text-sm font-medium text-primary-700">Join a Gathering</div>
+        <p class="text-muted-foreground text-center md:text-right text-sm">
+          Fridays in Midtown Tulsa
+        </p>
+        <p class="text-muted-foreground text-center md:text-right text-sm">
+          Contact us for details
+        </p>
+      </div>
+      <div class="flex flex-col items-center md:items-end gap-1">
+        <div class="text-sm font-medium text-primary-700">Connect With Us</div>
+        <a href="mailto:info@ecclesiatulsa.com" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+          info@ecclesiatulsa.com
+        </a>
+        <a href="https://ecclesiatulsa.com" target="_blank" rel="noreferrer" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+          ecclesiatulsa.com
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-8 pt-8 border-t border-primary-100">
+    <div class="flex flex-col md:flex-row justify-between items-center">
+      <p class="text-muted-foreground text-xs mb-4 md:mb-0">
+        &copy; {new Date().getFullYear()} Ecclesia Tulsa. All rights reserved.
+      </p>
+      <div class="flex gap-4">
+        <a href="/privacy" class="text-muted-foreground hover:text-primary-600 text-xs transition-colors">
+          Privacy Policy
+        </a>
+        <a href="/terms" class="text-muted-foreground hover:text-primary-600 text-xs transition-colors">
+          Terms of Service
+        </a>
+      </div>
+    </div>
   </div>
 </footer>

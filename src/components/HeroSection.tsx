@@ -1,0 +1,109 @@
+import React from "react";
+import { buttonVariants } from "@/components/ui/button";
+
+export default function HeroSection() {
+  return (
+    <div className="relative overflow-hidden bg-primary-50">
+      {/* Wood texture overlay with reduced opacity */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center opacity-10"
+        style={{ backgroundImage: "url('/src/assets/logo_wood_bg_nw_1efb2b0b.jpg')" }}
+      ></div>
+      
+      <div className="container relative z-10 py-20 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="flex flex-col">
+            <div className="inline-block rounded-full px-4 py-1.5 bg-primary-100 text-primary-700 font-medium text-sm mb-6">
+              <div className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                Tulsa, Oklahoma
+              </div>
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary-800 mb-6 leading-tight">
+              <span className="block">The Church is</span>
+              <span className="relative">
+                <span className="block text-accent-600">People, Not Places</span>
+                <svg 
+                  width="100%" 
+                  height="10" 
+                  viewBox="0 0 400 10" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="absolute -bottom-2 left-0 w-full opacity-70"
+                  preserveAspectRatio="none"
+                >
+                  <path 
+                    d="M2 5C73.3333 1.66667 219.6 -1.4 398 8.6" 
+                    stroke="#FC651A" 
+                    strokeWidth="3" 
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-primary-700 mb-8 max-w-lg">
+              Ecclesia is a community of believers gathering in homes throughout Tulsa to experience authentic fellowship, meaningful discipleship, and transformative service.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <a 
+                href="#gatherings" 
+                className={buttonVariants({ 
+                  variant: 'default', 
+                  size: 'lg',
+                  className: 'rounded-full px-8'
+                })}
+              >
+                Join a Gathering
+              </a>
+              <a 
+                href="/who-we-are" 
+                className={buttonVariants({ 
+                  variant: 'outline', 
+                  size: 'lg',
+                  className: 'rounded-full px-8 border-primary-300 text-primary-700 hover:text-primary-800 hover:bg-primary-100' 
+                })}
+              >
+                Learn More
+              </a>
+            </div>
+            
+            <div className="flex items-center text-primary-600 text-sm font-medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                <path d="M18.6 18.6L12 12V2.5"></path>
+                <circle cx="12" cy="12" r="10"></circle>
+              </svg>
+              <span>Fridays at 6:30 PM in Midtown Tulsa</span>
+            </div>
+          </div>
+          
+          <div className="relative lg:mt-0 mt-6">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+              <div 
+                className="aspect-[4/3] bg-cover bg-center"
+                style={{ backgroundImage: "url('/src/assets/prayer_circle_nw_96b2ff2b.jpg')" }}
+              ></div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute -z-10 bottom-6 -left-6 w-24 h-24 bg-primary-200 rounded-2xl"></div>
+            <div className="absolute -z-10 top-6 -right-6 w-32 h-32 bg-accent-200 rounded-2xl"></div>
+            
+            {/* Greek word callout */}
+            <div className="absolute -bottom-6 -right-6 bg-white py-4 px-6 rounded-xl shadow-lg max-w-[220px]">
+              <div className="font-display italic text-xl text-primary-800 mb-1">ἐκκλησία</div>
+              <div className="text-sm text-muted-foreground">
+                Ekklesia (Greek): "an assembly" or "a gathering of called-out ones"
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
