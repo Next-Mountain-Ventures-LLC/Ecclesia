@@ -32,19 +32,8 @@ export default function AboutSection() {
     return () => clearInterval(interval);
   }, [galleryImages.length, hovering]);
   
-  // Animation for thumbnail positions
-  useEffect(() => {
-    if (!hovering) {
-      const animation = setInterval(() => {
-        setMousePosition(prev => ({
-          x: Math.sin(Date.now() / 3000) * 0.2 + 0.5,
-          y: Math.cos(Date.now() / 3000) * 0.2 + 0.5
-        }));
-      }, 50);
-      
-      return () => clearInterval(animation);
-    }
-  }, [hovering]);
+  // We're no longer animating all thumbnails, so we don't need this global animation
+  // Instead, we'll handle hover effects at the individual thumbnail level
 
   // Handle mouse movement
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -55,12 +44,32 @@ export default function AboutSection() {
   };
 
   // Helper function for dynamic positioning of thumbnails
-  const getCircularPosition = (index: number, total: number) => {
-    const angle = (index / total) * 2 * Math.PI;
-    const radius = 70; // reduced from 130 to bring circles closer
-    const offsetX = Math.cos(angle) * radius;
-    const offsetY = Math.sin(angle) * radius;
-    return { x: offsetX, y: offsetY };
+  const getRandomizedPosition = (index: number, total: number) => {
+    // Generate a more sporadic, clustered layout that favors the right side
+    // Using a combination of randomness and pattern to create a trail-like effect
+    
+    // Base positions are now asymmetric with preference to bottom-right quadrant
+    const positions = [
+      { x: 40, y: -10 },  // top-right
+      { x: 60, y: 10 },   // right
+      { x: 70, y: 30 },   // bottom-right
+      { x: 50, y: 50 },   // bottom
+      { x: 20, y: 40 },   // bottom-left
+      { x: -10, y: 20 },  // left
+      { x: 10, y: -20 },  // top-left
+    ];
+    
+    // Get base position from our designed pattern
+    const posIndex = index % positions.length;
+    const { x, y } = positions[posIndex];
+    
+    // Add slight randomization to make it feel more natural
+    // This is just a small offset so positions are still recognizable
+    const randomOffset = 10;
+    const randomX = (Math.random() - 0.5) * randomOffset;
+    const randomY = (Math.random() - 0.5) * randomOffset;
+    
+    return { x: x + randomX, y: y + randomY };
   };
 
   return (
@@ -75,7 +84,7 @@ export default function AboutSection() {
               onMouseLeave={() => setHovering(false)}
             >
               {/* Main circular frame */}
-              <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-primary-100 shadow-2xl z-10">
+              <div className="absolute inset-[10%] rounded-full overflow-hidden border-4 border-primary-100 shadow-2xl z-10">
                 <div 
                   className={`w-full h-full bg-cover bg-center transition-opacity duration-500 ${isTransitioning ? 'opacity-0' : 'opacity-100'}`}
                   style={{ backgroundImage: `url('${galleryImages[activeImageIndex]}')` }}
@@ -87,22 +96,34 @@ export default function AboutSection() {
                 {galleryImages.map((img, idx) => {
                   if (idx === activeImageIndex) return null;
                   
-                  const { x, y } = getCircularPosition(idx, galleryImages.length - 1);
-                  const centerX = 50 + (hovering ? mousePosition.x * 5 - 2.5 : 0);
-                  const centerY = 50 + (hovering ? mousePosition.y * 5 - 2.5 : 0);
+                  const { x, y } = getRandomizedPosition(idx, galleryImages.length - 1);
+                  // Position is now more static, with the center of our layout to the right of the main circle
+                  const centerX = 60; // Shifted right from center
+                  const centerY = 50; // Vertically centered
                   const posX = centerX + x;
                   const posY = centerY + y;
+                  
+                  // We'll store the original position for hover effects
+                  const originalPos = { x: posX, y: posY };
                   
                   return (
                     <div
                       key={idx}
-                      className="absolute w-14 h-14 rounded-full overflow-hidden cursor-pointer border-2 border-white shadow-md transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 hover:scale-110"
+                      className="absolute w-14 h-14 rounded-full overflow-hidden cursor-pointer border-2 border-white shadow-md transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 hover:scale-125"
                       style={{ 
                         left: `${posX}%`, 
                         top: `${posY}%`,
                         zIndex: idx
                       }}
                       onClick={() => {
+                        setIsTransitioning(true);
+                        setTimeout(() => {
+                          setActiveImageIndex(idx);
+                          setIsTransitioning(false);
+                        }, 300);
+                      }}
+                      onMouseEnter={() => {
+                        // Change the main image on hover
                         setIsTransitioning(true);
                         setTimeout(() => {
                           setActiveImageIndex(idx);
