@@ -21,7 +21,7 @@ export default function GatheringsSection() {
               <div className="h-48 bg-primary-200 overflow-hidden">
                 <div 
                   className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/src/assets/sunset_gathering_nw_541bf1dd.jpg')" }}
+                  style={{ backgroundImage: "url('/assets/1763402076513-7_nw_84fb547f.jpg')" }}
                 ></div>
               </div>
               <div className="p-6">
@@ -55,7 +55,7 @@ export default function GatheringsSection() {
               <div className="h-48 bg-secondary-200 overflow-hidden">
                 <div 
                   className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/src/assets/family_gathering_nw_f63ba1cb.jpg')" }}
+                  style={{ backgroundImage: "url('/assets/1763402076513-45_nw_b079c0f0.jpg')" }}
                 ></div>
               </div>
               <div className="p-6">
@@ -89,7 +89,7 @@ export default function GatheringsSection() {
               <div className="h-48 bg-accent-200 overflow-hidden">
                 <div 
                   className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/src/assets/baptism_nw_f24fce58.jpg')" }}
+                  style={{ backgroundImage: "url('/assets/1763402076513-36_nw_0f8529a4.jpg')" }}
                 ></div>
               </div>
               <div className="p-6">

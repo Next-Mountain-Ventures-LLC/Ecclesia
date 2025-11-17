@@ -95,7 +95,7 @@ export default function HeroSection() {
             <div className="absolute -z-10 top-6 -right-6 w-32 h-32 bg-accent-200 rounded-2xl"></div>
             
             {/* Greek word callout */}
-            <div className="absolute -bottom-6 -right-6 bg-white py-4 px-6 rounded-xl shadow-lg max-w-[220px]">
+            <div className="absolute -bottom-6 -right-6 bg-white py-4 px-6 rounded-xl shadow-lg max-w-[220px] z-20">
               <div className="font-display italic text-xl text-primary-800 mb-1">ἐκκλησία</div>
               <div className="text-sm text-muted-foreground">
                 Ekklesia (Greek): "an assembly" or "a gathering of called-out ones"
