@@ -31,6 +31,20 @@ export default function AboutSection() {
 
     return () => clearInterval(interval);
   }, [galleryImages.length, hovering]);
+  
+  // Animation for thumbnail positions
+  useEffect(() => {
+    if (!hovering) {
+      const animation = setInterval(() => {
+        setMousePosition(prev => ({
+          x: Math.sin(Date.now() / 3000) * 0.2 + 0.5,
+          y: Math.cos(Date.now() / 3000) * 0.2 + 0.5
+        }));
+      }, 50);
+      
+      return () => clearInterval(animation);
+    }
+  }, [hovering]);
 
   // Handle mouse movement
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -43,7 +57,7 @@ export default function AboutSection() {
   // Helper function for dynamic positioning of thumbnails
   const getCircularPosition = (index: number, total: number) => {
     const angle = (index / total) * 2 * Math.PI;
-    const radius = 130; // adjust as needed
+    const radius = 70; // reduced from 130 to bring circles closer
     const offsetX = Math.cos(angle) * radius;
     const offsetY = Math.sin(angle) * radius;
     return { x: offsetX, y: offsetY };
@@ -74,15 +88,15 @@ export default function AboutSection() {
                   if (idx === activeImageIndex) return null;
                   
                   const { x, y } = getCircularPosition(idx, galleryImages.length - 1);
-                  const centerX = 50 + (hovering ? mousePosition.x * 10 - 5 : 0);
-                  const centerY = 50 + (hovering ? mousePosition.y * 10 - 5 : 0);
+                  const centerX = 50 + (hovering ? mousePosition.x * 5 - 2.5 : 0);
+                  const centerY = 50 + (hovering ? mousePosition.y * 5 - 2.5 : 0);
                   const posX = centerX + x;
                   const posY = centerY + y;
                   
                   return (
                     <div
                       key={idx}
-                      className="absolute w-16 h-16 rounded-full overflow-hidden cursor-pointer border-2 border-white shadow-md transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 hover:scale-110"
+                      className="absolute w-14 h-14 rounded-full overflow-hidden cursor-pointer border-2 border-white shadow-md transform -translate-x-1/2 -translate-y-1/2 transition-all duration-500 hover:scale-110"
                       style={{ 
                         left: `${posX}%`, 
                         top: `${posY}%`,
