@@ -22,7 +22,7 @@ export default function EventsSection() {
       time: "10:00 AM",
       location: "Keystone Lake",
       description: "Join us for a day of celebration as we baptize new believers at Keystone Lake. We'll have food, worship, and community time afterward.",
-      image: "/baptism_nw_f24fce58.jpg"
+      image: "/src/assets/baptism_nw_f24fce58.jpg"
     },
     {
       id: "2",
@@ -31,7 +31,7 @@ export default function EventsSection() {
       time: "6:30 PM",
       location: "Woodward Park",
       description: "Our monthly all-church gathering bringing together all Ecclesia communities. Bring a dish to share and lawn chairs!",
-      image: "/sunset_gathering_nw_541bf1dd.jpg"
+      image: "/src/assets/sunset_gathering_nw_541bf1dd.jpg"
     },
     {
       id: "3",
@@ -40,7 +40,7 @@ export default function EventsSection() {
       time: "7:00 PM",
       location: "Midtown Home",
       description: "An evening dedicated to prayer and worship as we seek God's presence together. Open to all Ecclesia members and guests.",
-      image: "/prayer_circle_nw_96b2ff2b.jpg"
+      image: "/src/assets/prayer_circle_nw_96b2ff2b.jpg"
     }
   ];
 

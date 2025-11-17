@@ -10,7 +10,7 @@ export default function AboutSection() {
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-lg">
                 <div 
                   className="aspect-[4/3] bg-cover bg-center"
-                  style={{ backgroundImage: "url('/family_gathering_nw_f63ba1cb.jpg')" }}
+                  style={{ backgroundImage: "url('/src/assets/family_gathering_nw_f63ba1cb.jpg')" }}
                 ></div>
               </div>
               <div className="absolute -z-10 bottom-6 left-6 w-2/3 h-2/3 bg-secondary-200 rounded-2xl"></div>
