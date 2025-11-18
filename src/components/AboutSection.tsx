@@ -76,15 +76,28 @@ export default function AboutSection() {
   };
 
   return (
-    <div id="about" className="relative w-full py-20 bg-white overflow-hidden">
-      {/* Background image collage - fixed position, subtle opacity */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="grid grid-cols-4 md:grid-cols-6 grid-rows-3 gap-1 h-full">
-          {galleryImages.slice(0, 12).map((img, idx) => (
-            <div key={idx} className="w-full h-full overflow-hidden">
+    <div id="about" className="relative w-full py-20 overflow-hidden" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.97), rgba(255,255,255,0.97))' }}>
+      {/* Background image collage - full coverage with repetition */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+        {/* First layer - larger grid with no gaps */}
+        <div className="grid grid-cols-3 md:grid-cols-6 grid-rows-3 h-full w-full absolute inset-0">
+          {galleryImages.slice(0, 18).map((img, idx) => (
+            <div key={`main-${idx}`} className="w-full h-full overflow-hidden p-px">
               <div
                 className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('${img}')` }}
+                style={{ backgroundImage: `url('${galleryImages[idx % galleryImages.length]}')` }}
+              ></div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Second layer - offset grid for complete coverage */}
+        <div className="grid grid-cols-4 md:grid-cols-5 grid-rows-4 h-full w-full absolute inset-0 -translate-x-1/4 translate-y-1/4">
+          {galleryImages.slice(0, 20).map((img, idx) => (
+            <div key={`offset-${idx}`} className="w-full h-full overflow-hidden p-px">
+              <div
+                className="w-full h-full bg-cover bg-center"
+                style={{ backgroundImage: `url('${galleryImages[(idx + 10) % galleryImages.length]}')` }}
               ></div>
             </div>
           ))}
