@@ -3,7 +3,9 @@ import React, { useState, useEffect } from "react";
 export default function AboutSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [allImages, setAllImages] = useState<string[]>([]);
 
+  // Core values for the interactive section
   const values = [
     {
       key: "community",
@@ -37,19 +39,56 @@ export default function AboutSection() {
     }
   ];
 
-  // Thumbnail gallery images - more than the values above for visual richness
+  // Comprehensive list of all gallery images for the background mosaic
   const galleryImages = [
     "/assets/family_gathering_nw_f63ba1cb.jpg",
-    "/assets/1763402076513-20_nw_b4ff1a4a.jpg",
+    "/assets/prayer_circle_nw_96b2ff2b.jpg", 
+    "/assets/sunset_gathering_nw_541bf1dd.jpg",
+    "/assets/baptism_nw_f24fce58.jpg",
     "/assets/1763402076513-10_nw_96329f18.jpg",
+    "/assets/1763402076513-11_nw_c0a95c81.jpg",
     "/assets/1763402076513-12_nw_c0840049.jpg",
     "/assets/1763402076513-13_nw_e65b03b1.jpg",
     "/assets/1763402076513-16_nw_3f0a5106.jpg",
+    "/assets/1763402076513-17_nw_a842057f.jpg",
+    "/assets/1763402076513-18_nw_c03fb031.jpg",
+    "/assets/1763402076513-20_nw_b4ff1a4a.jpg",
     "/assets/1763402076513-21_nw_29328aa6.jpg",
     "/assets/1763402076513-22_nw_952a4e27.jpg",
     "/assets/1763402076513-34_nw_ec1bc736.jpg",
-    "/assets/1763402076513-37_nw_65b81d79.jpg"
+    "/assets/1763402076513-36_nw_0f8529a4.jpg",
+    "/assets/1763402076513-37_nw_65b81d79.jpg",
+    "/assets/1763402076513-43_nw_9f4b1f4b.jpg",
+    "/assets/1763402076513-45_nw_b079c0f0.jpg",
+    "/assets/1763402076513-48_nw_a493105e.jpg"
   ];
+
+  // Initialize the grid with all available images and fill
+  // any remaining cells by repeating from the start of the array
+  useEffect(() => {
+    // Total cells in our grid
+    const totalCells = 36; // 6x6 grid
+    let expandedImages: string[] = [];
+    
+    // Fill the grid with images, repeating from start if needed
+    for (let i = 0; i < totalCells; i++) {
+      expandedImages.push(galleryImages[i % galleryImages.length]);
+    }
+    
+    // Shuffle the images to create a more random, natural-looking mosaic
+    expandedImages = shuffleArray([...expandedImages]);
+    
+    setAllImages(expandedImages);
+  }, []);
+
+  // Helper function to shuffle an array
+  const shuffleArray = (array: string[]) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   // Auto-rotate through values
   useEffect(() => {
@@ -77,30 +116,48 @@ export default function AboutSection() {
 
   return (
     <div id="about" className="relative w-full py-20 overflow-hidden" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.97), rgba(255,255,255,0.97))' }}>
-      {/* Background image collage - full coverage with repetition */}
+      {/* Background image mosaic - CSS Grid layout for clean, even spacing */}
       <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
-        {/* First layer - larger grid with no gaps */}
-        <div className="grid grid-cols-3 md:grid-cols-6 grid-rows-3 h-full w-full absolute inset-0">
-          {galleryImages.slice(0, 18).map((img, idx) => (
-            <div key={`main-${idx}`} className="w-full h-full overflow-hidden p-px">
-              <div
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('${galleryImages[idx % galleryImages.length]}')` }}
-              ></div>
-            </div>
-          ))}
+        {/* Mobile grid - 3 columns */}
+        <div className="block sm:hidden w-full h-full">
+          <div className="grid grid-cols-3 auto-rows-fr h-full w-full">
+            {allImages.slice(0, 18).map((img, idx) => (
+              <div key={`mobile-${idx}`} className="relative overflow-hidden p-0.5 aspect-square">
+                <div
+                  className="w-full h-full bg-cover bg-center rounded"
+                  style={{ backgroundImage: `url('${img}')` }}
+                ></div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tablet grid - 4 columns */}
+        <div className="hidden sm:block md:hidden w-full h-full">
+          <div className="grid grid-cols-4 auto-rows-fr h-full w-full">
+            {allImages.slice(0, 24).map((img, idx) => (
+              <div key={`tablet-${idx}`} className="relative overflow-hidden p-0.5 aspect-square">
+                <div
+                  className="w-full h-full bg-cover bg-center rounded"
+                  style={{ backgroundImage: `url('${img}')` }}
+                ></div>
+              </div>
+            ))}
+          </div>
         </div>
         
-        {/* Second layer - offset grid for complete coverage */}
-        <div className="grid grid-cols-4 md:grid-cols-5 grid-rows-4 h-full w-full absolute inset-0 -translate-x-1/4 translate-y-1/4">
-          {galleryImages.slice(0, 20).map((img, idx) => (
-            <div key={`offset-${idx}`} className="w-full h-full overflow-hidden p-px">
-              <div
-                className="w-full h-full bg-cover bg-center"
-                style={{ backgroundImage: `url('${galleryImages[(idx + 10) % galleryImages.length]}')` }}
-              ></div>
-            </div>
-          ))}
+        {/* Desktop grid - 6 columns */}
+        <div className="hidden md:block w-full h-full">
+          <div className="grid grid-cols-6 auto-rows-fr h-full w-full">
+            {allImages.map((img, idx) => (
+              <div key={`desktop-${idx}`} className="relative overflow-hidden p-0.5 aspect-square">
+                <div
+                  className="w-full h-full bg-cover bg-center rounded"
+                  style={{ backgroundImage: `url('${img}')` }}
+                ></div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
