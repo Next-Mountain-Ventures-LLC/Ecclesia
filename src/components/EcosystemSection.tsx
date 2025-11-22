@@ -8,28 +8,15 @@ export default function EcosystemSection() {
   // Refs for animation
   const animationRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Auto-rotate through elements when not hovering
+  // Removed auto-rotation functionality as per client request
   useEffect(() => {
-    if (!isHovering) {
-      animationRef.current = setInterval(() => {
-        setIsAnimating(true);
-        setTimeout(() => {
-          setActiveElement(prev => {
-            if (prev === "gather") return "mentor";
-            if (prev === "mentor") return "serve";
-            return "gather";
-          });
-          setTimeout(() => setIsAnimating(false), 300);
-        }, 300);
-      }, 6000);
-      
-      return () => {
-        if (animationRef.current) {
-          clearInterval(animationRef.current);
-        }
-      };
-    }
-  }, [isHovering]);
+    // No auto-rotation, only manual interaction
+    return () => {
+      if (animationRef.current) {
+        clearInterval(animationRef.current);
+      }
+    };
+  }, []);
 
   const ecosystemElements = {
     gather: {
@@ -268,7 +255,7 @@ export default function EcosystemSection() {
                       </div>
                       <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
                       <p className="text-primary-600 text-sm">
-                        {ecosystemElements.gather.description[0].substring(0, 120)}...
+                        {activeElement === 'gather' ? ecosystemElements.gather.description.join(' ') : ecosystemElements.gather.description[0].substring(0, 120) + '...'}
                       </p>
                     </div>
                   </div>
@@ -289,7 +276,7 @@ export default function EcosystemSection() {
                       </div>
                       <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.mentor.title}</h3>
                       <p className="text-primary-600 text-sm">
-                        {ecosystemElements.mentor.description[0].substring(0, 120)}...
+                        {activeElement === 'mentor' ? ecosystemElements.mentor.description.join(' ') : ecosystemElements.mentor.description[0].substring(0, 120) + '...'}
                       </p>
                     </div>
                   </div>
@@ -310,7 +297,7 @@ export default function EcosystemSection() {
                       </div>
                       <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
                       <p className="text-primary-600 text-sm">
-                        {ecosystemElements.serve.description[0].substring(0, 120)}...
+                        {activeElement === 'serve' ? ecosystemElements.serve.description.join(' ') : ecosystemElements.serve.description[0].substring(0, 120) + '...'}
                       </p>
                     </div>
                   </div>
@@ -378,15 +365,6 @@ export default function EcosystemSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-12 text-center">
-          <div className="inline-block rounded-full px-6 py-1.5 bg-primary-100 text-primary-700 font-medium text-sm mb-4">
-            Acts 2:42-47
-          </div>
-          <blockquote className="max-w-3xl mx-auto text-lg md:text-xl italic text-primary-800 font-display">
-            "They devoted themselves to the apostles' teaching and to fellowship, to the breaking of bread and to prayer. Everyone was filled with awe at the many wonders and signs performed by the apostles. All the believers were together and had everything in common."
-          </blockquote>
         </div>
       </div>
     </section>

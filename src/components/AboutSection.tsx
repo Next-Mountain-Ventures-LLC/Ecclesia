@@ -283,7 +283,7 @@ export default function AboutSection() {
                         className="w-full h-full bg-cover"
                         style={{ 
                           backgroundImage: `url('${value.image}')`,
-                          backgroundPosition: value.key === "prayer" ? "center top -75px" : "center"
+                          backgroundPosition: value.key === "prayer" ? "center" : "center"
                         }}
                       ></div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-2">
