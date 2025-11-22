@@ -55,7 +55,7 @@ export default function EventsSection() {
   };
 
   return (
-    <div className="w-full py-16 bg-primary-50">
+    <div className="w-full py-16 mt-16 bg-primary-50">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
