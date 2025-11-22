@@ -1,0 +1,599 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buttonVariants } from "@/components/ui/button";
+
+const title = "Events | Ecclesia Tulsa";
+const description = "Join us for upcoming events and gatherings throughout Tulsa as we build community together.";
+
+type Event = {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  description: string;
+  image: string;
+  featuredImage?: string;
+  category?: string;
+  tags?: string[];
+};
+
+// Sample events - these can be replaced with dynamic content
+const events: Event[] = [
+  {
+    id: "1",
+    title: "Summer Baptism Celebration",
+    date: "July 23, 2024",
+    time: "10:00 AM",
+    location: "Keystone Lake",
+    description: "Join us for a day of celebration as we baptize new believers at Keystone Lake. We'll have food, worship, and community time afterward. Baptism is a beautiful symbol of new life in Christ and a public declaration of faith. If you're interested in being baptized, please contact us for more information. Friends and family are welcome to attend this special occasion!",
+    image: "/assets/baptism_nw_f24fce58.jpg",
+    featuredImage: "/assets/baptism_nw_f24fce58.jpg",
+    category: "Celebration",
+    tags: ["baptism", "worship", "community"]
+  },
+  {
+    id: "2",
+    title: "All-Church Cookout",
+    date: "August 12, 2024",
+    time: "6:30 PM",
+    location: "Woodward Park",
+    description: "Our monthly all-church gathering bringing together all Ecclesia communities for fellowship, food, and fun. Bring a dish to share and lawn chairs! We'll provide the main course, drinks, and games. This is a great opportunity to meet others from different gatherings and build relationships across our entire community. Rain location will be announced if needed.",
+    image: "/assets/1763402076513-27_nw_21514e97.jpg",
+    category: "Fellowship",
+    tags: ["cookout", "community", "all-church"]
+  },
+  {
+    id: "3",
+    title: "Prayer & Worship Night",
+    date: "June 30, 2024",
+    time: "7:00 PM",
+    location: "Midtown Home",
+    description: "An evening dedicated to prayer and worship as we seek God's presence together. This intimate gathering will include acoustic worship, scripture reading, and both guided and open prayer times. Open to all Ecclesia members and guests. Whether you're new to prayer gatherings or have been participating for years, you'll find this to be a refreshing time of connection with God and others.",
+    image: "/assets/1763402076513-29_nw_72ed5df2.jpg",
+    category: "Worship",
+    tags: ["prayer", "worship", "midtown"]
+  },
+  {
+    id: "4",
+    title: "Youth Service Project",
+    date: "July 15, 2024",
+    time: "9:00 AM - 1:00 PM",
+    location: "John 3:16 Mission",
+    description: "Our youth gathering will be serving at the John 3:16 Mission, helping with meal preparation and distribution. This is a great opportunity for our young people to put their faith into action and serve those in need in our community. Parents are welcome to join as volunteers. Please wear closed-toe shoes and comfortable clothing. Lunch will be provided for all volunteers.",
+    image: "/assets/1763402076513-48_nw_a493105e.jpg",
+    category: "Service",
+    tags: ["youth", "service", "outreach"]
+  },
+  {
+    id: "5",
+    title: "Southwest Bible Study",
+    date: "Weekly on Thursdays",
+    time: "7:00 PM - 8:30 PM",
+    location: "Southwest Gathering Home",
+    description: "Our weekly Bible study for the Southwest Gathering focuses on practical application of scripture in daily life. Currently, we're working through the book of James, exploring themes of wisdom, faith, and action. Newcomers are always welcome to join at any point in our study. Light refreshments are provided, and children are welcome.",
+    image: "/assets/1763402076513-5_nw_bbe30b6e.jpg",
+    category: "Study",
+    tags: ["bible study", "southwest", "weekly"]
+  },
+  {
+    id: "6",
+    title: "Community Service Day",
+    date: "August 5, 2024",
+    time: "8:00 AM - 12:00 PM",
+    location: "Various Locations in Tulsa",
+    description: "Join us as we partner with local organizations to serve our Tulsa community. Projects include park cleanup, food bank sorting, and home repairs for elderly residents. Sign up is required to ensure we have enough volunteers for each project. Tools and materials will be provided, but please bring work gloves if you have them. We'll gather afterward for lunch and reflection on our service.",
+    image: "/assets/1763402076513-43_nw_9f4b1f4b.jpg",
+    category: "Service",
+    tags: ["service", "community", "outreach"]
+  }
+];
+
+// Group events by month
+const eventsByMonth = events.reduce((acc, event) => {
+  // Extract month and year from date string (format: "Month DD, YYYY")
+  const dateParts = event.date.split(',')[0].trim().split(' ');
+  
+  // Handle "Weekly on X" format
+  const month = dateParts[0] === "Weekly" ? "Recurring Events" : dateParts[0];
+  
+  if (!acc[month]) {
+    acc[month] = [];
+  }
+  acc[month].push(event);
+  return acc;
+}, {} as Record<string, Event[]>);
+
+// Get category labels for filter
+const categories = [...new Set(events.map(event => event.category))].filter(Boolean);
+---
+
+<BaseLayout {title} {description}>
+  <div class="container py-12 md:py-20">
+    <!-- Header section -->
+    <div class="mx-auto max-w-4xl text-center">
+      <h1 class="font-display text-3xl font-medium tracking-tight text-primary-800 md:text-5xl">
+        Upcoming Events
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground md:text-xl">
+        Join us for these upcoming gatherings and events as we build community together.
+      </p>
+    </div>
+
+    <!-- Featured event (if exists) -->
+    {events[0]?.featuredImage && (
+      <div class="mt-12 relative rounded-2xl overflow-hidden shadow-xl">
+        <div class="relative aspect-[21/9] md:aspect-[3/1] w-full bg-cover bg-center" style={`background-image: url('${events[0].featuredImage}')`}>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/10"></div>
+          <div class="absolute bottom-0 left-0 w-full p-6 md:p-12">
+            <div class="inline-block rounded-full px-3 py-1 bg-accent text-white text-xs font-medium mb-3">
+              {events[0].date}
+            </div>
+            <h2 class="text-white text-2xl md:text-3xl lg:text-4xl font-display font-medium mb-2">
+              {events[0].title}
+            </h2>
+            <p class="text-white/90 max-w-2xl mb-4">
+              {events[0].description.split('.')[0]}...
+            </p>
+            <a 
+              href={`#event-${events[0].id}`}
+              class={buttonVariants({ 
+                variant: 'default', 
+                size: 'default',
+                className: 'mt-2'
+              })}
+            >
+              Event Details
+            </a>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <!-- Event listing -->
+    <div class="mt-16">
+      <!-- Categories filter - client-side JS will handle the filtering -->
+      <div class="mb-8 flex flex-wrap justify-center gap-2">
+        <button 
+          class="category-filter px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium transition-colors hover:bg-primary/90 active"
+          data-category="all"
+        >
+          All Events
+        </button>
+        {categories.map(category => (
+          <button 
+            class="category-filter px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium transition-colors hover:bg-primary-200"
+            data-category={category}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Events by month -->
+      <div id="events-container">
+        {Object.entries(eventsByMonth).map(([month, monthEvents]) => (
+          <div class="mb-16">
+            <h2 class="text-2xl font-display font-medium text-primary-800 pb-2 border-b border-primary-200 mb-6">
+              {month}
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {monthEvents.map(event => (
+                <div id={`event-${event.id}`} class="event-card group relative" data-category={event.category}>
+                  <div class="rounded-xl overflow-hidden bg-white shadow-md transition-all duration-300 group-hover:shadow-xl h-full flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                      <div 
+                        class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                        style={`background-image: url('${event.image}')`}
+                      >
+                        <div class="w-full h-full flex items-end bg-gradient-to-t from-black/70 to-transparent p-4">
+                          <div>
+                            {event.category && (
+                              <div class="inline-block rounded-full px-2 py-1 bg-white/90 text-primary-800 text-xs font-medium mb-2">
+                                {event.category}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="p-5 flex-grow flex flex-col">
+                      <h3 class="text-xl font-display font-medium text-primary-800 mb-3 group-hover:text-accent-600 transition-colors">
+                        {event.title}
+                      </h3>
+
+                      <div class="flex items-center text-muted-foreground text-sm mb-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                          <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+                          <line x1="16" x2="16" y1="2" y2="6"></line>
+                          <line x1="8" x2="8" y1="2" y2="6"></line>
+                          <line x1="3" x2="21" y1="10" y2="10"></line>
+                        </svg>
+                        {event.date}
+                      </div>
+
+                      <div class="flex items-center text-muted-foreground text-sm mb-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        {event.time}
+                      </div>
+
+                      <div class="flex items-center text-muted-foreground text-sm mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                          <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        {event.location}
+                      </div>
+
+                      <p class="text-sm text-muted-foreground mb-4 line-clamp-3">
+                        {event.description}
+                      </p>
+
+                      <div class="mt-auto">
+                        <button 
+                          class="view-details-btn inline-flex items-center text-accent-600 hover:text-accent-700 font-medium transition-colors text-sm"
+                          data-event-id={event.id}
+                        >
+                          View details
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                          </svg>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- No events message (hidden by default) -->
+      <div id="no-events-message" class="hidden text-center py-12">
+        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 text-primary-700 mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+        </div>
+        <h3 class="text-xl font-display font-medium text-primary-800 mb-2">No events found</h3>
+        <p class="text-muted-foreground">There are no events matching your current filter. Please try a different category.</p>
+      </div>
+
+      <!-- Add to calendar section -->
+      <div class="mt-16 p-8 bg-primary-50 rounded-xl">
+        <div class="max-w-2xl mx-auto text-center">
+          <h3 class="text-xl font-display font-medium text-primary-800 mb-3">Never Miss an Event</h3>
+          <p class="text-muted-foreground mb-6">
+            Join our mailing list to receive updates about upcoming gatherings and events. We'll send you reminders and important details about community activities.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 justify-center">
+            <a 
+              href="/#contact" 
+              class={buttonVariants({ 
+                variant: 'default', 
+                size: 'default'
+              })}
+            >
+              Sign Up for Updates
+            </a>
+            <a 
+              href="/contact" 
+              class={buttonVariants({ 
+                variant: 'outline', 
+                size: 'default',
+                className: 'border-primary-300 text-primary-700 hover:text-primary-800 hover:bg-primary-100'
+              })}
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Event details modal -->
+  <div id="event-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-white rounded-xl overflow-hidden max-w-2xl w-full max-h-[90vh] overflow-y-auto transform translate-y-8 transition-transform duration-300">
+      <!-- Modal content will be dynamically populated -->
+      <div class="h-56 relative">
+        <div id="modal-image" class="w-full h-full bg-cover bg-center">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6">
+            <div id="modal-category" class="inline-block rounded-full px-3 py-1 text-xs font-medium mb-2"></div>
+            <h3 id="modal-title" class="text-2xl font-display font-medium text-white"></h3>
+          </div>
+        </div>
+        <button 
+          id="close-modal-btn"
+          class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 text-white rounded-full p-1.5 transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+          <span class="sr-only">Close</span>
+        </button>
+      </div>
+      
+      <div class="p-6">
+        <div class="flex items-center text-muted-foreground text-sm mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+            <line x1="16" x2="16" y1="2" y2="6"></line>
+            <line x1="8" x2="8" y1="2" y2="6"></line>
+            <line x1="3" x2="21" y1="10" y2="10"></line>
+          </svg>
+          <span id="modal-date"></span>
+        </div>
+
+        <div class="flex items-center text-muted-foreground text-sm mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="modal-time"></span>
+        </div>
+
+        <div class="flex items-center text-muted-foreground text-sm mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span id="modal-location"></span>
+        </div>
+        
+        <p id="modal-description" class="text-foreground mb-6"></p>
+        
+        <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+        
+        <div class="flex flex-wrap gap-3">
+          <a 
+            href="/contact" 
+            class={buttonVariants({ 
+              variant: 'default', 
+              size: 'default'
+            })}
+          >
+            I'm interested
+          </a>
+          <button 
+            id="share-event-btn"
+            class={buttonVariants({ 
+              variant: 'outline', 
+              size: 'default',
+              className: 'border-primary-300 text-primary-700 hover:text-primary-800 hover:bg-primary-100'
+            })}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+              <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+              <polyline points="16 6 12 2 8 6"></polyline>
+              <line x1="12" x2="12" y1="2" y2="15"></line>
+            </svg>
+            Share Event
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Initialize the events functionality when the page loads
+  document.addEventListener('astro:page-load', () => {
+    // Elements
+    const modal = document.getElementById('event-modal') as HTMLElement;
+    const closeModalBtn = document.getElementById('close-modal-btn') as HTMLElement;
+    const shareEventBtn = document.getElementById('share-event-btn') as HTMLElement;
+    const viewDetailsBtns = document.querySelectorAll('.view-details-btn');
+    const categoryFilters = document.querySelectorAll('.category-filter');
+    const eventCards = document.querySelectorAll('.event-card');
+    const eventsContainer = document.getElementById('events-container') as HTMLElement;
+    const noEventsMessage = document.getElementById('no-events-message') as HTMLElement;
+    
+    // Events data from the page
+    const events = [
+      {
+        id: "1",
+        title: "Summer Baptism Celebration",
+        date: "July 23, 2024",
+        time: "10:00 AM",
+        location: "Keystone Lake",
+        description: "Join us for a day of celebration as we baptize new believers at Keystone Lake. We'll have food, worship, and community time afterward. Baptism is a beautiful symbol of new life in Christ and a public declaration of faith. If you're interested in being baptized, please contact us for more information. Friends and family are welcome to attend this special occasion!",
+        image: "/assets/baptism_nw_f24fce58.jpg",
+        featuredImage: "/assets/baptism_nw_f24fce58.jpg",
+        category: "Celebration",
+        tags: ["baptism", "worship", "community"]
+      },
+      {
+        id: "2",
+        title: "All-Church Cookout",
+        date: "August 12, 2024",
+        time: "6:30 PM",
+        location: "Woodward Park",
+        description: "Our monthly all-church gathering bringing together all Ecclesia communities for fellowship, food, and fun. Bring a dish to share and lawn chairs! We'll provide the main course, drinks, and games. This is a great opportunity to meet others from different gatherings and build relationships across our entire community. Rain location will be announced if needed.",
+        image: "/assets/1763402076513-27_nw_21514e97.jpg",
+        category: "Fellowship",
+        tags: ["cookout", "community", "all-church"]
+      },
+      {
+        id: "3",
+        title: "Prayer & Worship Night",
+        date: "June 30, 2024",
+        time: "7:00 PM",
+        location: "Midtown Home",
+        description: "An evening dedicated to prayer and worship as we seek God's presence together. This intimate gathering will include acoustic worship, scripture reading, and both guided and open prayer times. Open to all Ecclesia members and guests. Whether you're new to prayer gatherings or have been participating for years, you'll find this to be a refreshing time of connection with God and others.",
+        image: "/assets/1763402076513-29_nw_72ed5df2.jpg",
+        category: "Worship",
+        tags: ["prayer", "worship", "midtown"]
+      },
+      {
+        id: "4",
+        title: "Youth Service Project",
+        date: "July 15, 2024",
+        time: "9:00 AM - 1:00 PM",
+        location: "John 3:16 Mission",
+        description: "Our youth gathering will be serving at the John 3:16 Mission, helping with meal preparation and distribution. This is a great opportunity for our young people to put their faith into action and serve those in need in our community. Parents are welcome to join as volunteers. Please wear closed-toe shoes and comfortable clothing. Lunch will be provided for all volunteers.",
+        image: "/assets/1763402076513-48_nw_a493105e.jpg",
+        category: "Service",
+        tags: ["youth", "service", "outreach"]
+      },
+      {
+        id: "5",
+        title: "Southwest Bible Study",
+        date: "Weekly on Thursdays",
+        time: "7:00 PM - 8:30 PM",
+        location: "Southwest Gathering Home",
+        description: "Our weekly Bible study for the Southwest Gathering focuses on practical application of scripture in daily life. Currently, we're working through the book of James, exploring themes of wisdom, faith, and action. Newcomers are always welcome to join at any point in our study. Light refreshments are provided, and children are welcome.",
+        image: "/assets/1763402076513-5_nw_bbe30b6e.jpg",
+        category: "Study",
+        tags: ["bible study", "southwest", "weekly"]
+      },
+      {
+        id: "6",
+        title: "Community Service Day",
+        date: "August 5, 2024",
+        time: "8:00 AM - 12:00 PM",
+        location: "Various Locations in Tulsa",
+        description: "Join us as we partner with local organizations to serve our Tulsa community. Projects include park cleanup, food bank sorting, and home repairs for elderly residents. Sign up is required to ensure we have enough volunteers for each project. Tools and materials will be provided, but please bring work gloves if you have them. We'll gather afterward for lunch and reflection on our service.",
+        image: "/assets/1763402076513-43_nw_9f4b1f4b.jpg",
+        category: "Service",
+        tags: ["service", "community", "outreach"]
+      }
+    ];
+
+    // Open event modal
+    const openModal = (eventId: string) => {
+      const event = events.find(e => e.id === eventId);
+      if (!event) return;
+
+      // Set modal content
+      (document.getElementById('modal-title') as HTMLElement).textContent = event.title;
+      (document.getElementById('modal-date') as HTMLElement).textContent = event.date;
+      (document.getElementById('modal-time') as HTMLElement).textContent = event.time;
+      (document.getElementById('modal-location') as HTMLElement).textContent = event.location;
+      (document.getElementById('modal-description') as HTMLElement).textContent = event.description;
+      
+      // Set modal image background
+      (document.getElementById('modal-image') as HTMLElement).style.backgroundImage = `url('${event.image}')`;
+      
+      // Set category if available
+      const modalCategory = document.getElementById('modal-category') as HTMLElement;
+      if (event.category) {
+        modalCategory.textContent = event.category;
+        modalCategory.className = 'inline-block rounded-full px-3 py-1 bg-accent text-white text-xs font-medium mb-2';
+      } else {
+        modalCategory.textContent = '';
+        modalCategory.className = 'hidden';
+      }
+      
+      // Set tags if available
+      const modalTags = document.getElementById('modal-tags') as HTMLElement;
+      modalTags.innerHTML = '';
+      if (event.tags && event.tags.length > 0) {
+        event.tags.forEach(tag => {
+          const tagEl = document.createElement('span');
+          tagEl.className = 'px-2 py-1 bg-primary-100 text-primary-700 rounded-full text-xs';
+          tagEl.textContent = tag;
+          modalTags.appendChild(tagEl);
+        });
+      }
+      
+      // Show modal with animation
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      (modal.querySelector('div') as HTMLElement).classList.remove('translate-y-8');
+      document.body.classList.add('overflow-hidden');
+    };
+
+    // Close event modal
+    const closeModal = () => {
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      (modal.querySelector('div') as HTMLElement).classList.add('translate-y-8');
+      document.body.classList.remove('overflow-hidden');
+    };
+
+    // Handle share button click
+    const handleShare = () => {
+      const title = (document.getElementById('modal-title') as HTMLElement).textContent;
+      const text = `Check out this event: ${title} at Ecclesia Tulsa!`;
+      
+      // Use Web Share API if available
+      if (navigator.share) {
+        navigator.share({
+          title: `${title} - Ecclesia Tulsa`,
+          text: text,
+          url: window.location.href,
+        }).catch(err => {
+          console.error('Error sharing:', err);
+        });
+      } else {
+        // Fallback - copy to clipboard
+        navigator.clipboard.writeText(`${text} ${window.location.href}`);
+        alert('Event link copied to clipboard!');
+      }
+    };
+
+    // Filter events by category
+    const filterEvents = (category: string) => {
+      let visibleCount = 0;
+      
+      eventCards.forEach(card => {
+        const eventCategory = (card as HTMLElement).dataset.category || '';
+        if (category === 'all' || category === eventCategory) {
+          (card as HTMLElement).style.display = 'block';
+          visibleCount++;
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+      
+      // Update UI based on filtering results
+      if (visibleCount === 0) {
+        eventsContainer.style.display = 'none';
+        noEventsMessage.style.display = 'block';
+      } else {
+        eventsContainer.style.display = 'block';
+        noEventsMessage.style.display = 'none';
+      }
+    };
+
+    // Event listeners
+    viewDetailsBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const eventId = (btn as HTMLElement).dataset.eventId;
+        if (eventId) openModal(eventId);
+      });
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    shareEventBtn.addEventListener('click', handleShare);
+
+    categoryFilters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        // Update active state on buttons
+        categoryFilters.forEach(f => {
+          f.classList.remove('bg-primary', 'text-white');
+          f.classList.add('bg-primary-100', 'text-primary-700');
+        });
+        filter.classList.remove('bg-primary-100', 'text-primary-700');
+        filter.classList.add('bg-primary', 'text-white');
+        
+        // Filter events
+        const category = (filter as HTMLElement).dataset.category || 'all';
+        filterEvents(category);
+      });
+    });
+  });
+</script>

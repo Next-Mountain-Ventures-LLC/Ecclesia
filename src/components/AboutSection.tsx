@@ -90,20 +90,27 @@ export default function AboutSection() {
     return array;
   };
 
-  // Auto-rotate through values
+  // Auto-rotate through values when not hovering
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setActiveIndex((prev) => (prev + 1) % values.length);
-        setIsTransitioning(false);
-      }, 500);
-    }, 6000);
+    let interval: NodeJS.Timeout | null = null;
+    
+    // Only start the auto-rotation when not hovering
+    if (!isHovering) {
+      interval = setInterval(() => {
+        setIsTransitioning(true);
+        setTimeout(() => {
+          setActiveIndex((prev) => (prev + 1) % values.length);
+          setIsTransitioning(false);
+        }, 500);
+      }, 6000);
+    }
+    
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [values.length, isHovering]);
 
-    return () => clearInterval(interval);
-  }, [values.length]);
-
-  // Handle clicking on a value card
+  // Handle clicking or hovering on a value card
   const handleValueClick = (index: number) => {
     if (index !== activeIndex) {
       setIsTransitioning(true);
@@ -113,9 +120,29 @@ export default function AboutSection() {
       }, 300);
     }
   };
+  
+  // Handle hovering on a value card
+  const handleValueHover = (index: number) => {
+    if (index !== activeIndex) {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setActiveIndex(index);
+        setIsTransitioning(false);
+      }, 300);
+    }
+  };
+  
+  // State to track if user is hovering
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <div id="about" className="relative w-full py-20 overflow-hidden" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.97), rgba(255,255,255,0.97))' }}>
+      <div className="hidden">
+        {/* Preload all images for smoother transitions */}
+        {values.map(value => (
+          <img key={`preload-${value.key}`} src={value.image} alt="" className="hidden" />
+        ))}
+      </div>
       {/* Background image mosaic - CSS Grid layout for clean, even spacing */}
       <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
         {/* Mobile grid - 3 columns */}
@@ -218,11 +245,15 @@ export default function AboutSection() {
           <div>
             <div className="relative">
               {/* Main featured value image */}
-              <div className="relative rounded-xl overflow-hidden mb-6 shadow-lg">
+              <div 
+                className="relative rounded-xl overflow-hidden mb-6 shadow-lg"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
                 <div
                   className={`aspect-video w-full bg-cover transition-opacity duration-500 ${
                     isTransitioning ? "opacity-0" : "opacity-100"
-                  } ${values[activeIndex].key === "prayer" ? "bg-[center_top_200px]" : "bg-center"}`}
+                  } ${values[activeIndex].key === "prayer" ? "bg-center" : "bg-center"}`}
                   style={{ backgroundImage: `url('${values[activeIndex].image}')` }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
@@ -237,6 +268,8 @@ export default function AboutSection() {
                   <button
                     key={value.key}
                     onClick={() => handleValueClick(idx)}
+                    onMouseEnter={() => { setIsHovering(true); handleValueHover(idx); }}
+                    onMouseLeave={() => setIsHovering(false)}
                     className={`relative rounded-lg overflow-hidden transition-all duration-300 ${
                       idx === activeIndex 
                         ? "ring-2 ring-primary-500 ring-offset-2" 
@@ -245,7 +278,7 @@ export default function AboutSection() {
                   >
                     <div className="aspect-square">
                       <div
-                        className={`w-full h-full bg-cover ${value.key === "prayer" ? "bg-[center_top_200px]" : "bg-center"}`}
+                        className={`w-full h-full bg-cover ${value.key === "prayer" ? "bg-center" : "bg-center"}`}
                         style={{ backgroundImage: `url('${value.image}')` }}
                       ></div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-2">

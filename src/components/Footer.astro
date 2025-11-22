@@ -1,54 +1,123 @@
 <footer class="border-t py-12 bg-primary-50">
-  <div
-    class="container flex flex-col items-center justify-between gap-8 md:flex-row"
-  >
-    <div class="flex flex-col items-center md:items-start gap-4">
-      <span class="font-display text-xl font-medium text-primary-800">Ecclesia Tulsa</span>
-      <p class="text-muted-foreground text-center md:text-left text-sm max-w-xs">
+  <div class="container grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Column 1: About -->    
+    <div class="md:col-span-1">
+      <span class="font-display text-xl font-medium text-primary-800 block mb-4">Ecclesia Tulsa</span>
+      <p class="text-muted-foreground text-sm mb-4">
         A community of believers gathering in homes throughout Tulsa to live out Acts 2:42-47.
       </p>
+      <div class="flex items-center gap-4">
+        <a href="https://facebook.com" target="_blank" rel="noreferrer" class="text-primary-700 hover:text-primary-900 transition-colors">
+          <span class="sr-only">Facebook</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noreferrer" class="text-primary-700 hover:text-primary-900 transition-colors">
+          <span class="sr-only">Instagram</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="mailto:info@ecclesiatulsa.com" class="text-primary-700 hover:text-primary-900 transition-colors">
+          <span class="sr-only">Email</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </a>
+      </div>
     </div>
-    <div class="flex flex-col md:flex-row items-center gap-8">
-      <div class="flex flex-col items-center md:items-end gap-1">
-        <div class="text-sm font-medium text-primary-700">Join a Gathering</div>
-        <p class="text-muted-foreground text-center md:text-right text-sm">
-          Fridays in Midtown Tulsa
-        </p>
-        <p class="text-muted-foreground text-center md:text-right text-sm">
-          Contact us for details
-        </p>
-      </div>
-      <div class="flex flex-col items-center md:items-end gap-1">
-        <div class="text-sm font-medium text-primary-700">Connect With Us</div>
-        <a href="mailto:info@ecclesiatulsa.com" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
-          info@ecclesiatulsa.com
-        </a>
-        <a href="https://ecclesiatulsa.com" target="_blank" rel="noreferrer" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
-          ecclesiatulsa.com
-        </a>
-      </div>
+    
+    <!-- Column 2: Gatherings -->    
+    <div class="md:col-span-1">
+      <h3 class="font-medium text-primary-800 text-sm uppercase tracking-wider mb-4">Our Gatherings</h3>
+      <ul class="space-y-3">
+        <li>
+          <a href="/midtown" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            Midtown Gathering
+          </a>
+        </li>
+        <li>
+          <a href="/southwest" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            Southwest Gathering
+          </a>
+        </li>
+        <li>
+          <a href="/youth" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            Youth Gathering
+          </a>
+        </li>
+        <li>
+          <a href="/events" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            All Events
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Column 3: Quick Links -->    
+    <div class="md:col-span-1">
+      <h3 class="font-medium text-primary-800 text-sm uppercase tracking-wider mb-4">Quick Links</h3>
+      <ul class="space-y-3">
+        <li>
+          <a href="/what-we-believe" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            What We Believe
+          </a>
+        </li>
+        <li>
+          <a href="/#about" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            About Ecclesia
+          </a>
+        </li>
+        <li>
+          <a href="/#contact" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            Contact Us
+          </a>
+        </li>
+        <li>
+          <a href="https://www.paypal.com/donate/?hosted_button_id=RM8SJ6QPAXN8Q" target="_blank" rel="noreferrer" class="text-muted-foreground hover:text-primary-600 text-sm transition-colors">
+            Support Our Mission
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Column 4: Connect -->    
+    <div class="md:col-span-1">
+      <h3 class="font-medium text-primary-800 text-sm uppercase tracking-wider mb-4">Connect With Us</h3>
+      <p class="text-muted-foreground text-sm mb-2">
+        <strong class="font-medium">Email:</strong> <a href="mailto:info@ecclesiatulsa.com" class="hover:text-primary-600 transition-colors">info@ecclesiatulsa.com</a>
+      </p>
+      <p class="text-muted-foreground text-sm mb-2">
+        <strong class="font-medium">Web:</strong> <a href="https://ecclesiatulsa.com" target="_blank" rel="noreferrer" class="hover:text-primary-600 transition-colors">ecclesiatulsa.com</a>
+      </p>
+      <p class="text-muted-foreground text-sm">
+        <strong class="font-medium">Main Gathering:</strong> Fridays in Midtown Tulsa
+      </p>
+      <p class="text-muted-foreground text-sm">
+        <span class="italic">Contact us for exact times and locations</span>
+      </p>
     </div>
   </div>
-  <div class="container mt-8 pt-8 border-t border-primary-100">
-    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-      <p class="text-muted-foreground text-xs mb-4 md:mb-0">
-        &copy; {new Date().getFullYear()} Ecclesia Tulsa. All rights reserved.
-      </p>
-      <div class="flex gap-4">
-        <a href="/privacy" class="text-muted-foreground hover:text-primary-600 text-xs transition-colors">
-          Privacy Policy
-        </a>
-        <a href="/terms" class="text-muted-foreground hover:text-primary-600 text-xs transition-colors">
-          Terms of Service
-        </a>
+  
+  <!-- Bottom Credits Section -->  
+  <div class="container mt-12 pt-4 border-t border-primary-100">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-4 text-xs text-muted-foreground">
+        <span>&copy; {new Date().getFullYear()} Ecclesia Tulsa</span>
+        <span class="hidden md:inline">•</span>
+        <a href="/privacy" class="hover:text-primary-600 transition-colors">Privacy</a>
+        <span class="hidden md:inline">•</span>
+        <a href="/terms" class="hover:text-primary-600 transition-colors">Terms</a>
       </div>
-    </div>
-    <div class="flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
-      <div>
-        Affiliated with the <a href="https://nazarene.org/" target="_blank" rel="noreferrer" class="text-primary-600 hover:underline">Church of the Nazarene</a>
-      </div>
-      <div>
-        Website by <a href="http://astrobot.design" target="_blank" rel="noreferrer" class="text-primary-600 hover:underline">Astrobot Designs</a>
+      
+      <div class="flex items-center gap-4 text-xs text-muted-foreground">
+        <span>Affiliated with the <a href="https://nazarene.org/" target="_blank" rel="noreferrer" class="text-primary-600 hover:underline">Church of the Nazarene</a></span>
+        <span class="hidden md:inline">•</span>
+        <span>Website by <a href="http://astrobot.design" target="_blank" rel="noreferrer" class="text-primary-600 hover:underline">Astrobot Designs</a></span>
       </div>
     </div>
   </div>
