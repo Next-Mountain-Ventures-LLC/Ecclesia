@@ -1,3 +1,8 @@
+---
+import { Image } from 'astro:assets';
+import nazareneLogo from '../assets/nazarene-logo-3_gray_en_nw_cf483cc1.png';
+---
+
 <footer class="border-t py-12 bg-primary-50">
   <div class="container grid grid-cols-1 md:grid-cols-4 gap-8">
     <!-- Column 1: About -->    
@@ -115,7 +120,16 @@
       </div>
       
       <div class="flex items-center gap-4 text-xs text-muted-foreground">
-        <span>Affiliated with the <a href="https://nazarene.org/" target="_blank" rel="noreferrer" class="text-primary-600 hover:underline">Church of the Nazarene</a></span>
+        <a href="https://nazarene.org/" target="_blank" rel="noreferrer" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+          <Image 
+            src={nazareneLogo} 
+            alt="Church of the Nazarene logo" 
+            width={100} 
+            height={30} 
+            class="h-6 w-auto object-contain" 
+          />
+          <span class="sr-only">Affiliated with the Church of the Nazarene</span>
+        </a>
         <span class="hidden md:inline">•</span>
         <span>Website by <a href="http://astrobot.design" target="_blank" rel="noreferrer" class="text-primary-600 hover:underline">Astrobot Designs</a></span>
       </div>
