@@ -27,7 +27,9 @@ const tabs = [
             <div class="flex items-start">
               <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 4 4 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                  <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                  <line x1="12" y1="19" x2="12" y2="22"></line>
                 </svg>
               </div>
               <div>
@@ -39,9 +41,8 @@ const tabs = [
             <div class="flex items-start">
               <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4" />
-                  <path d="M12 3v12" />
-                  <path d="m9 8 3-3 3 3" />
+                  <path d="M4 19h16" />
+                  <path d="M4 5h11a3 3 0 0 1 3 3v11"></path>
                 </svg>
               </div>
               <div>
@@ -107,8 +108,7 @@ const tabs = [
               <div class="flex items-start mb-4">
                 <div class="bg-primary-100 p-3 rounded-full mr-4 text-primary-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
+                    <path d="M12 22v-6M12 8V2M17 12h3M10 12H2M19.07 4.93l-3.54 3.54M4.93 19.07l3.54-3.54M19.07 19.07l-3.54-3.54M4.93 4.93l3.54 3.54" />
                   </svg>
                 </div>
                 <div>
@@ -124,11 +124,14 @@ const tabs = [
               <div class="flex items-start mb-4">
                 <div class="bg-secondary-100 p-3 rounded-full mr-4 text-secondary-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                    <path d="M12 22v-5" />
-                    <path d="M9 7V2" />
-                    <path d="M15 7V2" />
-                    <path d="M5 15a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-2z" />
-                    <path d="M8 7h8" />
+                    <path d="M2 12a3 3 0 0 0 3 3 3 3 0 0 0-3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                    <path d="M22 12a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0-3-3 3 3 0 0 0 3-3z"/>
+                    <path d="M12 2a3 3 0 0 0-3 3 3 3 0 0 0 3-3 3 3 0 0 0-3 3 3 3 0 0 0 3-3z"/>
+                    <path d="M12 22a3 3 0 0 0 3-3 3 3 0 0 0-3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/>
+                    <path d="M18.364 5.636a3 3 0 0 0-4.244 0 3 3 0 0 0 4.244 0 3 3 0 0 0-4.244 0 3 3 0 0 0 4.244 0z"/>
+                    <path d="M5.636 5.636a3 3 0 0 0 0 4.242 3 3 0 0 0 0-4.242 3 3 0 0 0 0 4.242 3 3 0 0 0 0-4.242z"/>
+                    <path d="M18.364 18.364a3 3 0 0 0 0-4.243 3 3 0 0 0 0 4.243 3 3 0 0 0 0-4.243 3 3 0 0 0 0 4.243z"/>
+                    <path d="M5.636 18.364a3 3 0 0 0 4.242 0 3 3 0 0 0-4.242 0 3 3 0 0 0 4.242 0 3 3 0 0 0-4.242 0z"/>
                   </svg>
                 </div>
                 <div>
@@ -144,8 +147,9 @@ const tabs = [
               <div class="flex items-start mb-4">
                 <div class="bg-accent-100 p-3 rounded-full mr-4 text-accent-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
+                    <circle cx="12" cy="12" r="10" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="2" />
                   </svg>
                 </div>
                 <div>
@@ -161,14 +165,14 @@ const tabs = [
           <div class="flex justify-center mt-6">
             <div class="text-center">
               <p class="text-sm text-primary-700 font-medium mb-2">Download our detailed Core Values document</p>
-              <a href="/assets/core-values.pdf" download="Ecclesia-Core-Values.pdf" class="inline-flex items-center px-4 py-2 bg-accent-600 text-white rounded-md hover:bg-accent-700 transition-colors shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+              <a href="/assets/core-values.pdf" download="Ecclesia-Core-Values.pdf" class="inline-flex items-center px-4 py-2 bg-primary-100 border border-primary-200 text-primary-800 rounded-md hover:bg-primary-200 transition-colors shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4 text-primary-700">
                   <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                   <polyline points="14 2 14 8 20 8" />
                   <path d="M12 18v-6" />
                   <path d="m9 15 3 3 3-3" />
                 </svg>
-                <span class="font-medium text-white">Download Core Values PDF</span>
+                <span class="font-medium">Download Core Values PDF</span>
               </a>
             </div>
           </div>
@@ -193,9 +197,8 @@ const tabs = [
               <div class="flex items-center">
                 <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
-                    <line x1="12" y1="9" x2="12" y2="13" />
-                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                   </svg>
                 </div>
                 <p class="font-medium">Theological coherence</p>
@@ -227,10 +230,11 @@ const tabs = [
               <div class="flex items-center">
                 <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="6" width="20" height="12" rx="2" />
-                    <path d="M12 12h.01" />
-                    <path d="M17 12h.01" />
-                    <path d="M7 12h.01" />
+                    <path d="M18 6h.01" />
+                    <path d="M18 13h.01" />
+                    <path d="M18 20h.01" />
+                    <rect x="4" y="3" width="12" height="7" rx="1" />
+                    <rect x="4" y="13" width="12" height="7" rx="1" />
                   </svg>
                 </div>
                 <p class="font-medium">Church development</p>
@@ -239,7 +243,9 @@ const tabs = [
               <div class="flex items-center">
                 <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M5.5 20H8M12 4v6M4 12H2M6.802 7.2l-1.4-1.4M17.198 7.2l1.4-1.4M2 2l20 20M4 8a8 8 0 0 0 11.2 7.2" />
+                    <path d="M2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2" />
+                    <polyline points="2 12 12 22 22 12" />
+                    <path d="M12 2v10" />
                   </svg>
                 </div>
                 <p class="font-medium">Transformational leadership</p>
@@ -311,14 +317,14 @@ const tabs = [
           <div class="flex justify-center mt-6">
             <div class="text-center">
               <p class="text-sm text-primary-700 font-medium mb-2">Download our complete Articles of Faith</p>
-              <a href="/assets/articles-of-faith.pdf" download="Ecclesia-Articles-of-Faith.pdf" class="inline-flex items-center px-4 py-2 bg-accent-600 text-white rounded-md hover:bg-accent-700 transition-colors shadow-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+              <a href="/assets/articles-of-faith.pdf" download="Ecclesia-Articles-of-Faith.pdf" class="inline-flex items-center px-4 py-2 bg-primary-100 border border-primary-200 text-primary-800 rounded-md hover:bg-primary-200 transition-colors shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4 text-primary-700">
                   <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
                   <polyline points="14 2 14 8 20 8" />
                   <path d="M12 18v-6" />
                   <path d="m9 15 3 3 3-3" />
                 </svg>
-                <span class="font-medium text-white">Download Articles of Faith PDF</span>
+                <span class="font-medium">Download Articles of Faith PDF</span>
               </a>
             </div>
           </div>
@@ -365,7 +371,7 @@ const tabs = [
               Through worship, fellowship, discipleship, and service, we live out our beliefs in ways that honor God and bless others. We invite you to join us as we seek to grow in faith and put our beliefs into practice.
             </p>
             
-            <a href="https://nazarene.org/beliefs" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-accent-600 hover:text-accent-700 text-sm">
+            <a href="https://nazarene.org/what-we-believe" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-accent-600 hover:text-accent-700 text-sm">
               Learn more about our denominational beliefs
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
                 <path d="M7 7h10v10" />
