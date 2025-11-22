@@ -12,6 +12,24 @@ export default function HeroSection() {
       
       <div className="container relative z-10 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Mobile top image and callout */}
+          <div className="lg:hidden mb-4 relative">
+            <div className="rounded-2xl overflow-hidden shadow-lg mb-6">
+              <div 
+                className="aspect-[4/3] bg-cover bg-center"
+                style={{ backgroundImage: "url('/assets/1763402076513-53_nw_2b7647e8.jpg')" }}
+              ></div>
+            </div>
+            
+            {/* Greek word callout for mobile */}
+            <div className="bg-white py-3 px-5 rounded-xl shadow-lg mx-auto max-w-[250px] -mt-12 mb-6 relative z-10">
+              <div className="font-display italic text-xl text-primary-800 mb-1 text-center">ἐκκλησία</div>
+              <div className="text-sm text-muted-foreground text-center">
+                Ekklesia (Greek): "an assembly" or "a gathering of called-out ones"
+              </div>
+            </div>
+          </div>
+          
           <div className="flex flex-col">
             <div className="inline-block rounded-full px-4 py-1.5 bg-primary-100 text-primary-700 font-medium text-sm mb-6">
               <div className="flex items-center">
@@ -48,16 +66,8 @@ export default function HeroSection() {
                 </span>
               </div>
               
-              {/* Mobile order - with logo explanation box first */}
-              <div className="sm:hidden space-y-4">
-                {/* Greek word callout for mobile */}
-                <div className="bg-white py-3 px-5 rounded-xl shadow-lg mx-auto max-w-[250px] mb-6">
-                  <div className="font-display italic text-xl text-primary-800 mb-1 text-center">ἐκκλησία</div>
-                  <div className="text-sm text-muted-foreground text-center">
-                    Ekklesia (Greek): "an assembly" or "a gathering of called-out ones"
-                  </div>
-                </div>
-                
+              {/* Mobile order */}
+              <div className="sm:hidden">
                 {/* Correct text order */}
                 <div>
                   <span className="block">The Church is</span>
@@ -120,7 +130,7 @@ export default function HeroSection() {
             </div>
           </div>
           
-          <div className="relative lg:mt-0 mt-6">
+          <div className="relative lg:mt-0 mt-6 hidden lg:block">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
               <div 
                 className="aspect-[4/3] bg-cover bg-center"

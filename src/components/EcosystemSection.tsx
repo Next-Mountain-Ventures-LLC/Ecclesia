@@ -112,7 +112,7 @@ export default function EcosystemSection() {
   return (
     <section className="w-full py-20 bg-gradient-to-b from-white to-primary-50 mb-24">
       <div className="container px-4 sm:px-6 md:px-8 mx-auto">
-        <div className="text-center mb-6">
+        <div className="text-center mb-2">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
             Our Ecosystem
           </h2>
@@ -128,7 +128,7 @@ export default function EcosystemSection() {
           <div className="hidden md:block">
             {/* Visual Ecosystem Diagram */}
             <div 
-              className="relative h-[350px]"
+              className="relative h-[320px]"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -149,7 +149,7 @@ export default function EcosystemSection() {
                     d="M0,20 L-250,150" 
                     stroke="url(#gather-gradient)" 
                     strokeWidth="4" 
-                    strokeDasharray="5,5"
+                    strokeDasharray={activeElement === 'gather' ? '0' : '5,5'}
                     strokeLinecap="round"
                     className="transition-all duration-500"
                     style={{
@@ -163,7 +163,7 @@ export default function EcosystemSection() {
                     d="M0,20 L0,150" 
                     stroke="#E6A54C" 
                     strokeWidth="4" 
-                    strokeDasharray="5,5"
+                    strokeDasharray={activeElement === 'mentor' ? '0' : '5,5'}
                     strokeLinecap="round"
                     className="transition-all duration-500"
                     style={{
@@ -177,7 +177,7 @@ export default function EcosystemSection() {
                     d="M0,20 L250,150" 
                     stroke="url(#serve-gradient)" 
                     strokeWidth="4" 
-                    strokeDasharray="5,5"
+                    strokeDasharray={activeElement === 'serve' ? '0' : '5,5'}
                     strokeLinecap="round"
                     className="transition-all duration-500"
                     style={{
@@ -205,7 +205,7 @@ export default function EcosystemSection() {
               </svg>
 
               {/* Ecosystem elements */}
-              <div className="absolute top-[200px] left-0 right-0 grid grid-cols-3 gap-8">
+              <div className="absolute top-[150px] left-0 right-0 grid grid-cols-3 gap-8">
                 {/* Gather */}
                 <div 
                   className="transition-all duration-300 hover:scale-105"
