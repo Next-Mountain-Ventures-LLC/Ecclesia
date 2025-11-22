@@ -1,21 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 export default function EcosystemSection() {
   const [activeElement, setActiveElement] = useState("gather");
   const [isHovering, setIsHovering] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  
+  // Refs for animation
+  const animationRef = useRef<NodeJS.Timeout | null>(null);
   
   // Auto-rotate through elements when not hovering
   useEffect(() => {
     if (!isHovering) {
-      const timer = setInterval(() => {
-        setActiveElement(prev => {
-          if (prev === "gather") return "mentor";
-          if (prev === "mentor") return "serve";
-          return "gather";
-        });
+      animationRef.current = setInterval(() => {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setActiveElement(prev => {
+            if (prev === "gather") return "mentor";
+            if (prev === "mentor") return "serve";
+            return "gather";
+          });
+          setTimeout(() => setIsAnimating(false), 300);
+        }, 300);
       }, 6000);
       
-      return () => clearInterval(timer);
+      return () => {
+        if (animationRef.current) {
+          clearInterval(animationRef.current);
+        }
+      };
     }
   }, [isHovering]);
 
@@ -27,7 +39,7 @@ export default function EcosystemSection() {
         "We share food, brainstorm ways we can help those around us, and enjoy each other's company. Currently, we meet every Friday night in Midtown and are constantly looking for additional opportunities to hang out."
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
           <circle cx="9" cy="7" r="4" />
           <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -37,7 +49,8 @@ export default function EcosystemSection() {
       image: "/assets/family_gathering_nw_f63ba1cb.jpg",
       linkText: "Learn more about our gatherings",
       linkHref: "/who-we-are",
-      position: 0
+      position: 0,
+      color: "#4D9384"
     },
     mentor: {
       title: "Mentorship & Discipleship",
@@ -46,16 +59,19 @@ export default function EcosystemSection() {
         "Our mentorship meetings include prayer, confession, Bible study, mutual support, and fellowship—creating space for authentic spiritual growth and community."
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 19a6 6 0 0 0-12 0" />
-          <circle cx="8" cy="9" r="4" />
-          <path d="M22 19a6 6 0 0 0-6-6 4 4 0 1 0 0-8" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          <path d="m9 17 3-3 3 3" />
         </svg>
       ),
       image: "/assets/prayer_circle_nw_96b2ff2b.jpg",
       linkText: "Learn more about discipleship",
       linkHref: "/who-we-are",
-      position: 1
+      position: 1,
+      color: "#E6A54C"
     },
     serve: {
       title: "Serving Our Community",
@@ -64,19 +80,17 @@ export default function EcosystemSection() {
         "You do not need to attend a gathering to serve with us. If you would like to serve alongside us, please reach out and let us know how to get plugged in."
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M7 11.5V14a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2.5" />
-          <path d="M12 16v4" />
-          <path d="M10 2v7.5" />
-          <path d="M14 2v7.5" />
-          <path d="M2 11.5h20" />
-          <path d="M21.12 6.4l.67.67a1 1 0 0 1 0 1.41l-.67.67M2.88 6.4l-.67.67a1 1 0 0 0 0 1.41l.67.67" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m7 11 2-2-2-2" />
+          <path d="M11 13h4" />
+          <rect x="1" y="5" width="22" height="14" rx="7" ry="7" />
         </svg>
       ),
       image: "/assets/baptism_nw_f24fce58.jpg",
       linkText: "Contact us to serve together",
       linkHref: "/contact",
-      position: 2
+      position: 2,
+      color: "#8E4D84"
     }
   };
 
@@ -133,7 +147,7 @@ export default function EcosystemSection() {
   };
   
   return (
-    <section className="w-full py-24 bg-primary-50">
+    <section className="w-full py-24 bg-gradient-to-b from-white to-primary-50">
       <div className="container px-4 sm:px-6 md:px-8 mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
@@ -146,85 +160,232 @@ export default function EcosystemSection() {
           </p>
         </div>
         
-        <div className="max-w-6xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Desktop Layout */}
-          <div className="hidden md:flex flex-col items-center">
-            {/* Central Interactive Element */}
-            <div className="relative w-full max-w-2xl mx-auto mb-12"
+          <div className="hidden md:block">
+            {/* Visual Ecosystem Diagram */}
+            <div 
+              className="relative h-[600px] mb-16"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
-              {/* Center circle with content area */}
-              <div className="relative mx-auto w-96 h-96 bg-white rounded-full shadow-lg flex flex-col items-center justify-center p-8 z-20 overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-200 to-transparent"></div>
-                
-                {/* Icon */}
-                <div className="mb-4 w-16 h-16 p-3 rounded-full bg-primary-100 text-primary-600">
-                  {ecosystemElements[activeElement].icon}
+              {/* Center circle */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-white shadow-lg z-20 flex items-center justify-center">
+                <div className="text-center">
+                  <div className="w-14 h-14 mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-700">
+                      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-display font-medium text-primary-800 mt-2">
+                    Ecclesia
+                  </h3>
+                  <p className="text-xs text-primary-600 mt-1">Acts 2:42</p>
                 </div>
-                
-                {/* Title */}
-                <h3 className="text-xl font-display font-medium text-primary-800 mb-3 text-center">
-                  {ecosystemElements[activeElement].title}
-                </h3>
-                
-                {/* Description - shortened for better fit */}
-                <p className="text-primary-600 text-sm text-center mb-3 max-w-xs">
-                  {ecosystemElements[activeElement].description[0].substring(0, 120)}...
-                </p>
-                
-                {/* Link */}
-                <a 
-                  href={ecosystemElements[activeElement].linkHref} 
-                  className="inline-flex items-center text-accent-600 text-sm font-medium hover:text-accent-700 transition-colors mt-auto"
-                >
-                  {ecosystemElements[activeElement].linkText}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
-                    <path d="M5 12h14"></path>
-                    <path d="m12 5 7 7-7 7"></path>
-                  </svg>
-                </a>
+                <div className="absolute inset-0 border-4 border-primary-100 rounded-full"></div>
               </div>
 
-              {/* Surrounding elements in triangular layout */}
-              {Object.entries(ecosystemElements).map(([key, element]) => {
-                const isActive = activeElement === key;
+              {/* Connection lines */}
+              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1000 600" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#E2E8F0" />
+                  </marker>
+                </defs>
                 
-                return (
-                  <div 
-                    key={key}
-                    className="absolute top-1/2 left-1/2"
-                    style={getCirclePosition(element.position)}
-                  >
-                    <button
-                      onClick={() => setActiveElement(key)}
-                      onMouseEnter={() => setActiveElement(key)}
-                      className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 z-10
-                        ${isActive ? colorClasses.active.background + ' ' + colorClasses.active.shadow : colorClasses.inactive.background + ' ' + colorClasses.inactive.shadow}
-                        ${!isActive && colorClasses.inactive.hover}`}
-                    >
-                      <div className={`w-10 h-10 ${isActive ? colorClasses.active.text : colorClasses.inactive.text}`}>
-                        {element.icon}
-                      </div>
+                {/* Connecting lines with gradient */}
+                <g className="transform translate-x-[500px] translate-y-[300px]">
+                  {/* Line to Gather */}
+                  <path 
+                    d="M0,0 L-250,-150" 
+                    stroke="url(#gather-gradient)" 
+                    strokeWidth="4" 
+                    strokeDasharray={activeElement === 'gather' ? '0' : '5,5'}
+                    strokeLinecap="round"
+                    className="transition-all duration-500"
+                    style={{
+                      opacity: isAnimating && activeElement !== 'gather' ? 0.3 : 1,
+                      filter: activeElement === 'gather' ? 'drop-shadow(0 0 4px rgba(77, 147, 132, 0.5))' : 'none'
+                    }}
+                  />
+                  
+                  {/* Line to Mentor */}
+                  <path 
+                    d="M0,0 L220,-150" 
+                    stroke="url(#mentor-gradient)" 
+                    strokeWidth="4" 
+                    strokeDasharray={activeElement === 'mentor' ? '0' : '5,5'}
+                    strokeLinecap="round"
+                    className="transition-all duration-500"
+                    style={{
+                      opacity: isAnimating && activeElement !== 'mentor' ? 0.3 : 1,
+                      filter: activeElement === 'mentor' ? 'drop-shadow(0 0 4px rgba(230, 165, 76, 0.5))' : 'none'
+                    }}
+                  />
+                  
+                  {/* Line to Serve */}
+                  <path 
+                    d="M0,0 L0,180" 
+                    stroke="url(#serve-gradient)" 
+                    strokeWidth="4" 
+                    strokeDasharray={activeElement === 'serve' ? '0' : '5,5'}
+                    strokeLinecap="round"
+                    className="transition-all duration-500"
+                    style={{
+                      opacity: isAnimating && activeElement !== 'serve' ? 0.3 : 1,
+                      filter: activeElement === 'serve' ? 'drop-shadow(0 0 4px rgba(142, 77, 132, 0.5))' : 'none'
+                    }}
+                  />
+                </g>
+                
+                {/* Gradient definitions */}
+                <linearGradient id="gather-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#4D9384" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#4D9384" stopOpacity="1" />
+                </linearGradient>
+                
+                <linearGradient id="mentor-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#E6A54C" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#E6A54C" stopOpacity="1" />
+                </linearGradient>
+                
+                <linearGradient id="serve-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#8E4D84" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#8E4D84" stopOpacity="1" />
+                </linearGradient>
+              </svg>
 
-                      {/* Label for each element */}
-                      <span className={`absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-medium ${isActive ? 'text-primary-800' : 'text-primary-600'} whitespace-nowrap bg-white px-2 py-0.5 rounded-full shadow-sm`}>
-                        {key.charAt(0).toUpperCase() + key.slice(1)}
-                      </span>
-                    </button>
+              {/* Ecosystem elements */}
+              <div 
+                className={`absolute top-[50px] left-[150px] transition-all duration-500 ${isAnimating && activeElement !== 'gather' ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+              >
+                <div 
+                  className={`relative w-80 p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 ${activeElement === 'gather' ? 'ring-2 ring-offset-4 ring-[#4D9384]' : ''}`}
+                  onClick={() => setActiveElement('gather')}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-[#4D9384]"></div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-[#4D9384] bg-opacity-10 rounded-full flex items-center justify-center text-[#4D9384]">
+                      {ecosystemElements.gather.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-display font-medium text-primary-800 mb-2">{ecosystemElements.gather.title}</h3>
+                      <p className="text-primary-600 text-sm mb-4">{ecosystemElements.gather.description[0].substring(0, 120)}...</p>
+                      
+                      <div className={`opacity-0 max-h-0 overflow-hidden transition-all duration-500 ${activeElement === 'gather' ? 'opacity-100 max-h-[500px]' : ''}`}>
+                        <div className="pt-4 border-t border-gray-100">
+                          <p className="text-primary-600 text-sm mb-3">{ecosystemElements.gather.description[1]}</p>
+                          <a 
+                            href={ecosystemElements.gather.linkHref} 
+                            className="inline-flex items-center text-[#4D9384] text-sm font-medium hover:underline"
+                          >
+                            {ecosystemElements.gather.linkText}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
+                              <path d="M5 12h14"></path>
+                              <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                );
-              })}
+                </div>
+              </div>
+
+              <div 
+                className={`absolute top-[50px] right-[150px] transition-all duration-500 ${isAnimating && activeElement !== 'mentor' ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}
+                style={{ transform: 'translate3d(0, 0, 0)' }}
+              >
+                <div 
+                  className={`relative w-80 p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 ${activeElement === 'mentor' ? 'ring-2 ring-offset-4 ring-[#E6A54C]' : ''}`}
+                  onClick={() => setActiveElement('mentor')}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-[#E6A54C]"></div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-[#E6A54C] bg-opacity-10 rounded-full flex items-center justify-center text-[#E6A54C]">
+                      {ecosystemElements.mentor.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-display font-medium text-primary-800 mb-2">{ecosystemElements.mentor.title}</h3>
+                      <p className="text-primary-600 text-sm mb-4">{ecosystemElements.mentor.description[0].substring(0, 120)}...</p>
+                      
+                      <div className={`opacity-0 max-h-0 overflow-hidden transition-all duration-500 ${activeElement === 'mentor' ? 'opacity-100 max-h-[500px]' : ''}`}>
+                        <div className="pt-4 border-t border-gray-100">
+                          <p className="text-primary-600 text-sm mb-3">{ecosystemElements.mentor.description[1]}</p>
+                          <a 
+                            href={ecosystemElements.mentor.linkHref} 
+                            className="inline-flex items-center text-[#E6A54C] text-sm font-medium hover:underline"
+                          >
+                            {ecosystemElements.mentor.linkText}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
+                              <path d="M5 12h14"></path>
+                              <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div 
+                className={`absolute bottom-[50px] left-1/2 transform -translate-x-1/2 transition-all duration-500 ${isAnimating && activeElement !== 'serve' ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}
+                style={{ transform: 'translate3d(-50%, 0, 0)' }}
+              >
+                <div 
+                  className={`relative w-80 p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 ${activeElement === 'serve' ? 'ring-2 ring-offset-4 ring-[#8E4D84]' : ''}`}
+                  onClick={() => setActiveElement('serve')}
+                >
+                  <div className="absolute top-0 left-0 w-full h-1 bg-[#8E4D84]"></div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-[#8E4D84] bg-opacity-10 rounded-full flex items-center justify-center text-[#8E4D84]">
+                      {ecosystemElements.serve.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-display font-medium text-primary-800 mb-2">{ecosystemElements.serve.title}</h3>
+                      <p className="text-primary-600 text-sm mb-4">{ecosystemElements.serve.description[0].substring(0, 120)}...</p>
+                      
+                      <div className={`opacity-0 max-h-0 overflow-hidden transition-all duration-500 ${activeElement === 'serve' ? 'opacity-100 max-h-[500px]' : ''}`}>
+                        <div className="pt-4 border-t border-gray-100">
+                          <p className="text-primary-600 text-sm mb-3">{ecosystemElements.serve.description[1]}</p>
+                          <a 
+                            href={ecosystemElements.serve.linkHref} 
+                            className="inline-flex items-center text-[#8E4D84] text-sm font-medium hover:underline"
+                          >
+                            {ecosystemElements.serve.linkText}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
+                              <path d="M5 12h14"></path>
+                              <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Content Area */}
-            <div className="w-full overflow-hidden rounded-xl bg-white shadow-lg mt-12">
+            {/* Featured Content Area */}
+            <div className="mt-8 overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-700">
               <div className="grid grid-cols-2 items-center">
+                {/* Image */}
+                <div 
+                  className="relative h-96 bg-cover bg-center transition-all duration-700 ease-in-out transform"
+                  style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
+                >
+                  <div className="absolute inset-0" style={{ backgroundColor: `${ecosystemElements[activeElement].color}20` }}></div>
+                  <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/70 to-transparent text-white">
+                    <h3 className="text-2xl font-display font-medium">
+                      {ecosystemElements[activeElement].title}
+                    </h3>
+                  </div>
+                </div>
+                
                 {/* Text Content */}
                 <div className="p-8 md:p-12">
-                  <h3 className="text-2xl font-display font-medium mb-6 text-primary-800">
-                    {ecosystemElements[activeElement].title}
-                  </h3>
                   <div className="text-primary-700 space-y-4">
                     {ecosystemElements[activeElement].description.map((paragraph, idx) => (
                       <p key={idx}>
@@ -235,7 +396,8 @@ export default function EcosystemSection() {
                   <div className="mt-8">
                     <a 
                       href={ecosystemElements[activeElement].linkHref} 
-                      className="inline-flex items-center text-accent-600 font-medium hover:text-accent-700 hover:underline transition-colors"
+                      className="inline-flex items-center font-medium transition-colors hover:underline"
+                      style={{ color: ecosystemElements[activeElement].color }}
                     >
                       {ecosystemElements[activeElement].linkText}
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4">
@@ -245,15 +407,6 @@ export default function EcosystemSection() {
                     </a>
                   </div>
                 </div>
-
-                {/* Image */}
-                <div className="relative">
-                  <div 
-                    className="aspect-[4/3] w-full h-full bg-cover bg-center transition-all duration-700 ease-in-out"
-                    style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
-                  ></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-700/20 to-transparent mix-blend-multiply"></div>
-                </div>
               </div>
             </div>
           </div>
@@ -261,76 +414,74 @@ export default function EcosystemSection() {
           {/* Mobile Layout */}
           <div className="md:hidden">
             <div className="flex flex-col space-y-8">
-              {/* Mobile Navigation */}
-              <div className="relative mx-auto w-full max-w-xs">
-                {/* Central content area */}
-                <div className="w-full bg-white rounded-xl shadow-lg p-6 mb-10">
-                  <div className="flex items-center justify-center mb-4">
-                    <div className="w-14 h-14 p-3 rounded-full bg-primary-100 text-primary-600">
+              {/* Icon Navigation Buttons */}
+              <div className="flex justify-around mb-6 bg-white rounded-xl shadow-lg p-4">
+                {Object.entries(ecosystemElements).map(([key, element]) => {
+                  const isActive = activeElement === key;
+                  
+                  return (
+                    <button
+                      key={key}
+                      onClick={() => setActiveElement(key)}
+                      className={`w-20 h-20 rounded-full flex flex-col items-center justify-center transition-all duration-300
+                        ${isActive ? 'bg-opacity-20' : 'bg-opacity-5'}`}
+                      style={{ 
+                        backgroundColor: element.color, 
+                        color: isActive ? element.color : '#555',
+                        boxShadow: isActive ? `0 0 0 2px ${element.color}` : 'none'
+                      }}
+                    >
+                      <div className={`w-8 h-8`}>
+                        {element.icon}
+                      </div>
+                      <span className={`mt-2 text-xs font-medium`}>
+                        {key.charAt(0).toUpperCase() + key.slice(1)}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Content Card */}
+              <div className="p-0 rounded-xl bg-white shadow-lg overflow-hidden">
+                <div 
+                  className="w-full h-48 bg-cover bg-center" 
+                  style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
+                ></div>
+                <div className="p-6 relative">
+                  <div className="absolute -top-10 left-4 w-16 h-16 rounded-full flex items-center justify-center" 
+                    style={{ backgroundColor: ecosystemElements[activeElement].color }}
+                  >
+                    <div className="text-white w-8 h-8">
                       {ecosystemElements[activeElement].icon}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-display font-medium text-primary-800 mb-3 text-center">
+                  <h3 className="text-xl font-display font-medium text-primary-800 mb-4 mt-2 pl-20">
                     {ecosystemElements[activeElement].title}
                   </h3>
                   
-                  <p className="text-primary-600 text-sm text-center mb-3">
-                    {ecosystemElements[activeElement].description[0].substring(0, 100)}...
-                  </p>
-                </div>
-                
-                {/* Icon Navigation Buttons */}
-                <div className="flex justify-around mb-6">
-                  {Object.entries(ecosystemElements).map(([key, element]) => {
-                    const isActive = activeElement === key;
-                    
-                    return (
-                      <button
-                        key={key}
-                        onClick={() => setActiveElement(key)}
-                        className={`w-20 h-20 rounded-full flex flex-col items-center justify-center transition-all duration-300
-                          ${isActive ? colorClasses.active.background + ' ' + colorClasses.active.shadow : colorClasses.inactive.background + ' ' + colorClasses.inactive.shadow}
-                          ${!isActive && colorClasses.inactive.hover}`}
-                      >
-                        <div className={`w-8 h-8 ${isActive ? colorClasses.active.text : colorClasses.inactive.text}`}>
-                          {element.icon}
-                        </div>
-
-                        {/* Label below icon */}
-                        <span className={`mt-2 text-xs font-medium ${isActive ? 'text-primary-800' : 'text-primary-600'}`}>
-                          {key.charAt(0).toUpperCase() + key.slice(1)}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Mobile Content */}
-              <div className="p-6 rounded-xl bg-white shadow-lg">
-                <div 
-                  className="w-full h-40 mb-4 rounded-lg bg-cover bg-center" 
-                  style={{ backgroundImage: `url('${ecosystemElements[activeElement].image}')` }}
-                ></div>
-                <div className="text-primary-700 space-y-3">
-                  {ecosystemElements[activeElement].description.map((paragraph, idx) => (
-                    <p key={idx} className="text-sm">
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
-                <div className="mt-4">
-                  <a 
-                    href={ecosystemElements[activeElement].linkHref} 
-                    className="inline-flex items-center text-sm text-accent-600 font-medium hover:text-accent-700 hover:underline transition-colors"
-                  >
-                    {ecosystemElements[activeElement].linkText}
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </a>
+                  <div className="text-primary-700 space-y-3">
+                    {ecosystemElements[activeElement].description.map((paragraph, idx) => (
+                      <p key={idx} className="text-sm">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-4">
+                    <a 
+                      href={ecosystemElements[activeElement].linkHref} 
+                      className="inline-flex items-center text-sm font-medium hover:underline transition-colors"
+                      style={{ color: ecosystemElements[activeElement].color }}
+                    >
+                      {ecosystemElements[activeElement].linkText}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-3 w-3">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
