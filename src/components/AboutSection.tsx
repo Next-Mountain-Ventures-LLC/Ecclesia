@@ -148,7 +148,7 @@ export default function AboutSection() {
         <div className="block sm:hidden w-full h-full">
           <div className="grid grid-cols-3 auto-rows-fr h-full w-full">
             {allImages.slice(0, 18).map((img, idx) => (
-              <div key={`mobile-${idx}`} className="relative overflow-hidden p-1 aspect-square">
+              <div key={`mobile-${idx}`} className="relative overflow-hidden p-2 aspect-square">
                 <div
                   className="w-full h-full bg-cover bg-center rounded"
                   style={{ backgroundImage: `url('${img}')` }}

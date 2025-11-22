@@ -9,6 +9,7 @@ export default function EcosystemSection() {
   const animationRef = useRef<NodeJS.Timeout | null>(null);
   
   // Removed auto-rotation functionality as per client request
+  // Handle hover effects
   useEffect(() => {
     // No auto-rotation, only manual interaction
     return () => {
@@ -187,7 +188,7 @@ export default function EcosystemSection() {
                     strokeLinecap="round"
                     className="transition-all duration-500"
                     style={{
-                      opacity: isAnimating && activeElement !== 'gather' ? 0.3 : 1,
+                      opacity: activeElement === 'gather' ? 1 : 0.7,
                       filter: activeElement === 'gather' ? 'drop-shadow(0 0 4px rgba(77, 147, 132, 0.5))' : 'none'
                     }}
                   />
@@ -201,7 +202,7 @@ export default function EcosystemSection() {
                     strokeLinecap="round"
                     className="transition-all duration-500"
                     style={{
-                      opacity: isAnimating && activeElement !== 'mentor' ? 0.3 : 1,
+                      opacity: activeElement === 'mentor' ? 1 : 0.7,
                       filter: activeElement === 'mentor' ? 'drop-shadow(0 0 4px rgba(230, 165, 76, 0.5))' : 'none'
                     }}
                   />
@@ -215,7 +216,7 @@ export default function EcosystemSection() {
                     strokeLinecap="round"
                     className="transition-all duration-500"
                     style={{
-                      opacity: isAnimating && activeElement !== 'serve' ? 0.3 : 1,
+                      opacity: activeElement === 'serve' ? 1 : 0.7,
                       filter: activeElement === 'serve' ? 'drop-shadow(0 0 4px rgba(142, 77, 132, 0.5))' : 'none'
                     }}
                   />
@@ -242,11 +243,13 @@ export default function EcosystemSection() {
               <div className="absolute top-[280px] left-0 right-0 grid grid-cols-3 gap-8">
                 {/* Gather */}
                 <div 
-                  className={`transition-all duration-500 ${isAnimating && activeElement !== 'gather' ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}
+                  className={`transition-all duration-500 ${activeElement === 'gather' ? 'opacity-100 scale-100' : 'opacity-70 scale-95'}`}
                 >
                   <div 
                     className={`relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full ${activeElement === 'gather' ? 'ring-2 ring-offset-4 ring-[#4D9384]' : ''}`}
                     onClick={() => setActiveElement('gather')}
+                    onMouseEnter={() => setActiveElement('gather')}
+                    onMouseLeave={() => setActiveElement('')}
                   >
                     <div className="absolute top-0 left-0 w-full h-1 bg-[#4D9384]"></div>
                     <div className="flex flex-col items-center text-center">
@@ -263,11 +266,13 @@ export default function EcosystemSection() {
 
                 {/* Mentor */}
                 <div 
-                  className={`transition-all duration-500 ${isAnimating && activeElement !== 'mentor' ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}
+                  className={`transition-all duration-500 ${activeElement === 'mentor' ? 'opacity-100 scale-100' : 'opacity-70 scale-95'}`}
                 >
                   <div 
                     className={`relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full ${activeElement === 'mentor' ? 'ring-2 ring-offset-4 ring-[#E6A54C]' : ''}`}
                     onClick={() => setActiveElement('mentor')}
+                    onMouseEnter={() => setActiveElement('mentor')}
+                    onMouseLeave={() => setActiveElement('')}
                   >
                     <div className="absolute top-0 left-0 w-full h-1 bg-[#E6A54C]"></div>
                     <div className="flex flex-col items-center text-center">
@@ -284,11 +289,13 @@ export default function EcosystemSection() {
 
                 {/* Serve */}
                 <div 
-                  className={`transition-all duration-500 ${isAnimating && activeElement !== 'serve' ? 'opacity-50 scale-95' : 'opacity-100 scale-100'}`}
+                  className={`transition-all duration-500 ${activeElement === 'serve' ? 'opacity-100 scale-100' : 'opacity-70 scale-95'}`}
                 >
                   <div 
                     className={`relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full ${activeElement === 'serve' ? 'ring-2 ring-offset-4 ring-[#8E4D84]' : ''}`}
                     onClick={() => setActiveElement('serve')}
+                    onMouseEnter={() => setActiveElement('serve')}
+                    onMouseLeave={() => setActiveElement('')}
                   >
                     <div className="absolute top-0 left-0 w-full h-1 bg-[#8E4D84]"></div>
                     <div className="flex flex-col items-center text-center">
