@@ -36,8 +36,8 @@ export default function GatheringsSection() {
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-primary-100">
                   <span className="text-sm text-primary-600 font-medium">Midtown Tulsa</span>
-                  <a href="/contact" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
-                    Join us
+                  <a href="/gatherings#midtown" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
+                    Learn more
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4">
                       <path d="M5 12h14"></path>
                       <path d="m12 5 7 7-7 7"></path>
@@ -70,8 +70,8 @@ export default function GatheringsSection() {
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-primary-100">
                   <span className="text-sm text-primary-600 font-medium">Southwest Tulsa</span>
-                  <a href="/contact" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
-                    Join us
+                  <a href="/gatherings#southwest" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
+                    Learn more
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4">
                       <path d="M5 12h14"></path>
                       <path d="m12 5 7 7-7 7"></path>
@@ -104,8 +104,8 @@ export default function GatheringsSection() {
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-primary-100">
                   <span className="text-sm text-primary-600 font-medium">Rotating Locations</span>
-                  <a href="/contact" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
-                    Join us
+                  <a href="/gatherings#youth" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
+                    Learn more
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4">
                       <path d="M5 12h14"></path>
                       <path d="m12 5 7 7-7 7"></path>
@@ -126,10 +126,10 @@ export default function GatheringsSection() {
             We believe in growth by division. As our gatherings grow, we encourage them to multiply and form new communities.
           </p>
           <a 
-            href="/contact" 
+            href="/gatherings#join-form" 
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
-            Contact us to get started
+            Learn more about gatherings
           </a>
         </div>
       </div>

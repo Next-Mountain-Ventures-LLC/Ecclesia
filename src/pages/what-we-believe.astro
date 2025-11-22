@@ -1,0 +1,239 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buttonVariants } from "@/components/ui/button";
+
+const title = "What We Believe | Ecclesia Tulsa";
+const description = "Our core beliefs, articles of faith, and values as a Church of the Nazarene affiliate community in Tulsa.";
+
+// Define tabs and content
+const tabs = [
+  {
+    id: "mission",
+    label: "Mission",
+    content: `
+      <h2 class="text-2xl font-display text-primary-800 mb-4">Our Mission</h2>
+      <p class="text-lg font-medium text-primary-700">Making Christlike Disciples in the Nations</p>
+      
+      <p class="mt-4">We are a Great Commission church, commissioned to take the good news of life in Jesus Christ to people everywhere and to spread the message of scriptural holiness across the lands.</p>
+      
+      <h3 class="text-xl font-display text-primary-800 mt-8 mb-2">Our Mission Statement in Action:</h3>
+      <ul class="space-y-2">
+        <li>
+          <span class="font-medium">Worship</span> - Our mission begins in worship, where we celebrate God's presence and are transformed by His Spirit.
+        </li>
+        <li>
+          <span class="font-medium">Evangelism</span> - We share the good news of Jesus Christ in word and deed, inviting others into relationship with Him.
+        </li>
+        <li>
+          <span class="font-medium">Discipleship</span> - We encourage believers toward Christian maturity through intentional relationships and spiritual formation.
+        </li>
+        <li>
+          <span class="font-medium">Compassion</span> - We minister to the world through acts of love and mercy, addressing both spiritual and physical needs.
+        </li>
+        <li>
+          <span class="font-medium">Education</span> - We prepare women and men for Christian service through higher education and ongoing learning.
+        </li>
+      </ul>
+    `
+  },
+  {
+    id: "core-values",
+    label: "Core Values",
+    content: `
+      <h2 class="text-2xl font-display text-primary-800 mb-4">Our Core Values</h2>
+      
+      <div class="my-8">
+        <div class="flex items-start mb-6 pb-6 border-b border-primary-100">
+          <div class="bg-primary-100 p-4 rounded-full mr-4 text-primary-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-display text-primary-800 mb-1">Christian</h3>
+            <p>
+              As members of the Church Universal, we join with all true believers in proclaiming the Lordship of Jesus Christ and affirming the historic Trinitarian creeds and beliefs of the Christian faith. We value our Wesleyan-Holiness heritage and believe it to be a way of understanding the faith that is true to Scripture, reason, tradition, and experience.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex items-start mb-6 pb-6 border-b border-primary-100">
+          <div class="bg-secondary-100 p-4 rounded-full mr-4 text-secondary-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+              <path d="M12 22v-5" />
+              <path d="M9 7V2" />
+              <path d="M15 7V2" />
+              <path d="M5 15a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-2z" />
+              <path d="M8 7h8" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-display text-primary-800 mb-1">Holiness</h3>
+            <p>
+              God, who is holy, calls us to a life of holiness. We believe that the Holy Spirit seeks to do a second work of grace, called by various terms including "entire sanctification" and "baptism with the Holy Spirit"—cleansing from all sin, renewing in the image of God, empowering to love God with whole heart, soul, mind, and strength, and producing the character of Christ. Holiness in the life of believers is most clearly understood as Christlikeness.
+            </p>
+          </div>
+        </div>
+        
+        <div class="flex items-start">
+          <div class="bg-accent-100 p-4 rounded-full mr-4 text-accent-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-display text-primary-800 mb-1">Missional</h3>
+            <p>
+              We are a sent people—into homes, workplaces, communities, and villages as well as other cities and countries. Our mission is to be actively participating in God's mission of reconciling the world to Himself. We do this by proclaiming the gospel, showing compassion, living with justice, and making disciples around the world.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-primary-50 p-6 rounded-lg mt-8">
+        <h3 class="text-xl font-display text-primary-800 mb-2">Seven Characteristics</h3>
+        <p class="mb-4">These values are expressed through these seven key characteristics:</p>
+        <ul class="space-y-1">
+          <li>Meaningful worship</li>
+          <li>Theological coherence</li>
+          <li>Passionate evangelism</li>
+          <li>Intentional discipleship</li>
+          <li>Church development</li>
+          <li>Transformational leadership</li>
+          <li>Purposeful compassion</li>
+        </ul>
+      </div>
+    `
+  },
+  {
+    id: "articles-of-faith",
+    label: "Articles of Faith",
+    content: `
+      <h2 class="text-2xl font-display text-primary-800 mb-6">Articles of Faith</h2>
+      
+      <p class="mb-6">
+        The following are the essential tenets of our faith. While this is not an exhaustive statement of our beliefs, it represents the core doctrines to which we hold:
+      </p>
+      
+      <div class="space-y-6">
+        <div class="border-b border-primary-100 pb-4">
+          <h3 class="text-lg font-medium text-primary-800">1. The Triune God</h3>
+          <p>We believe in one eternally existent, infinite God, Sovereign Creator and Sustainer of the universe; that He only is God, holy in nature, attributes, and purpose. The God who is holy love and light is Triune in essential being, revealed as Father, Son, and Holy Spirit.</p>
+        </div>
+        
+        <div class="border-b border-primary-100 pb-4">
+          <h3 class="text-lg font-medium text-primary-800">2. Jesus Christ</h3>
+          <p>We believe in Jesus Christ, the Second Person of the Triune Godhead; that He was eternally one with the Father; that He became incarnate by the Holy Spirit and was born of the Virgin Mary, so that two whole and perfect natures, that is to say the Godhead and manhood, are thus united in one person very God and very man, the God-man.</p>
+        </div>
+        
+        <div class="border-b border-primary-100 pb-4">
+          <h3 class="text-lg font-medium text-primary-800">3. The Holy Spirit</h3>
+          <p>We believe in the Holy Spirit, the Third Person of the Triune Godhead, that He is ever present and efficiently active in and with the Church of Christ, convincing the world of sin, regenerating those who repent and believe, sanctifying believers, and guiding into all truth as it is in Jesus.</p>
+        </div>
+        
+        <div class="border-b border-primary-100 pb-4">
+          <h3 class="text-lg font-medium text-primary-800">4. The Holy Scriptures</h3>
+          <p>We believe in the plenary inspiration of the Holy Scriptures, by which we understand the 66 books of the Old and New Testaments, given by divine inspiration, inerrantly revealing the will of God concerning us in all things necessary to our salvation, so that whatever is not contained therein is not to be enjoined as an article of faith.</p>
+        </div>
+        
+        <div class="border-b border-primary-100 pb-4">
+          <h3 class="text-lg font-medium text-primary-800">5. Sin, Original and Personal</h3>
+          <p>We believe that sin came into the world through the disobedience of our first parents, and death by sin. We believe that sin is of two kinds: original sin or depravity, and actual or personal sin.</p>
+        </div>
+        
+        <div>
+          <a href="https://nazarene.org/beliefs" target="_blank" rel="noreferrer" class="text-accent-600 hover:text-accent-700 inline-flex items-center">
+            View complete Articles of Faith
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
+              <path d="M7 7h10v10" />
+              <path d="M7 17 17 7" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    `
+  }
+];
+---
+
+<BaseLayout {title} {description}>
+  <div class="container py-12 md:py-20">
+    <div class="mx-auto max-w-4xl text-center">
+      <h1 class="font-display text-3xl font-medium tracking-tight text-primary-800 md:text-5xl">
+        What We Believe
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground md:text-xl">
+        As an affiliate of the Church of the Nazarene, our beliefs are rooted in Scripture and the Wesleyan-Holiness tradition.
+      </p>
+    </div>
+    
+    <div class="mx-auto max-w-3xl mt-12">
+      <!-- Custom tabs implementation -->
+      <div class="w-full">
+        <div class="grid w-full grid-cols-3 bg-muted rounded-lg p-1">
+          {tabs.map((tab) => (
+            <button 
+              id={`tab-${tab.id}`}
+              class={`tab-trigger px-3 py-2 text-sm font-medium rounded-md transition-colors ${tab.id === "mission" ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+              data-tab={tab.id}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
+        
+        <div class="mt-6">
+          {tabs.map((tab) => (
+            <div 
+              id={`tab-content-${tab.id}`} 
+              class={`tab-content bg-white p-6 md:p-8 shadow-sm rounded-lg prose prose-slate max-w-none ${tab.id === "mission" ? "block" : "hidden"}`}
+              set:html={tab.content}
+            />
+          ))}
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center">
+        <a href="/" class={buttonVariants({ variant: "outline" })}>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+            <path d="m12 19-7-7 7-7" />
+            <path d="M19 12H5" />
+          </svg>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  document.addEventListener('astro:page-load', () => {
+    const tabTriggers = document.querySelectorAll('.tab-trigger');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        // Remove active class from all triggers
+        tabTriggers.forEach(t => {
+          t.classList.remove('bg-background', 'text-foreground', 'shadow-sm');
+          t.classList.add('text-muted-foreground', 'hover:text-foreground');
+        });
+        
+        // Add active class to clicked trigger
+        trigger.classList.add('bg-background', 'text-foreground', 'shadow-sm');
+        trigger.classList.remove('text-muted-foreground', 'hover:text-foreground');
+        
+        // Hide all tab contents
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+        });
+        
+        // Show the selected tab content
+        const tabId = trigger.getAttribute('data-tab');
+        document.getElementById(`tab-content-${tabId}`).classList.remove('hidden');
+      });
+    });
+  });
+</script>
