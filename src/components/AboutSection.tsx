@@ -209,10 +209,7 @@ export default function AboutSection() {
             <div className="mt-8 space-y-4">
               <h3 className="text-xl font-display font-medium text-primary-800">Our Vision</h3>
               <p className="text-primary-700">
-                The vision of Ecclesia, Greek for "gathering," is to reach out to people and 
-                show them the love of Jesus. We create a church that follows the biblical 
-                pattern through gathering weekly, mentoring through smaller groups, and serving 
-                our community together.
+                The vision of Ecclesia is to reach out to people and show them the love of Jesus. We create a church that follows the biblical pattern through gathering weekly, mentoring through smaller groups, and serving our community together.
               </p>
             </div>
           </div>
