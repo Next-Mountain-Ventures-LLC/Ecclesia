@@ -1,0 +1,210 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buttonVariants } from "@/components/ui/button";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "james-sarah-johnson" }},
+    { params: { slug: "michael-lisa-rodriguez" }},
+    { params: { slug: "marcus-wilson" }}
+  ];
+}
+
+// Define the leader data (in a real app, this would come from a database or CMS)
+const leaderData = {
+  "james-sarah-johnson": {
+    name: "James & Sarah Johnson",
+    gathering: "Midtown Gathering",
+    role: "Gathering Leaders",
+    bio: "James and Sarah have been hosting the Midtown gathering since 2019. James works as a high school teacher and Sarah is a nurse at St. Francis Hospital. They have a passion for hospitality and creating spaces where authentic community can flourish.",
+    longBio: "James and Sarah met at college in 2010 and have been married since 2015. Both grew up in church communities but found a deeper connection to faith through small group settings during their college years. This experience shaped their vision for ministry and community building.\n\nJames teaches History at Edison High School and coaches the debate team. He is passionate about helping young people develop critical thinking skills and find their voice. Sarah works in the pediatric unit at St. Francis Hospital where she has been for the past 8 years. Her compassionate approach to healthcare has been shaped by her faith journey.\n\nThe Johnsons started hosting the Midtown gathering in their home after being part of a similar community in Kansas City before moving to Tulsa. They believe deeply in the transformative power of breaking bread together and creating space for authentic relationships to form around the study of Scripture.",
+    image: "/assets/1763402076513-37_nw_65b81d79.jpg",
+    gatheringSlug: "midtown",
+    gatheringColor: "primary"
+  },
+  "michael-lisa-rodriguez": {
+    name: "Michael & Lisa Rodriguez",
+    gathering: "Southwest Gathering",
+    role: "Gathering Leaders",
+    bio: "Michael and Lisa have led the Southwest gathering since 2021. Michael is a contractor and Lisa works in elementary education. They're passionate about making Scripture accessible and creating a welcoming environment for families.",
+    longBio: "Michael and Lisa Rodriguez have been married for 12 years and have three children: Emma (10), Noah (8), and Sophia (5). Michael owns a small contracting business specializing in home renovations, while Lisa teaches third grade at a local elementary school.\n\nBoth Michael and Lisa grew up in Southwest Tulsa and have deep roots in the community. They've always had a heart for bringing people together and serving their neighborhood. Their journey with house church ministry began when they participated in a small group that eventually outgrew the host's living room.\n\nIn 2021, they felt called to open their own home and start the Southwest gathering. Their approach to ministry emphasizes hospitality, practical Bible teaching, and intergenerational connections. The Rodriguez family believes that faith should be lived out in everyday moments and that some of the most meaningful spiritual conversations happen around the dinner table.\n\nTheir gathering has become known for its family-friendly atmosphere and commitment to serving the practical needs of their community. Michael often coordinates service projects with gathering members, while Lisa ensures that children are meaningfully integrated into the group's activities and discussions.",
+    image: "/assets/1763402076513-28_nw_391bd714.jpg",
+    gatheringSlug: "southwest",
+    gatheringColor: "secondary"
+  },
+  "marcus-wilson": {
+    name: "Marcus Wilson",
+    gathering: "Youth Gathering",
+    role: "Youth Leader",
+    bio: "Marcus has been leading our youth gathering since 2020. With a background in youth ministry and a degree in counseling, he creates an environment where young people can ask tough questions and grow in their faith.",
+    longBio: "Marcus Wilson grew up in Oklahoma City and moved to Tulsa to attend Oral Roberts University, where he earned his degree in counseling with a minor in theology. During college, he was actively involved in campus ministry and discovered his passion for working with teens and young adults.\n\nAfter graduation, Marcus worked with several youth-focused organizations before connecting with Ecclesia in 2020. He was immediately drawn to the authentic, relationship-based approach to ministry and saw an opportunity to create a space specifically designed for young people to explore faith in a supportive community.\n\nMarcus brings a unique blend of energy, empathy, and theological depth to his leadership. He believes that young people need space to ask difficult questions and wrestle with their faith, all while being surrounded by mentors who can guide them without judgment. His background in counseling has equipped him to address the mental health challenges many young people face today.\n\nThe Youth Gathering moves between different locations to make it accessible to teens throughout Tulsa. Marcus coordinates with parents and other adult volunteers to ensure safe transportation and environments. The gathering has a different format from the adult gatherings, incorporating more activities, discussions, and service projects designed to engage young minds and hearts.\n\nWhen not leading the youth gathering, Marcus works part-time as a school counselor and enjoys rock climbing, playing guitar, and trying new coffee shops around Tulsa.",
+    image: "/assets/1763402076513-48_nw_a493105e.jpg",
+    gatheringSlug: "youth", 
+    gatheringColor: "accent"
+  }
+};
+
+// Get the leader slug from the URL
+const { slug } = Astro.params;
+const leader = leaderData[slug];
+
+// Handle 404 if leader doesn't exist
+if (!leader) {
+  return Astro.redirect('/404');
+}
+
+const title = `${leader.name} | Ecclesia Tulsa Leader`;
+const description = `Learn more about ${leader.name}, leaders of the ${leader.gathering} at Ecclesia Tulsa.`;
+---
+
+<BaseLayout {title} {description}>
+  <div class="container py-12 md:py-20">
+    <div class="mx-auto max-w-4xl">
+      <!-- Breadcrumbs -->
+      <nav class="flex mb-8 text-sm text-muted-foreground" aria-label="Breadcrumb">
+        <ol class="inline-flex items-center space-x-1 md:space-x-2">
+          <li class="inline-flex items-center">
+            <a href="/" class="hover:text-foreground transition-colors">Home</a>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mx-1">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+              <a href={`/${leader.gatheringSlug}`} class="hover:text-foreground transition-colors ml-1 md:ml-2">{leader.gathering}</a>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mx-1">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+              <span class="ml-1 md:ml-2" aria-current="page">{leader.name}</span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- Leader Image and Quick Info -->
+        <div class="md:col-span-1">
+          <div class="sticky top-24">
+            <div class="rounded-xl overflow-hidden mb-6">
+              <img 
+                src={leader.image} 
+                alt={leader.name} 
+                class="w-full h-auto aspect-square object-cover"
+              />
+            </div>
+            
+            <div class={`bg-${leader.gatheringColor}-50 p-6 rounded-xl`}>
+              <h2 class="text-xl font-display font-medium text-primary-800 mb-4">
+                Quick Info
+              </h2>
+              
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class={`bg-${leader.gatheringColor}-100 p-2 rounded-full mr-3 text-${leader.gatheringColor}-700 shrink-0`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium text-primary-800">Role</h3>
+                    <p class="text-xs text-muted-foreground">{leader.role}</p>
+                  </div>
+                </div>
+                
+                <div class="flex items-start">
+                  <div class={`bg-${leader.gatheringColor}-100 p-2 rounded-full mr-3 text-${leader.gatheringColor}-700 shrink-0`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M3 21h18" />
+                      <path d="M9 8h1" />
+                      <path d="M9 12h1" />
+                      <path d="M9 16h1" />
+                      <path d="M14 8h1" />
+                      <path d="M14 12h1" />
+                      <path d="M14 16h1" />
+                      <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 class="text-sm font-medium text-primary-800">Gathering</h3>
+                    <p class="text-xs text-muted-foreground">{leader.gathering}</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-6">
+                <a 
+                  href={`/${leader.gatheringSlug}`} 
+                  class={`inline-flex items-center text-${leader.gatheringColor}-700 hover:text-${leader.gatheringColor}-800 transition-colors text-sm font-medium`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+                    <path d="M19 12H5" />
+                    <path d="M12 19l-7-7 7-7" />
+                  </svg>
+                  Back to {leader.gathering}
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Leader Bio and Details -->
+        <div class="md:col-span-2">
+          <h1 class="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
+            {leader.name}
+          </h1>
+          
+          <div class={`inline-block mb-6 rounded-full px-4 py-1 bg-${leader.gatheringColor}-100 text-${leader.gatheringColor}-700 font-medium text-xs`}>
+            {leader.gathering} Leader
+          </div>
+          
+          <div class="prose prose-slate max-w-none">
+            {leader.longBio.split("\n\n").map(paragraph => (
+              <p>{paragraph}</p>
+            ))}
+          </div>
+          
+          <div class="mt-12 pt-8 border-t border-primary-100">
+            <h2 class="text-2xl font-display font-medium text-primary-800 mb-6">
+              Get in Touch
+            </h2>
+            
+            <p class="text-muted-foreground mb-6">
+              Interested in connecting with {leader.name.includes("&") ? "the " + leader.name.split("&")[0].trim() + " family" : leader.name}? Fill out our contact form and mention them by name.
+            </p>
+            
+            <a 
+              href="/#contact" 
+              class={buttonVariants({ variant: leader.gatheringColor })}
+            >
+              Contact Us
+            </a>
+          </div>
+          
+          <div class="mt-12 pt-8 border-t border-primary-100">
+            <h2 class="text-2xl font-display font-medium text-primary-800 mb-6">
+              Join a Gathering
+            </h2>
+            
+            <p class="text-muted-foreground mb-6">
+              Want to experience the {leader.gathering} for yourself? We'd love to have you join us!
+            </p>
+            
+            <a 
+              href={`/${leader.gatheringSlug}#join-form`} 
+              class={buttonVariants({ variant: leader.gatheringColor })}
+            >
+              Join the {leader.gathering}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

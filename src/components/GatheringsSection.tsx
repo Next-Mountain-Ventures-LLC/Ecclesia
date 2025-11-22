@@ -20,8 +20,11 @@ export default function GatheringsSection() {
             <div className="rounded-xl overflow-hidden bg-white shadow-md h-full transition-all duration-300 group-hover:shadow-xl">
               <div className="h-48 bg-primary-200 overflow-hidden">
                 <div 
-                  className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/assets/1763402076513-35_nw_c6a83dff.jpg')" }}
+                  className="w-full h-full bg-cover transition-transform duration-500 group-hover:scale-105"
+                  style={{ 
+                    backgroundImage: "url('/assets/1763402076513-35_nw_c6a83dff.jpg')",
+                    backgroundPosition: "center top -75px" 
+                  }}
                 ></div>
               </div>
               <div className="p-6">

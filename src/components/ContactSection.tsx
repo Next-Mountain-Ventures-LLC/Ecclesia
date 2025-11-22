@@ -237,71 +237,18 @@ export default function ContactSection() {
                   <label htmlFor="gathering" className="block text-sm font-medium text-primary-700 mb-1">
                     Select a Gathering
                   </label>
-                  <div className="flex justify-between mt-2 mb-4">
-                    <button
-                      type="button"
-                      onClick={() => setFormData(prev => ({ ...prev, gathering: "midtown" }))}
-                      className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
-                        formData.gathering === "midtown" ? "bg-primary-100 ring-2 ring-primary-500" : "bg-gray-50 hover:bg-gray-100"
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-primary-200 flex items-center justify-center mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-700">
-                          <path d="M3 21h18" />
-                          <path d="M19 21v-4" />
-                          <path d="M5 21v-4" />
-                          <path d="M9 8H1m22 0h-8" />
-                          <path d="M10 12V3l2 2 2-2v9" />
-                        </svg>
-                      </div>
-                      <span className="text-xs font-medium">Midtown</span>
-                    </button>
-                    
-                    <button
-                      type="button"
-                      onClick={() => setFormData(prev => ({ ...prev, gathering: "southwest" }))}
-                      className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
-                        formData.gathering === "southwest" ? "bg-primary-100 ring-2 ring-primary-500" : "bg-gray-50 hover:bg-gray-100"
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-secondary-200 flex items-center justify-center mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-secondary-700">
-                          <path d="M18 7c0-5.333-8-5.333-8 0" />
-                          <path d="M10 7V6" />
-                          <path d="M18 7v1" />
-                          <path d="M10 7v6c0 4 8 4 8 0V7" />
-                          <path d="M6 21v-4" />
-                          <path d="M2 21v-4" />
-                          <path d="M2 17h12" />
-                          <path d="M14 17c-1.333-2.667-2-4-2-4s-.667 1.333-2 4" />
-                        </svg>
-                      </div>
-                      <span className="text-xs font-medium">Southwest</span>
-                    </button>
-                    
-                    <button
-                      type="button"
-                      onClick={() => setFormData(prev => ({ ...prev, gathering: "youth" }))}
-                      className={`flex flex-col items-center p-2 rounded-lg transition-colors ${
-                        formData.gathering === "youth" ? "bg-primary-100 ring-2 ring-primary-500" : "bg-gray-50 hover:bg-gray-100"
-                      }`}
-                    >
-                      <div className="w-12 h-12 rounded-full bg-accent-200 flex items-center justify-center mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent-700">
-                          <circle cx="7" cy="5" r="3" />
-                          <path d="M10 8.5V6a1.94 1.94 0 0 0-3.64-.89" />
-                          <path d="M7 10v11" />
-                          <path d="M21 17v-6.34a3 3 0 0 0-1.66-2.69l-1.14-.57A8.6 8.6 0 0 0 14.73 7h-.73v10" />
-                          <path d="M14 13h2.5" />
-                          <path d="M14 17h2.5" />
-                          <path d="M3.23 10.6A8 8 0 0 0 2 14.4v1.6c0 2.76 2.24 5 5 5 2.26 0 4.16-1.5 4.78-3.55" />
-                        </svg>
-                      </div>
-                      <span className="text-xs font-medium">Youth</span>
-                    </button>
-                  </div>
-                  
-                  <input type="hidden" name="gathering" value={formData.gathering || ''} />
+                  <select
+                    id="gathering"
+                    name="gathering"
+                    value={formData.gathering}
+                    onChange={handleInputChange}
+                    className="w-full px-3 py-2 border border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                  >
+                    <option value="" disabled>Choose a gathering...</option>
+                    <option value="midtown">Midtown Gathering</option>
+                    <option value="southwest">Southwest Gathering</option>
+                    <option value="youth">Youth Gathering</option>
+                  </select>
                   
                   <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-1">
                     Tell us more about yourself
