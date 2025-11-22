@@ -148,7 +148,7 @@ export default function AboutSection() {
         <div className="block sm:hidden w-full h-full">
           <div className="grid grid-cols-3 auto-rows-fr h-full w-full">
             {allImages.slice(0, 18).map((img, idx) => (
-              <div key={`mobile-${idx}`} className="relative overflow-hidden p-0.5 aspect-square">
+              <div key={`mobile-${idx}`} className="relative overflow-hidden p-1 aspect-square">
                 <div
                   className="w-full h-full bg-cover bg-center rounded"
                   style={{ backgroundImage: `url('${img}')` }}
@@ -162,7 +162,7 @@ export default function AboutSection() {
         <div className="hidden sm:block md:hidden w-full h-full">
           <div className="grid grid-cols-4 auto-rows-fr h-full w-full">
             {allImages.slice(0, 24).map((img, idx) => (
-              <div key={`tablet-${idx}`} className="relative overflow-hidden p-0.5 aspect-square">
+              <div key={`tablet-${idx}`} className="relative overflow-hidden p-1 aspect-square">
                 <div
                   className="w-full h-full bg-cover bg-center rounded"
                   style={{ backgroundImage: `url('${img}')` }}
@@ -176,7 +176,7 @@ export default function AboutSection() {
         <div className="hidden md:block w-full h-full">
           <div className="grid grid-cols-6 auto-rows-fr h-full w-full">
             {allImages.map((img, idx) => (
-              <div key={`desktop-${idx}`} className="relative overflow-hidden p-0.5 aspect-square">
+              <div key={`desktop-${idx}`} className="relative overflow-hidden p-1 aspect-square">
                 <div
                   className="w-full h-full bg-cover bg-center rounded"
                   style={{ backgroundImage: `url('${img}')` }}
