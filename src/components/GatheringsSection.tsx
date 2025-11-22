@@ -23,7 +23,7 @@ export default function GatheringsSection() {
                   className="w-full h-full bg-cover transition-transform duration-500 group-hover:scale-105"
                   style={{ 
                     backgroundImage: "url('/assets/1763402076513-35_nw_c6a83dff.jpg')",
-                    backgroundPosition: "center top -75px" 
+                    backgroundPosition: "center top -150px" 
                   }}
                 ></div>
               </div>

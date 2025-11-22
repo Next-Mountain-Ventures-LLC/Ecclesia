@@ -214,7 +214,7 @@ export default function ContactSection() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                   />
                 </div>
 
@@ -229,7 +229,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 py-2 border border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                   />
                 </div>
 
@@ -242,14 +242,16 @@ export default function ContactSection() {
                     name="gathering"
                     value={formData.gathering}
                     onChange={handleInputChange}
-                    className="w-full px-3 py-2 border border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                   >
                     <option value="" disabled>Choose a gathering...</option>
                     <option value="midtown">Midtown Gathering</option>
                     <option value="southwest">Southwest Gathering</option>
                     <option value="youth">Youth Gathering</option>
                   </select>
-                  
+                </div>
+                
+                <div className="mt-6">
                   <label htmlFor="message" className="block text-sm font-medium text-primary-700 mb-1">
                     Tell us more about yourself
                   </label>
@@ -260,7 +262,7 @@ export default function ContactSection() {
                     onChange={handleInputChange}
                     required
                     rows={5}
-                    className="w-full px-3 py-2 border border-primary-200 rounded-md focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
                     placeholder="Share a bit about yourself and why you're interested in joining our community..."
                   />
                 </div>
