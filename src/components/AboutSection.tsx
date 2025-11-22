@@ -4,6 +4,8 @@ export default function AboutSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [allImages, setAllImages] = useState<string[]>([]);
+  // State to track if user is hovering
+  const [isHovering, setIsHovering] = useState(false);
 
   // Core values for the interactive section
   const values = [
@@ -131,9 +133,6 @@ export default function AboutSection() {
       }, 300);
     }
   };
-  
-  // State to track if user is hovering
-  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <div id="about" className="relative w-full py-20 overflow-hidden" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.97), rgba(255,255,255,0.97))' }}>
