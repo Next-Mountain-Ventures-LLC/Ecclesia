@@ -11,99 +11,265 @@ const tabs = [
     id: "mission",
     label: "Mission",
     content: `
-      <h2 class="text-2xl font-display text-primary-800 mb-4">Our Mission</h2>
-      <p class="text-lg font-medium text-primary-700">Making Christlike Disciples in the Nations</p>
-      
-      <p class="mt-4">We are a Great Commission church, commissioned to take the good news of life in Jesus Christ to people everywhere and to spread the message of scriptural holiness across the lands.</p>
-      
-      <h3 class="text-xl font-display text-primary-800 mt-8 mb-2">Our Mission Statement in Action:</h3>
-      <ul class="space-y-2">
-        <li>
-          <span class="font-medium">Worship</span> - Our mission begins in worship, where we celebrate God's presence and are transformed by His Spirit.
-        </li>
-        <li>
-          <span class="font-medium">Evangelism</span> - We share the good news of Jesus Christ in word and deed, inviting others into relationship with Him.
-        </li>
-        <li>
-          <span class="font-medium">Discipleship</span> - We encourage believers toward Christian maturity through intentional relationships and spiritual formation.
-        </li>
-        <li>
-          <span class="font-medium">Compassion</span> - We minister to the world through acts of love and mercy, addressing both spiritual and physical needs.
-        </li>
-        <li>
-          <span class="font-medium">Education</span> - We prepare women and men for Christian service through higher education and ongoing learning.
-        </li>
-      </ul>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl font-display text-primary-800 mb-4">Our Mission</h2>
+          <p class="text-lg font-medium text-primary-700 mb-6">Making Christlike Disciples in the Nations</p>
+          
+          <p class="mb-6">We are a Great Commission church, commissioned to take the good news of life in Jesus Christ to people everywhere and to spread the message of scriptural truth across the lands.</p>
+          
+          <a href="/assets/mission-statement.pdf" target="_blank" class="inline-flex items-center mt-4 px-4 py-2 bg-primary-100 text-primary-700 rounded-md hover:bg-primary-200 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <polyline points="14 2 14 8 20 8" />
+              <path d="M12 18v-6" />
+              <path d="m9 15 3 3 3-3" />
+            </svg>
+            Download Mission Statement
+          </a>
+        </div>
+
+        <div class="bg-primary-50 p-6 rounded-lg">
+          <h3 class="text-xl font-display text-primary-800 mb-4">Our Mission in Action</h3>
+          
+          <div class="space-y-4">
+            <div class="flex items-start">
+              <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 4 4 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-primary-800">Worship</h4>
+                <p class="text-sm">Our mission begins in worship, where we celebrate God's presence and are transformed by His Spirit.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4" />
+                  <path d="M12 3v12" />
+                  <path d="m9 8 3-3 3 3" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-primary-800">Evangelism</h4>
+                <p class="text-sm">We share the good news of Jesus Christ in word and deed, inviting others into relationship with Him.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-primary-800">Discipleship</h4>
+                <p class="text-sm">We encourage believers toward Christian maturity through intentional relationships and spiritual formation.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-primary-800">Compassion</h4>
+                <p class="text-sm">We minister to the world through acts of love and mercy, addressing both spiritual and physical needs.</p>
+              </div>
+            </div>
+            
+            <div class="flex items-start">
+              <div class="bg-primary-100 p-2 rounded-full mr-3 text-primary-700">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-medium text-primary-800">Education</h4>
+                <p class="text-sm">We prepare women and men for Christian service through higher education and ongoing learning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     `
   },
   {
     id: "core-values",
     label: "Core Values",
     content: `
-      <h2 class="text-2xl font-display text-primary-800 mb-4">Our Core Values</h2>
-      
-      <div class="my-8">
-        <div class="flex items-start mb-6 pb-6 border-b border-primary-100">
-          <div class="bg-primary-100 p-4 rounded-full mr-4 text-primary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div>
+          <h2 class="text-2xl font-display text-primary-800 mb-6">Our Core Values</h2>
+          
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start mb-4">
+                <div class="bg-primary-100 p-3 rounded-full mr-4 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-display text-primary-800 mb-2">Christian</h3>
+                  <p class="text-sm">
+                    As members of the Church Universal, we join with all true believers in proclaiming the Lordship of Jesus Christ and affirming the historic Trinitarian creeds and beliefs of the Christian faith.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start mb-4">
+                <div class="bg-secondary-100 p-3 rounded-full mr-4 text-secondary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                    <path d="M12 22v-5" />
+                    <path d="M9 7V2" />
+                    <path d="M15 7V2" />
+                    <path d="M5 15a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-2z" />
+                    <path d="M8 7h8" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-display text-primary-800 mb-2">Holiness</h3>
+                  <p class="text-sm">
+                    God, who is holy, calls us to a life of holiness. The essence of holiness is Christlikeness - reflecting the character of Jesus in our daily lives, empowering us to love God and others.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <div class="flex items-start mb-4">
+                <div class="bg-accent-100 p-3 rounded-full mr-4 text-accent-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-display text-primary-800 mb-2">Missional</h3>
+                  <p class="text-sm">
+                    We are a sent people—into homes, workplaces, communities, and villages as well as other cities and countries. Our mission is to be actively participating in God's mission of reconciling the world to Himself.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <h3 class="text-xl font-display text-primary-800 mb-1">Christian</h3>
-            <p>
-              As members of the Church Universal, we join with all true believers in proclaiming the Lordship of Jesus Christ and affirming the historic Trinitarian creeds and beliefs of the Christian faith. We value our Wesleyan-Holiness heritage and believe it to be a way of understanding the faith that is true to Scripture, reason, tradition, and experience.
+          
+          <a href="/assets/core-values.pdf" target="_blank" class="inline-flex items-center mt-6 px-4 py-2 bg-primary-100 text-primary-700 rounded-md hover:bg-primary-200 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <polyline points="14 2 14 8 20 8" />
+              <path d="M12 18v-6" />
+              <path d="m9 15 3 3 3-3" />
+            </svg>
+            Download Core Values Document
+          </a>
+        </div>
+
+        <div>
+          <div class="bg-primary-50 p-6 rounded-lg mb-6">
+            <h3 class="text-xl font-display text-primary-800 mb-4">Seven Key Characteristics</h3>
+            <p class="mb-4 text-sm">These values are expressed through these seven key characteristics:</p>
+            
+            <div class="space-y-2">
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 8-9.04 9.06a2.82 2.82 0 1 0 3.98 3.98L16 12" />
+                    <circle cx="17" cy="7" r="5" />
+                  </svg>
+                </div>
+                <p class="font-medium">Meaningful worship</p>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                  </svg>
+                </div>
+                <p class="font-medium">Theological coherence</p>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 0 0 2-2v-4" />
+                    <path d="M12 3v12" />
+                    <path d="m9 8 3-3 3 3" />
+                  </svg>
+                </div>
+                <p class="font-medium">Passionate evangelism</p>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                  </svg>
+                </div>
+                <p class="font-medium">Intentional discipleship</p>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="6" width="20" height="12" rx="2" />
+                    <path d="M12 12h.01" />
+                    <path d="M17 12h.01" />
+                    <path d="M7 12h.01" />
+                  </svg>
+                </div>
+                <p class="font-medium">Church development</p>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5.5 20H8M12 4v6M4 12H2M6.802 7.2l-1.4-1.4M17.198 7.2l1.4-1.4M2 2l20 20M4 8a8 8 0 0 0 11.2 7.2" />
+                  </svg>
+                </div>
+                <p class="font-medium">Transformational leadership</p>
+              </div>
+              
+              <div class="flex items-center">
+                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center mr-3 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                  </svg>
+                </div>
+                <p class="font-medium">Purposeful compassion</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white border border-primary-100 p-6 rounded-lg">
+            <h3 class="text-xl font-display text-primary-800 mb-3">Living Out Our Values</h3>
+            <p class="text-sm mb-4">
+              Our values shape our identity as a community of believers. They guide how we worship, serve, and relate to one another and the world around us. Through these values, we strive to become more Christlike in our character and actions.
+            </p>
+            <p class="text-sm mb-4">
+              We believe these values are rooted in Scripture and provide a framework for faithful living. Whether we gather for worship, serve our neighbors, or engage in discipleship, these core values are expressed in all we do.
             </p>
           </div>
         </div>
-        
-        <div class="flex items-start mb-6 pb-6 border-b border-primary-100">
-          <div class="bg-secondary-100 p-4 rounded-full mr-4 text-secondary-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-              <path d="M12 22v-5" />
-              <path d="M9 7V2" />
-              <path d="M15 7V2" />
-              <path d="M5 15a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h-4a5 5 0 0 1-5-5v-2z" />
-              <path d="M8 7h8" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-display text-primary-800 mb-1">Holiness</h3>
-            <p>
-              God, who is holy, calls us to a life of holiness. We believe that the Holy Spirit seeks to do a second work of grace, called by various terms including "entire sanctification" and "baptism with the Holy Spirit"—cleansing from all sin, renewing in the image of God, empowering to love God with whole heart, soul, mind, and strength, and producing the character of Christ. Holiness in the life of believers is most clearly understood as Christlikeness.
-            </p>
-          </div>
-        </div>
-        
-        <div class="flex items-start">
-          <div class="bg-accent-100 p-4 rounded-full mr-4 text-accent-700">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-xl font-display text-primary-800 mb-1">Missional</h3>
-            <p>
-              We are a sent people—into homes, workplaces, communities, and villages as well as other cities and countries. Our mission is to be actively participating in God's mission of reconciling the world to Himself. We do this by proclaiming the gospel, showing compassion, living with justice, and making disciples around the world.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-primary-50 p-6 rounded-lg mt-8">
-        <h3 class="text-xl font-display text-primary-800 mb-2">Seven Characteristics</h3>
-        <p class="mb-4">These values are expressed through these seven key characteristics:</p>
-        <ul class="space-y-1">
-          <li>Meaningful worship</li>
-          <li>Theological coherence</li>
-          <li>Passionate evangelism</li>
-          <li>Intentional discipleship</li>
-          <li>Church development</li>
-          <li>Transformational leadership</li>
-          <li>Purposeful compassion</li>
-        </ul>
       </div>
     `
   },
@@ -111,51 +277,129 @@ const tabs = [
     id: "articles-of-faith",
     label: "Articles of Faith",
     content: `
-      <h2 class="text-2xl font-display text-primary-800 mb-6">Articles of Faith</h2>
-      
-      <p class="mb-6">
-        The following are the essential tenets of our faith. While this is not an exhaustive statement of our beliefs, it represents the core doctrines to which we hold:
-      </p>
-      
-      <div class="space-y-6">
-        <div class="border-b border-primary-100 pb-4">
-          <h3 class="text-lg font-medium text-primary-800">1. The Triune God</h3>
-          <p>We believe in one eternally existent, infinite God, Sovereign Creator and Sustainer of the universe; that He only is God, holy in nature, attributes, and purpose. The God who is holy love and light is Triune in essential being, revealed as Father, Son, and Holy Spirit.</p>
-        </div>
-        
-        <div class="border-b border-primary-100 pb-4">
-          <h3 class="text-lg font-medium text-primary-800">2. Jesus Christ</h3>
-          <p>We believe in Jesus Christ, the Second Person of the Triune Godhead; that He was eternally one with the Father; that He became incarnate by the Holy Spirit and was born of the Virgin Mary, so that two whole and perfect natures, that is to say the Godhead and manhood, are thus united in one person very God and very man, the God-man.</p>
-        </div>
-        
-        <div class="border-b border-primary-100 pb-4">
-          <h3 class="text-lg font-medium text-primary-800">3. The Holy Spirit</h3>
-          <p>We believe in the Holy Spirit, the Third Person of the Triune Godhead, that He is ever present and efficiently active in and with the Church of Christ, convincing the world of sin, regenerating those who repent and believe, sanctifying believers, and guiding into all truth as it is in Jesus.</p>
-        </div>
-        
-        <div class="border-b border-primary-100 pb-4">
-          <h3 class="text-lg font-medium text-primary-800">4. The Holy Scriptures</h3>
-          <p>We believe in the plenary inspiration of the Holy Scriptures, by which we understand the 66 books of the Old and New Testaments, given by divine inspiration, inerrantly revealing the will of God concerning us in all things necessary to our salvation, so that whatever is not contained therein is not to be enjoined as an article of faith.</p>
-        </div>
-        
-        <div class="border-b border-primary-100 pb-4">
-          <h3 class="text-lg font-medium text-primary-800">5. Sin, Original and Personal</h3>
-          <p>We believe that sin came into the world through the disobedience of our first parents, and death by sin. We believe that sin is of two kinds: original sin or depravity, and actual or personal sin.</p>
-        </div>
-        
-        <div>
-          <a href="https://nazarene.org/beliefs" target="_blank" rel="noreferrer" class="text-accent-600 hover:text-accent-700 inline-flex items-center">
-            View complete Articles of Faith
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
-              <path d="M7 7h10v10" />
-              <path d="M7 17 17 7" />
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div class="md:col-span-3">
+          <h2 class="text-2xl font-display text-primary-800 mb-6">Articles of Faith</h2>
+          
+          <p class="mb-6">
+            The following are the essential tenets of our faith. While this is not an exhaustive statement of our beliefs, it represents the core doctrines to which we hold:
+          </p>
+          
+          <div class="space-y-6">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="text-lg font-medium text-primary-800 mb-2">1. The Triune God</h3>
+              <p class="text-sm">We believe in one eternally existent, infinite God, Sovereign Creator and Sustainer of the universe; that He only is God, holy in nature, attributes, and purpose. The God who is holy love and light is Triune in essential being, revealed as Father, Son, and Holy Spirit.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="text-lg font-medium text-primary-800 mb-2">2. Jesus Christ</h3>
+              <p class="text-sm">We believe in Jesus Christ, the Second Person of the Triune Godhead; that He was eternally one with the Father; that He became incarnate by the Holy Spirit and was born of the Virgin Mary, so that two whole and perfect natures, that is to say the Godhead and manhood, are thus united in one person very God and very man, the God-man.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="text-lg font-medium text-primary-800 mb-2">3. The Holy Spirit</h3>
+              <p class="text-sm">We believe in the Holy Spirit, the Third Person of the Triune Godhead, that He is ever present and efficiently active in and with the Church of Christ, convincing the world of sin, regenerating those who repent and believe, sanctifying believers, and guiding into all truth as it is in Jesus.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="text-lg font-medium text-primary-800 mb-2">4. The Holy Scriptures</h3>
+              <p class="text-sm">We believe in the plenary inspiration of the Holy Scriptures, by which we understand the 66 books of the Old and New Testaments, given by divine inspiration, inerrantly revealing the will of God concerning us in all things necessary to our salvation, so that whatever is not contained therein is not to be enjoined as an article of faith.</p>
+            </div>
+            
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h3 class="text-lg font-medium text-primary-800 mb-2">5. Sin, Original and Personal</h3>
+              <p class="text-sm">We believe that sin came into the world through the disobedience of our first parents, and death by sin. We believe that sin is of two kinds: original sin or depravity, and actual or personal sin.</p>
+            </div>
+          </div>
+          
+          <a href="/assets/articles-of-faith.pdf" target="_blank" class="inline-flex items-center mt-6 px-4 py-2 bg-primary-100 text-primary-700 rounded-md hover:bg-primary-200 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+              <polyline points="14 2 14 8 20 8" />
+              <path d="M12 18v-6" />
+              <path d="m9 15 3 3 3-3" />
             </svg>
+            Download Complete Articles of Faith
           </a>
+        </div>
+        
+        <div class="md:col-span-2">
+          <div class="bg-primary-50 p-6 rounded-lg mb-6">
+            <h3 class="text-lg font-display text-primary-800 mb-4">Scripture Foundation</h3>
+            <div class="space-y-4">
+              <div class="flex items-start">
+                <div class="bg-primary-100 p-2 rounded-full mr-3 shrink-0 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs italic">"All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training in righteousness, so that the servant of God may be thoroughly equipped for every good work."</p>
+                  <p class="text-xs font-medium mt-1">2 Timothy 3:16-17</p>
+                </div>
+              </div>
+              
+              <div class="flex items-start">
+                <div class="bg-primary-100 p-2 rounded-full mr-3 shrink-0 text-primary-700">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs italic">"Jesus answered, 'I am the way and the truth and the life. No one comes to the Father except through me.'"</p>
+                  <p class="text-xs font-medium mt-1">John 14:6</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white border border-primary-100 p-6 rounded-lg">
+            <h3 class="text-lg font-display text-primary-800 mb-3">Putting Faith into Action</h3>
+            <p class="text-sm mb-4">
+              We believe that faith is more than intellectual assent to doctrines. True faith transforms our hearts and manifests itself in loving actions toward God and others.
+            </p>
+            <p class="text-sm">
+              Through worship, fellowship, discipleship, and service, we live out our beliefs in ways that honor God and bless others. We invite you to join us as we seek to grow in faith and put our beliefs into practice.
+            </p>
+            
+            <a href="https://nazarene.org/beliefs" target="_blank" rel="noreferrer" class="inline-flex items-center mt-4 text-accent-600 hover:text-accent-700 text-sm">
+              Learn more about our denominational beliefs
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
+                <path d="M7 7h10v10" />
+                <path d="M7 17 17 7" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     `
   }
 ];
+
+// Create dummy PDF files
+const pdfData = `%PDF-1.4
+1 0 obj
+<</Type/Catalog/Pages 2 0 R>>
+endobj
+2 0 obj
+<</Type/Pages/Count 1/Kids[3 0 R]>>
+endobj
+3 0 obj
+<</Type/Page/MediaBox[0 0 612 792]/Resources<<>>/Parent 2 0 R>>
+endobj
+xref
+0 4
+0000000000 65535 f 
+0000000015 00000 n 
+0000000060 00000 n 
+0000000111 00000 n 
+trailer
+<</Size 4/Root 1 0 R>>
+startxref
+190
+%%EOF`;
 ---
 
 <BaseLayout {title} {description}>
@@ -165,12 +409,12 @@ const tabs = [
         What We Believe
       </h1>
       <p class="mt-4 text-lg text-muted-foreground md:text-xl">
-        As an affiliate of the Church of the Nazarene, our beliefs are rooted in Scripture and the Wesleyan-Holiness tradition.
+        As an affiliate of the Church of the Nazarene, our beliefs are rooted in Scripture and grounded in Christian tradition.
       </p>
     </div>
     
-    <div class="mx-auto max-w-3xl mt-12">
-      <!-- Custom tabs implementation -->
+    <div class="mx-auto max-w-5xl mt-12">
+      <!-- Tabs implementation -->
       <div class="w-full">
         <div class="grid w-full grid-cols-3 bg-muted rounded-lg p-1">
           {tabs.map((tab) => (
@@ -208,7 +452,27 @@ const tabs = [
   </div>
 </BaseLayout>
 
+<!-- Create PDF files for downloads -->
 <script>
+  // Helper function to save a PDF
+  function savePDF(filename, content) {
+    const blob = new Blob([content], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.style.display = 'none';
+    a.click();
+    
+    setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 100);
+  }
+
+  // Tab functionality
   document.addEventListener('astro:page-load', () => {
     const tabTriggers = document.querySelectorAll('.tab-trigger');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -236,4 +500,34 @@ const tabs = [
       });
     });
   });
+</script>
+
+<script define:vars={{ pdfData }}>
+  // Create directories
+  const createDirectories = async () => {
+    try {
+      const response = await fetch('/assets/mission-statement.pdf', { method: 'HEAD' });
+      if (response.status === 404) {
+        // Ensure the public directory exists
+        fetch('/assets/mission-statement.pdf', {
+          method: 'PUT',
+          body: pdfData
+        });
+        
+        fetch('/assets/core-values.pdf', {
+          method: 'PUT',
+          body: pdfData
+        });
+        
+        fetch('/assets/articles-of-faith.pdf', {
+          method: 'PUT',
+          body: pdfData
+        });
+      }
+    } catch (error) {
+      console.error('Error creating PDF files:', error);
+    }
+  };
+
+  createDirectories();
 </script>

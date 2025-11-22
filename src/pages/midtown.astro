@@ -1,0 +1,234 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buttonVariants } from "@/components/ui/button";
+import MidtownForm from "@/components/MidtownForm";
+
+const title = "Midtown Gathering | Ecclesia Tulsa";
+const description = "Join our Midtown Gathering on Sundays at 5:00 PM for fellowship, Bible study, and community in Midtown Tulsa.";
+
+const gathering = {
+  id: "midtown",
+  name: "Midtown Gathering",
+  time: "Sundays at 5:00 PM",
+  location: "Midtown Tulsa",
+  description: "Our original gathering located in the heart of Midtown Tulsa. We share a meal together, study Scripture, pray, and build deep connections.",
+  details: "The Midtown Gathering is where Ecclesia began. Meeting in a cozy home near 21st and Peoria, this gathering has a mix of young professionals, families, and seniors creating a rich, intergenerational community. We start with a potluck meal at 5:00 PM, followed by a discussion-based study of Scripture that encourages questions and participation from everyone. Children are welcome and often participate in age-appropriate activities during the discussion portion.",
+  mapLocation: "Midtown+Tulsa",
+  leaders: {
+    names: "James & Sarah Johnson",
+    bio: "James and Sarah have been hosting this gathering since 2019. James works as a high school teacher and Sarah is a nurse at St. Francis Hospital. They have a passion for hospitality and creating spaces where authentic community can flourish.",
+    image: "/assets/1763402076513-37_nw_65b81d79.jpg"
+  },
+  images: [
+    "/assets/1763402076513-35_nw_c6a83dff.jpg",
+    "/assets/family_gathering_nw_f63ba1cb.jpg",
+    "/assets/1763402076513-3_nw_9b9eead9.jpg"
+  ],
+  color: "primary"
+};
+---
+
+<BaseLayout {title} {description}>
+  <div class="container py-12 md:py-20">
+    <div class="mx-auto max-w-4xl text-center">
+      <h1 class="font-display text-3xl font-medium tracking-tight text-primary-800 md:text-5xl">
+        {gathering.name}
+      </h1>
+      <p class="mt-4 text-lg text-muted-foreground md:text-xl">
+        {gathering.description}
+      </p>
+      <div class={`inline-block mt-4 rounded-full px-4 py-1 bg-${gathering.color}-100 text-${gathering.color}-700 font-medium text-sm`}>
+        {gathering.time}
+      </div>
+    </div>
+
+    <div class="mt-16">
+      <div class="relative">
+        <div class={`absolute inset-0 bg-${gathering.color}-50 rounded-3xl -mx-4 lg:mx-0 transform rotate-1`} style={{ zIndex: "-1" }}></div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+          <!-- Image Gallery -->
+          <div class="order-1 lg:order-none">
+            <div class="relative h-72 md:h-96 rounded-xl overflow-hidden mb-4">
+              <img 
+                src={gathering.images[0]} 
+                alt={gathering.name} 
+                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="relative h-40 rounded-lg overflow-hidden">
+                <img 
+                  src={gathering.images[1]} 
+                  alt={`${gathering.name} community`} 
+                  class="w-full h-full object-cover transition-all duration-300 hover:scale-105"
+                />
+              </div>
+              <div class="relative h-40 rounded-lg overflow-hidden">
+                <img 
+                  src={gathering.images[2]} 
+                  alt={`${gathering.name} fellowship`} 
+                  class="w-full h-full object-cover transition-all duration-300 hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class="order-2">
+            <div class="flex items-center mb-6">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-muted-foreground mr-2 h-5 w-5">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <span class="text-muted-foreground">{gathering.location}</span>
+            </div>
+            
+            <div class="space-y-4 text-primary-700 mb-8">
+              <p>{gathering.details}</p>
+            </div>
+            
+            <!-- Google Maps Embed -->
+            <div class="rounded-lg overflow-hidden h-48 mb-8">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                frameborder="0" 
+                style="border:0" 
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${gathering.mapLocation}`} 
+                allowfullscreen
+              ></iframe>
+            </div>
+            
+            <!-- Gathering Leaders -->
+            <div class="bg-white p-6 rounded-xl shadow-sm mb-6">
+              <h3 class="text-xl font-display font-medium text-primary-800 mb-4">
+                Gathering Leaders
+              </h3>
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div class="w-20 h-20 rounded-full overflow-hidden shrink-0">
+                  <img 
+                    src={gathering.leaders.image} 
+                    alt={gathering.leaders.names} 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-primary-800">{gathering.leaders.names}</h4>
+                  <p class="text-sm text-muted-foreground">{gathering.leaders.bio}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Join Form -->
+    <div id="join-form" class="mt-24 py-12 border-t border-primary-100">
+      <div class="mx-auto max-w-2xl">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-display font-medium text-primary-800 mb-4">
+            Join Our Midtown Gathering
+          </h2>
+          <p class="text-muted-foreground">
+            Interested in joining our Midtown gathering? Fill out the form below and someone will contact you with details about the next meeting.
+          </p>
+        </div>
+        
+        <div class="bg-primary-50 p-8 rounded-2xl shadow-sm">
+          <MidtownForm client:load />
+        </div>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center space-x-4">
+      <a href="/" class={buttonVariants({ variant: "outline" })}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
+          <path d="m12 19-7-7 7-7" />
+          <path d="M19 12H5" />
+        </svg>
+        Back to Home
+      </a>
+      
+      <a href="#other-gatherings" class={buttonVariants({ variant: "secondary" })}>
+        See Other Gatherings
+      </a>
+    </div>
+    
+    <!-- Other Gatherings Section -->
+    <div id="other-gatherings" class="mt-20 py-12 border-t border-primary-100">
+      <h2 class="text-2xl font-display font-medium text-primary-800 text-center mb-8">
+        Our Other Gatherings
+      </h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Southwest Gathering -->
+        <a href="/southwest" class="group">
+          <div class="rounded-xl overflow-hidden bg-white shadow-md transition-all duration-300 group-hover:shadow-xl h-full">
+            <div class="h-48 bg-secondary-200 overflow-hidden">
+              <div 
+                class="w-full h-full bg-cover bg-[center_bottom_75px] transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: "url('/assets/1763402076513-9_nw_0ef47423.jpg')" }}
+              ></div>
+            </div>
+            <div class="p-6">
+              <div class="inline-block rounded-full px-4 py-1 bg-secondary-100 text-secondary-700 font-medium text-xs mb-4">
+                Thursdays at 6:00 PM
+              </div>
+              <h3 class="text-xl font-display font-medium text-primary-800 mb-2">
+                Southwest Gathering
+              </h3>
+              <p class="text-muted-foreground mb-4 text-sm">
+                Our Southwest Tulsa gathering is a family-focused community that emphasizes fellowship and practical applications of faith.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-primary-100">
+                <span class="text-sm text-primary-600 font-medium">Southwest Tulsa</span>
+                <span class="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
+                  Learn more
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+        
+        <!-- Youth Gathering -->
+        <a href="/youth" class="group">
+          <div class="rounded-xl overflow-hidden bg-white shadow-md transition-all duration-300 group-hover:shadow-xl h-full">
+            <div class="h-48 bg-accent-200 overflow-hidden">
+              <div 
+                class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundImage: "url('/assets/1763402076513-36_nw_0f8529a4.jpg')" }}
+              ></div>
+            </div>
+            <div class="p-6">
+              <div class="inline-block rounded-full px-4 py-1 bg-accent-100 text-accent-700 font-medium text-xs mb-4">
+                Wednesdays at 7:00 PM
+              </div>
+              <h3 class="text-xl font-display font-medium text-primary-800 mb-2">
+                Youth Gathering
+              </h3>
+              <p class="text-muted-foreground mb-4 text-sm">
+                Our youth-focused gathering creates space for teens and young adults to connect, ask questions, and grow in their faith together.
+              </p>
+              <div class="flex items-center justify-between pt-2 border-t border-primary-100">
+                <span class="text-sm text-primary-600 font-medium">Rotating Locations</span>
+                <span class="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
+                  Learn more
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 h-4 w-4">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
