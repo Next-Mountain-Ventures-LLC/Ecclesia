@@ -11,7 +11,7 @@ export default function AboutSection() {
       key: "community",
       title: "Community",
       description: "We believe the church is not a building but a community of believers growing together in Christ.",
-      image: "/assets/1763402076513-43_nw_9f4b1f4b.jpg"
+      image: "/assets/1763402076513-3_nw_9b9eead9.jpg"
     },
     {
       key: "fellowship",
