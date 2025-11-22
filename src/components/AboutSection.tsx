@@ -17,13 +17,13 @@ export default function AboutSection() {
       key: "fellowship",
       title: "Fellowship",
       description: "Authentic relationships form as we share meals, discussions, and life together.",
-      image: "/assets/family_gathering_nw_f63ba1cb.jpg"
+      image: "/assets/1763402076513-22_nw_952a4e27.jpg"
     },
     {
       key: "scripture",
       title: "Scripture",
       description: "We study God's Word together, applying biblical principles to everyday life.",
-      image: "/assets/1763402076513-11_nw_c0a95c81.jpg"
+      image: "/assets/1763402076513-44_nw_e3d25284.jpg"
     },
     {
       key: "prayer",
@@ -35,7 +35,7 @@ export default function AboutSection() {
       key: "service",
       title: "Service",
       description: "Following Jesus' example, we serve one another and our community with love.",
-      image: "/assets/1763402076513-21_nw_29328aa6.jpg"
+      image: "/assets/1763402076513-20_nw_b4ff1a4a.jpg"
     }
   ];
 
