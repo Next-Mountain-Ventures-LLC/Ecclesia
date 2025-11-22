@@ -24,9 +24,9 @@ export default function HeroSection() {
             </div>
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary-800 mb-6 leading-tight">
-              <span className="block">The Church is a</span>
+              <span className="block">The Church is</span>
               <span className="relative">
-                <span className="block text-accent-600">Community, Not a Building</span>
+                <span className="block text-accent-600">People, Not Places</span>
                 <svg 
                   width="100%" 
                   height="10" 

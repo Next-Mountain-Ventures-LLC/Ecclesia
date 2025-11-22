@@ -252,8 +252,11 @@ export default function AboutSection() {
                 <div
                   className={`aspect-video w-full bg-cover transition-opacity duration-500 ${
                     isTransitioning ? "opacity-0" : "opacity-100"
-                  } ${values[activeIndex].key === "prayer" ? "bg-center" : "bg-center"}`}
-                  style={{ backgroundImage: `url('${values[activeIndex].image}')` }}
+                  }`}
+                  style={{ 
+                    backgroundImage: `url('${values[activeIndex].image}')`,
+                    backgroundPosition: values[activeIndex].key === "prayer" ? "center top -75px" : "center"
+                  }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
                   <h3 className="text-2xl font-display text-white mb-2">{values[activeIndex].title}</h3>
@@ -277,8 +280,11 @@ export default function AboutSection() {
                   >
                     <div className="aspect-square">
                       <div
-                        className={`w-full h-full bg-cover ${value.key === "prayer" ? "bg-center" : "bg-center"}`}
-                        style={{ backgroundImage: `url('${value.image}')` }}
+                        className="w-full h-full bg-cover"
+                        style={{ 
+                          backgroundImage: `url('${value.image}')`,
+                          backgroundPosition: value.key === "prayer" ? "center top -75px" : "center"
+                        }}
                       ></div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-2">
                         <span className="text-white text-xs font-medium">{value.title}</span>
