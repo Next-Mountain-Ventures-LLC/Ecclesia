@@ -220,9 +220,9 @@ export default function AboutSection() {
               {/* Main featured value image */}
               <div className="relative rounded-xl overflow-hidden mb-6 shadow-lg">
                 <div
-                  className={`aspect-video w-full bg-cover bg-center transition-opacity duration-500 ${
+                  className={`aspect-video w-full bg-cover transition-opacity duration-500 ${
                     isTransitioning ? "opacity-0" : "opacity-100"
-                  }`}
+                  } ${values[activeIndex].key === "prayer" ? "bg-top" : "bg-center"}`}
                   style={{ backgroundImage: `url('${values[activeIndex].image}')` }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6">
@@ -245,7 +245,7 @@ export default function AboutSection() {
                   >
                     <div className="aspect-square">
                       <div
-                        className="w-full h-full bg-cover bg-center"
+                        className={`w-full h-full bg-cover ${value.key === "prayer" ? "bg-top" : "bg-center"}`}
                         style={{ backgroundImage: `url('${value.image}')` }}
                       ></div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center p-2">

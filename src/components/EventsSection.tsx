@@ -31,7 +31,7 @@ export default function EventsSection() {
       time: "6:30 PM",
       location: "Woodward Park",
       description: "Our monthly all-church gathering bringing together all Ecclesia communities. Bring a dish to share and lawn chairs!",
-      image: "/assets/1763402076513-20_nw_b4ff1a4a.jpg"
+      image: "/assets/1763402076513-27_nw_21514e97.jpg"
     },
     {
       id: "3",
