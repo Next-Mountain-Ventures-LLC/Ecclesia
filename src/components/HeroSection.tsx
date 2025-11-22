@@ -48,28 +48,39 @@ export default function HeroSection() {
                 </span>
               </div>
               
-              {/* Mobile order - swapped */}
-              <div className="sm:hidden">
-                <span className="relative">
-                  <span className="block text-accent-600">People, Not Places</span>
-                  <svg 
-                    width="100%" 
-                    height="10" 
-                    viewBox="0 0 400 10" 
-                    fill="none" 
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="absolute -bottom-2 left-0 w-full opacity-70"
-                    preserveAspectRatio="none"
-                  >
-                    <path 
-                      d="M2 5C73.3333 1.66667 219.6 -1.4 398 8.6" 
-                      stroke="#FC651A" 
-                      strokeWidth="3" 
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
-                <span className="block mt-2">The Church is</span>
+              {/* Mobile order - with logo explanation box first */}
+              <div className="sm:hidden space-y-4">
+                {/* Greek word callout for mobile */}
+                <div className="bg-white py-3 px-5 rounded-xl shadow-lg mx-auto max-w-[250px] mb-6">
+                  <div className="font-display italic text-xl text-primary-800 mb-1 text-center">ἐκκλησία</div>
+                  <div className="text-sm text-muted-foreground text-center">
+                    Ekklesia (Greek): "an assembly" or "a gathering of called-out ones"
+                  </div>
+                </div>
+                
+                {/* Correct text order */}
+                <div>
+                  <span className="block">The Church is</span>
+                  <span className="relative">
+                    <span className="block text-accent-600">People, Not Places</span>
+                    <svg 
+                      width="100%" 
+                      height="10" 
+                      viewBox="0 0 400 10" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="absolute -bottom-2 left-0 w-full opacity-70"
+                      preserveAspectRatio="none"
+                    >
+                      <path 
+                        d="M2 5C73.3333 1.66667 219.6 -1.4 398 8.6" 
+                        stroke="#FC651A" 
+                        strokeWidth="3" 
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </h1>
             

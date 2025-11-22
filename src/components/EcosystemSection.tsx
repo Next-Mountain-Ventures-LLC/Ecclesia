@@ -112,7 +112,7 @@ export default function EcosystemSection() {
   return (
     <section className="w-full py-20 bg-gradient-to-b from-white to-primary-50 mb-24">
       <div className="container px-4 sm:px-6 md:px-8 mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
             Our Ecosystem
           </h2>
@@ -128,7 +128,7 @@ export default function EcosystemSection() {
           <div className="hidden md:block">
             {/* Visual Ecosystem Diagram */}
             <div 
-              className="relative h-[350px] mb-8"
+              className="relative h-[350px]"
               onMouseEnter={() => setIsHovering(true)}
               onMouseLeave={() => setIsHovering(false)}
             >
@@ -161,7 +161,7 @@ export default function EcosystemSection() {
                   {/* Line to Mentor (center) */}
                   <path 
                     d="M0,20 L0,150" 
-                    stroke="url(#mentor-gradient)" 
+                    stroke="#E6A54C" 
                     strokeWidth="4" 
                     strokeDasharray="5,5"
                     strokeLinecap="round"

@@ -50,11 +50,10 @@ const gathering = {
           <!-- Image Gallery -->
           <div class="order-1 lg:order-none">
             <div class="relative h-72 md:h-96 rounded-xl overflow-hidden mb-4">
-              <img 
-                src={gathering.images[0]} 
-                alt={gathering.name} 
-                class="w-full h-full object-cover transition-all duration-500 hover:scale-105"
-              />
+              <div 
+                class="w-full h-full bg-cover transition-all duration-500 hover:scale-105"
+                style={{ backgroundImage: `url(${gathering.images[0]})`, backgroundPosition: "center top -250px" }}
+              ></div>
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div class="relative h-40 rounded-lg overflow-hidden">

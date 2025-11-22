@@ -113,7 +113,7 @@ export default function YouthForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full inline-flex justify-center items-center rounded-md bg-accent py-3 px-4 text-sm font-medium text-accent-foreground shadow hover:bg-accent/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full inline-flex justify-center items-center rounded-md bg-secondary py-3 px-4 text-sm font-medium text-secondary-foreground shadow hover:bg-secondary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Submitting..." : "Join Youth Gathering"}
       </button>
