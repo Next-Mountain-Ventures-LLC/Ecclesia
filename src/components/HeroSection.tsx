@@ -1,13 +1,14 @@
 import React from "react";
 import { buttonVariants } from "@/components/ui/button";
+import woodTexture from "@/assets/logo_wood_bg_nw_1efb2b0b.jpg";
 
 export default function HeroSection() {
   return (
     <div className="relative overflow-hidden bg-primary-50">
       {/* Wood texture overlay with reduced opacity */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center opacity-10"
-        style={{ backgroundImage: "url('/src/assets/logo_wood_bg_nw_1efb2b0b.jpg')" }}
+        style={{ backgroundImage: `url('${woodTexture}')` }}
       ></div>
       
       <div className="container relative z-10 py-20 md:py-28">
