@@ -45,24 +45,7 @@ export default function HeroSection() {
               {/* Desktop order */}
               <div className="hidden sm:block">
                 <span className="block">The Church is</span>
-                <span className="relative">
-                  <span className="block text-accent-600">People, Not Places</span>
-                  <svg
-                    width="auto"
-                    height="10"
-                    viewBox="0 0 280 10"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="absolute -bottom-2 left-0 opacity-70"
-                  >
-                    <path
-                      d="M2 5C90 2 190 2 278 8.6"
-                      stroke="#FC651A"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </span>
+                <span className="block text-accent-600">People, Not Places</span>
               </div>
               
               {/* Mobile order */}
@@ -70,24 +53,7 @@ export default function HeroSection() {
                 {/* Correct text order */}
                 <div>
                   <span className="block">The Church is</span>
-                  <span className="relative">
-                    <span className="block text-accent-600">People, Not Places</span>
-                    <svg
-                      width="auto"
-                      height="10"
-                      viewBox="0 0 280 10"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="absolute -bottom-2 left-0 opacity-70"
-                    >
-                      <path
-                        d="M2 5C90 2 190 2 278 8.6"
-                        stroke="#FC651A"
-                        strokeWidth="3"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
+                  <span className="block text-accent-600">People, Not Places</span>
                 </div>
               </div>
             </h1>
