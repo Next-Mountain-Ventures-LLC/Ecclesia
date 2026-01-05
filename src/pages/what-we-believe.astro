@@ -498,33 +498,3 @@ const tabs = [
     });
   }
 </script>
-
-<script define:vars={{ pdfData }}>
-  // Create directories
-  const createDirectories = async () => {
-    try {
-      const response = await fetch('/assets/mission-statement.pdf', { method: 'HEAD' });
-      if (response.status === 404) {
-        // Ensure the public directory exists
-        fetch('/assets/mission-statement.pdf', {
-          method: 'PUT',
-          body: pdfData
-        });
-        
-        fetch('/assets/core-values.pdf', {
-          method: 'PUT',
-          body: pdfData
-        });
-        
-        fetch('/assets/articles-of-faith.pdf', {
-          method: 'PUT',
-          body: pdfData
-        });
-      }
-    } catch (error) {
-      console.error('Error creating PDF files:', error);
-    }
-  };
-
-  createDirectories();
-</script>
