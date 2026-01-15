@@ -314,11 +314,16 @@ const tabs = [
         
         <div class="mt-6">
           {tabs.map((tab) => (
-            <div 
-              id={`tab-content-${tab.id}`} 
-              class={`tab-content bg-white p-6 md:p-8 shadow-sm rounded-lg prose prose-slate max-w-none ${tab.id === "mission" ? "block" : "hidden"}`}
-              set:html={tab.content}
-            />
+            <div
+              id={`tab-content-${tab.id}`}
+              class={`tab-content bg-white p-6 md:p-8 shadow-sm rounded-lg ${tab.id === "mission" ? "block" : "hidden"} ${tab.id === "articles-of-faith" ? "" : "prose prose-slate max-w-none"}`}
+            >
+              {tab.id === "articles-of-faith" ? (
+                <ArticlesOfFaith client:load />
+              ) : (
+                <div set:html={tab.content} />
+              )}
+            </div>
           ))}
         </div>
       </div>
