@@ -259,7 +259,7 @@ export default function AboutSection() {
               </div>
 
               {/* Value tiles */}
-              <div className="grid grid-cols-5 gap-2">
+              <div className="grid grid-cols-4 gap-2">
                 {values.map((value, idx) => (
                   <button
                     key={value.key}
