@@ -1,0 +1,129 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { buttonVariants } from "@/components/ui/button";
+
+const title = "Donate | Ecclesia Tulsa";
+const description = "Support Ecclesia by donating through PayPal or Cash App. Your generosity helps us grow as a community.";
+---
+
+<BaseLayout {title} {description}>
+  <div className="container py-12 md:py-20">
+    <div className="max-w-3xl mx-auto">
+      <!-- Header -->
+      <div className="text-center mb-12">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-primary-800 mb-4">
+          Support Ecclesia
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Your generosity helps us grow as a community. Choose your preferred payment method below to make a donation.
+        </p>
+      </div>
+
+      <!-- Donation Options -->
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <!-- PayPal Option -->
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-primary-100 hover:shadow-xl transition-shadow">
+          <div className="bg-gradient-to-r from-primary-50 to-primary-100 p-8 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary-700 h-12 w-12 mx-auto mb-4">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+            <h3 className="text-2xl font-display font-medium text-primary-800">PayPal</h3>
+          </div>
+          <div className="p-8">
+            <p className="text-muted-foreground mb-6">
+              Donate securely through PayPal. You can use your PayPal account or pay with a credit card.
+            </p>
+            <a 
+              href="https://www.paypal.com/donate/?hosted_button_id=RM8SJ6QPAXN8Q"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={buttonVariants({ 
+                variant: 'default', 
+                size: 'lg',
+                className: 'w-full rounded-full'
+              })}
+            >
+              Donate via PayPal
+            </a>
+          </div>
+        </div>
+
+        <!-- Cash App Option -->
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-accent-100 hover:shadow-xl transition-shadow">
+          <div className="bg-gradient-to-r from-accent-50 to-accent-100 p-8 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent-700 h-12 w-12 mx-auto mb-4">
+              <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+              <line x1="2" x2="22" y1="10" y2="10"></line>
+            </svg>
+            <h3 className="text-2xl font-display font-medium text-accent-700">Cash App</h3>
+          </div>
+          <div className="p-8">
+            <p className="text-muted-foreground mb-6">
+              Send money quickly and easily through Cash App. Look for our Cash App handle to contribute.
+            </p>
+            <button 
+              className={buttonVariants({ 
+                variant: 'outline', 
+                size: 'lg',
+                className: 'w-full rounded-full border-accent-200 text-accent-700 hover:text-accent-800 hover:bg-accent-50'
+              })}
+              disabled
+            >
+              Coming Soon
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div className="bg-primary-50 rounded-2xl p-8 mb-8">
+        <h2 className="text-2xl font-display font-medium text-primary-800 mb-4">
+          How Your Donation Helps
+        </h2>
+        <ul className="space-y-3 text-primary-700">
+          <li className="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 mr-3 mt-0.5 text-accent-600 flex-shrink-0">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Support community gatherings and events</span>
+          </li>
+          <li className="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 mr-3 mt-0.5 text-accent-600 flex-shrink-0">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Fund resources for discipleship and spiritual growth</span>
+          </li>
+          <li className="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 mr-3 mt-0.5 text-accent-600 flex-shrink-0">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Enable service and outreach in our community</span>
+          </li>
+          <li className="flex items-start">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5 mr-3 mt-0.5 text-accent-600 flex-shrink-0">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span>Help us multiply new gatherings and reach more people</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Section -->
+      <div className="text-center">
+        <p className="text-muted-foreground mb-6">
+          Have questions about giving or want to explore other ways to support Ecclesia?
+        </p>
+        <a 
+          href="/#contact"
+          className={buttonVariants({ 
+            variant: 'outline', 
+            size: 'default',
+            className: 'border-primary-300 text-primary-700 hover:text-primary-800 hover:bg-primary-100'
+          })}
+        >
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
