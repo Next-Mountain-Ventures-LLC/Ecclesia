@@ -110,13 +110,12 @@ export default function GatheringsSection() {
           <p className="text-lg text-primary-800 max-w-2xl mx-auto mb-6">
             We believe in growth by division. As our gatherings grow, we encourage them to multiply and form new communities.
           </p>
-          <button 
-            id="join-gathering-btn"
-            type="button" 
+          <a
+            href="#contact"
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
             Join a Gathering
-          </button>
+          </a>
         </div>
         
       </div>
