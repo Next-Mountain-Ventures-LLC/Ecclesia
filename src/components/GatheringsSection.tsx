@@ -61,16 +61,6 @@ export default function GatheringsSection() {
                 <p className="text-muted-foreground mb-4 text-sm">
                   Our Southwest Tulsa gathering is a family-focused community that emphasizes fellowship and practical applications of faith.
                 </p>
-                <div className="flex items-center justify-between pt-2 border-t border-primary-100">
-                  <span className="text-sm text-primary-600 font-medium">Southwest Tulsa</span>
-                  <a href="/southwest" className="inline-flex items-center text-accent-600 hover:text-accent-700 transition-colors text-sm font-medium">
-                    Learn more
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-1 h-4 w-4">
-                      <path d="M5 12h14"></path>
-                      <path d="m12 5 7 7-7 7"></path>
-                    </svg>
-                  </a>
-                </div>
               </div>
             </div>
             <div className="absolute -z-10 inset-0 translate-x-2 translate-y-2 bg-secondary-200 rounded-xl transition-transform duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
