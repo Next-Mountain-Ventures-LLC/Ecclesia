@@ -5,10 +5,9 @@ export default function ContactSection() {
   const [formType, setFormType] = useState("join");
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
     message: "",
     formType: "join",
-    form_name: "Contact Form",
+    form_name: "Join Gathering Form",
     gathering: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
