@@ -48,11 +48,17 @@ export default function GatheringsSection() {
           {/* Southwest Gathering */}
           <div className="relative group gathering-card">
             <div className="rounded-xl overflow-hidden bg-white shadow-md h-full transition-all duration-300 group-hover:shadow-xl">
-              <div className="h-48 bg-secondary-200 overflow-hidden">
-                <div 
-                  className="w-full h-full bg-cover bg-[center_bottom_75px] transition-transform duration-500 group-hover:scale-105"
-                  style={{ backgroundImage: "url('/assets/1763402076513-9_nw_0ef47423.jpg')" }}
-                ></div>
+              <div className="h-48 bg-secondary-200 overflow-hidden flex items-center justify-center">
+                <svg viewBox="0 0 200 200" className="w-full h-full text-secondary-300" fill="currentColor">
+                  <rect width="200" height="200" fill="#fef5e7"/>
+                  <circle cx="100" cy="100" r="50" fill="none" stroke="#d97706" strokeWidth="2"/>
+                  <path d="M 100 80 L 115 120 L 100 110 L 85 120 Z" fill="#d97706"/>
+                  <path d="M 70 70 L 85 75 L 80 90 Z" fill="#6b7280" opacity="0.6"/>
+                  <path d="M 130 75 L 145 80 L 140 95 Z" fill="#6b7280" opacity="0.6"/>
+                  <circle cx="50" cy="40" r="8" fill="#d97706" opacity="0.5"/>
+                  <circle cx="150" cy="160" r="8" fill="#d97706" opacity="0.5"/>
+                  <text x="100" y="165" fontSize="16" fontWeight="bold" textAnchor="middle" fill="#d97706">Southwest</text>
+                </svg>
               </div>
               <div className="p-6">
                 <div className="inline-block rounded-full px-4 py-1 bg-secondary-100 text-secondary-700 font-medium text-xs mb-4">
