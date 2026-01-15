@@ -63,16 +63,16 @@ export default function ContactSection() {
   return (
     <div className="w-full py-16 bg-white" id="contact">
       <div className="container">
+        <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-4">
+          Get in Touch
+        </h2>
+        <p className="text-muted-foreground mb-12 max-w-2xl">
+          Whether you're interested in joining a gathering, connecting with a leader, or serving
+          alongside us, we'd love to connect with you.
+        </p>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl md:text-4xl font-display font-medium text-primary-800 mb-6">
-              Get in Touch
-            </h2>
-            <p className="text-muted-foreground mb-8 max-w-lg">
-              Whether you're interested in joining a gathering, starting your own, or serving 
-              alongside us, we'd love to connect with you.
-            </p>
-
             <div className="flex mb-8">
               <div className="mr-4 mt-1">
                 <div className="bg-primary-100 p-3 rounded-full">
@@ -92,16 +92,16 @@ export default function ContactSection() {
               </div>
             </div>
 
-            <div className="mt-8">
-              <h3 className="text-lg font-medium text-primary-800 mb-4">Frequently Asked Questions</h3>
+            <div>
+              <h3 className="text-lg font-medium text-primary-800 mb-6">Frequently Asked Questions</h3>
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="text-left text-primary-700 hover:text-primary-800 font-medium">
                     What should I expect at a gathering?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Our gatherings typically begin with a shared meal, followed by discussion, 
-                    Scripture study, and prayer. The atmosphere is casual and welcoming—we 
+                    Our gatherings typically begin with a shared meal, followed by discussion,
+                    Scripture study, and prayer. The atmosphere is casual and welcoming—we
                     encourage questions and authentic conversation. Come as you are!
                   </AccordionContent>
                 </AccordionItem>
@@ -110,19 +110,19 @@ export default function ContactSection() {
                     Do I need to bring anything?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    Just yourself! For meals, we often coordinate who brings what, but first-time 
-                    visitors are our guests. If you have a Bible, feel free to bring it, but 
+                    Just yourself! For meals, we often coordinate who brings what, but first-time
+                    visitors are our guests. If you have a Bible, feel free to bring it, but
                     we also have extras available.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="text-left text-primary-700 hover:text-primary-800 font-medium">
-                    How do I start a new gathering?
+                    How can I get more involved?
                   </AccordionTrigger>
                   <AccordionContent className="text-muted-foreground">
-                    We provide training, resources, and ongoing support for those interested in 
-                    starting new gatherings. Fill out the form to connect with our leadership 
-                    team who will guide you through the process.
+                    We have many ways to get involved, whether it's connecting with a leader,
+                    serving in our community, or starting a new gathering. Use the form to let
+                    us know how you'd like to engage with Ecclesia.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
