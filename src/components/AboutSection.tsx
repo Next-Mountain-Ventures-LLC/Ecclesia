@@ -32,12 +32,6 @@ export default function AboutSection() {
       title: "Prayer",
       description: "Prayer connects us to God and each other, bringing spiritual transformation.",
       image: "/assets/prayer_circle_nw_96b2ff2b.jpg"
-    },
-    {
-      key: "service",
-      title: "Service",
-      description: "Following Jesus' example, we serve one another and our community with love.",
-      image: "/assets/1763402076513-20_nw_b4ff1a4a.jpg"
     }
   ];
 
