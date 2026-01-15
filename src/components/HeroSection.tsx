@@ -64,34 +64,26 @@ export default function HeroSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <a 
-                href="#gatherings" 
-                className={buttonVariants({ 
-                  variant: 'default', 
+              <a
+                href="#gatherings"
+                className={buttonVariants({
+                  variant: 'default',
                   size: 'lg',
                   className: 'rounded-full px-8'
                 })}
               >
                 Join a Gathering
               </a>
-              <a 
-                href="#about" 
-                className={buttonVariants({ 
-                  variant: 'outline', 
+              <a
+                href="#about"
+                className={buttonVariants({
+                  variant: 'outline',
                   size: 'lg',
-                  className: 'rounded-full px-8 border-primary-300 text-primary-700 hover:text-primary-800 hover:bg-primary-100' 
+                  className: 'rounded-full px-8 border-primary-300 text-primary-700 hover:text-primary-800 hover:bg-primary-100'
                 })}
               >
                 Learn More
               </a>
-            </div>
-            
-            <div className="flex items-center text-primary-600 text-sm font-medium">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                <path d="M18.6 18.6L12 12V2.5"></path>
-                <circle cx="12" cy="12" r="10"></circle>
-              </svg>
-              <span>Sundays at 5:00 PM in Midtown Tulsa</span>
             </div>
           </div>
           
