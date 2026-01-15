@@ -19,7 +19,7 @@ export default function ContactSection() {
     setFormData(prev => ({
       ...prev,
       formType: type,
-      form_name: type === "join" ? "Join Gathering Form" : type === "start" ? "Start Gathering Form" : "Serve Form"
+      form_name: type === "join" ? "Join Gathering Form" : type === "connect" ? "Connect with Leader Form" : "Serve Ecclesia Form"
     }));
   };
 
