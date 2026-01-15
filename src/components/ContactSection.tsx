@@ -184,21 +184,6 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-primary-700 mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-3 py-2 border border-primary-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
                   <label htmlFor="gathering" className="block text-sm font-medium text-primary-700 mb-1">
                     Select a Gathering
                   </label>
