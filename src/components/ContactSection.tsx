@@ -135,8 +135,8 @@ export default function ContactSection() {
                 <button
                   type="button"
                   className={`px-4 py-3 text-sm font-medium flex-1 text-center transition-colors border-b-2 ${
-                    formType === "join" 
-                    ? "border-accent-500 text-accent-600" 
+                    formType === "join"
+                    ? "border-accent-500 text-accent-600"
                     : "border-transparent text-primary-600 hover:text-primary-700 hover:border-primary-200"
                   }`}
                   onClick={() => handleFormTypeChange("join")}
@@ -146,24 +146,24 @@ export default function ContactSection() {
                 <button
                   type="button"
                   className={`px-4 py-3 text-sm font-medium flex-1 text-center transition-colors border-b-2 ${
-                    formType === "start" 
-                    ? "border-accent-500 text-accent-600" 
+                    formType === "connect"
+                    ? "border-accent-500 text-accent-600"
                     : "border-transparent text-primary-600 hover:text-primary-700 hover:border-primary-200"
                   }`}
-                  onClick={() => handleFormTypeChange("start")}
+                  onClick={() => handleFormTypeChange("connect")}
                 >
-                  Start a Gathering
+                  Connect with a Leader
                 </button>
                 <button
                   type="button"
                   className={`px-4 py-3 text-sm font-medium flex-1 text-center transition-colors border-b-2 ${
-                    formType === "serve" 
-                    ? "border-accent-500 text-accent-600" 
+                    formType === "serve"
+                    ? "border-accent-500 text-accent-600"
                     : "border-transparent text-primary-600 hover:text-primary-700 hover:border-primary-200"
                   }`}
                   onClick={() => handleFormTypeChange("serve")}
                 >
-                  Serve
+                  Serve Ecclesia
                 </button>
               </div>
 
