@@ -18,14 +18,17 @@ export default function GatheringsSection() {
           {/* Midtown Gathering */}
           <div className="relative group gathering-card">
             <div className="rounded-xl overflow-hidden bg-white shadow-md h-full transition-all duration-300 group-hover:shadow-xl">
-              <div className="h-48 bg-primary-200 overflow-hidden">
-                <div 
-                  className="w-full h-full bg-cover transition-transform duration-500 group-hover:scale-105"
-                  style={{ 
-                    backgroundImage: "url('/assets/1763402076513-35_nw_c6a83dff.jpg')",
-                    backgroundPosition: "center top -150px" 
-                  }}
-                ></div>
+              <div className="h-48 bg-primary-200 overflow-hidden flex items-center justify-center">
+                <svg viewBox="0 0 200 200" className="w-full h-full text-primary-300" fill="currentColor">
+                  <rect width="200" height="200" fill="#f0f9f7"/>
+                  <circle cx="100" cy="100" r="50" fill="none" stroke="#4d9384" strokeWidth="2"/>
+                  <path d="M 100 80 L 115 120 L 100 110 L 85 120 Z" fill="#4d9384"/>
+                  <path d="M 70 70 L 85 75 L 80 90 Z" fill="#e8a539" opacity="0.6"/>
+                  <path d="M 130 75 L 145 80 L 140 95 Z" fill="#e8a539" opacity="0.6"/>
+                  <circle cx="50" cy="40" r="8" fill="#4d9384" opacity="0.5"/>
+                  <circle cx="150" cy="160" r="8" fill="#4d9384" opacity="0.5"/>
+                  <text x="100" y="165" fontSize="16" fontWeight="bold" textAnchor="middle" fill="#4d9384">Midtown</text>
+                </svg>
               </div>
               <div className="p-6">
                 <div className="inline-block rounded-full px-4 py-1 bg-primary-100 text-primary-700 font-medium text-xs mb-4">
