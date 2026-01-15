@@ -209,20 +209,15 @@ export default function AboutSection() {
             
             <div className="space-y-4 text-primary-700">
               <p>
-                The Bible says that we don't <em>go</em> to church, but that we <em>are</em> the church (Ephesians 2:21-22). 
-                Ecclesia is a community of believers gathering together in homes, coffee shops, 
+                The Bible says that we don't <em>go</em> to church, but that we <em>are</em> the church (Ephesians 2:21-22).
+                Ecclesia is a community of believers gathering together in homes, coffee shops,
                 parks, and other locations throughout Tulsa.
               </p>
               <p>
-                We follow the model found in Acts 2:42-47, creating spaces for people to share 
-                meals, study scripture, pray together, and build authentic relationships. 
-                Our gatherings typically have fewer than 30 people, allowing for greater 
+                We follow the model found in Acts 2:42-47, creating spaces for people to share
+                meals, study scripture, pray together, and build authentic relationships.
+                Our gatherings typically have fewer than 30 people, allowing for greater
                 intimacy and interdependence between friends.
-              </p>
-              <p>
-                When a house church grows too large to comfortably gather in a home, we multiply 
-                by division—forming new gatherings while maintaining our connections as one 
-                body of believers.
               </p>
             </div>
             
