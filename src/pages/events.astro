@@ -137,10 +137,10 @@ const categories = ["Ecclesia", "District events"];
             <p class="text-white/90 max-w-2xl mb-4">
               {events[0].description.split('.')[0]}...
             </p>
-            <a 
+            <a
               href={`#event-${events[0].id}`}
-              class={buttonVariants({ 
-                variant: 'default', 
+              class={buttonVariants({
+                variant: 'default',
                 size: 'default',
                 className: 'mt-2'
               })}
@@ -156,20 +156,18 @@ const categories = ["Ecclesia", "District events"];
     <div class="mt-16">
       <!-- Categories filter - client-side JS will handle the filtering -->
       <div class="mb-8 flex flex-wrap justify-center gap-2">
-        <button 
+        <button
           class="category-filter px-4 py-1.5 rounded-full bg-primary text-white text-sm font-medium transition-colors hover:bg-primary/90 active"
-          data-category="all"
+          data-category="Ecclesia"
         >
-          All Events
+          Ecclesia
         </button>
-        {categories.map(category => (
-          <button 
-            class="category-filter px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium transition-colors hover:bg-primary-200"
-            data-category={category}
-          >
-            {category}
-          </button>
-        ))}
+        <button
+          class="category-filter px-4 py-1.5 rounded-full bg-primary-100 text-primary-700 text-sm font-medium transition-colors hover:bg-primary-200"
+          data-category="District events"
+        >
+          District events
+        </button>
       </div>
 
       <!-- All events list -->
