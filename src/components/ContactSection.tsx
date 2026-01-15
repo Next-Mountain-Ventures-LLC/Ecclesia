@@ -47,8 +47,8 @@ export default function ContactSection() {
         setFormData(prev => ({
           ...prev,
           name: "",
-          email: "",
-          message: ""
+          message: "",
+          gathering: ""
         }));
       } else {
         setSubmitStatus("error");
