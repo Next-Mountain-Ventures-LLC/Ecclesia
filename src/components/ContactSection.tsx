@@ -226,11 +226,11 @@ export default function ContactSection() {
                   className="w-full inline-flex justify-center items-center rounded-md bg-primary py-3 px-4 text-sm font-medium text-primary-foreground shadow hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-500 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "Submitting..." : (
-                    formType === "join" 
-                    ? "Join a Gathering" 
-                    : formType === "start" 
-                    ? "Start a Gathering"
-                    : "Serve With Us"
+                    formType === "join"
+                    ? "Join a Gathering"
+                    : formType === "connect"
+                    ? "Connect with a Leader"
+                    : "Serve Ecclesia"
                   )}
                 </button>
 
