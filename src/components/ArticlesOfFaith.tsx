@@ -126,12 +126,16 @@ export default function ArticlesOfFaith() {
     <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
       <div className="md:col-span-3">
         <h2 className="text-2xl font-display text-primary-800 mb-6">Articles of Faith</h2>
-        
+
         <p className="mb-6">
           The following are the essential tenets of our faith. While this is not an exhaustive statement of our beliefs, it represents the core doctrines to which we hold:
         </p>
-        
-        <Accordion type="multiple" value={Array.from(expandedArticles)} onValueChange={(value) => setExpandedArticles(new Set(value))} className="w-full">
+
+        <Accordion type="multiple" value={Array.from(expandedArticles)} onValueChange={(newValues) => {
+          if (Array.isArray(newValues)) {
+            setExpandedArticles(new Set(newValues));
+          }
+        }} className="w-full">
           {articles.map((article) => (
             <AccordionItem key={article.id} value={article.id} className="border-b border-primary-100 last:border-0">
               <AccordionTrigger className="text-left hover:no-underline py-4">
