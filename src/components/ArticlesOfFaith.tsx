@@ -138,7 +138,7 @@ export default function ArticlesOfFaith() {
         }} className="w-full">
           {articles.map((article) => (
             <AccordionItem key={article.id} value={article.id} className="border-b border-primary-100 last:border-0">
-              <AccordionTrigger className="text-left hover:no-underline py-4">
+              <AccordionTrigger className="text-left py-4">
                 <span className="font-medium text-primary-800 text-base">
                   {article.number}. {article.title}
                 </span>
