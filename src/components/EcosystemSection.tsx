@@ -228,70 +228,169 @@ export default function EcosystemSection() {
               {/* Ecosystem elements */}
               <div className="absolute top-[150px] left-0 right-0 grid grid-cols-3 gap-8">
                 {/* Gather */}
-                <div 
+                <div
                   className="transition-all duration-300 hover:scale-105"
+                  style={{ perspective: "1000px" }}
                 >
-                  <div 
-                    onClick={() => setActiveElement('gather')}
-                    onMouseEnter={() => setActiveElement('gather')}
-                    onMouseLeave={() => setActiveElement('')}
-                    className="relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full hover:ring-2 hover:ring-offset-2 hover:ring-[#4D9384]"
+                  <div
+                    onClick={(e) => toggleFlip('gather', e)}
+                    onMouseEnter={() => !flippedCards.has('gather') && setActiveElement('gather')}
+                    onMouseLeave={() => !flippedCards.has('gather') && setActiveElement('')}
+                    className="relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full hover:ring-2 hover:ring-offset-2 hover:ring-[#4D9384] cursor-pointer"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: flippedCards.has('gather') ? "rotateY(180deg)" : "rotateY(0deg)",
+                      transitionDuration: "0.6s"
+                    } as React.CSSProperties}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-[#4D9384]"></div>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-[#4D9384] bg-opacity-10 rounded-full flex items-center justify-center text-[#4D9384] mb-4">
-                        {ecosystemElements.gather.icon}
+                    {/* Front */}
+                    <div
+                      style={{
+                        backfaceVisibility: "hidden",
+                      } as React.CSSProperties}
+                    >
+                      <div className="absolute top-0 left-0 w-full h-1 bg-[#4D9384]"></div>
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-12 h-12 bg-[#4D9384] bg-opacity-10 rounded-full flex items-center justify-center text-[#4D9384] mb-4">
+                          {ecosystemElements.gather.icon}
+                        </div>
+                        <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
+                        <p className="text-primary-600 text-sm">
+                          {ecosystemElements.gather.description.join(' ')}
+                        </p>
                       </div>
-                      <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
-                      <p className="text-primary-600 text-sm">
-                        {ecosystemElements.gather.description.join(' ')}
-                      </p>
+                    </div>
+
+                    {/* Back */}
+                    <div
+                      className="flex items-center justify-center h-full"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)"
+                      } as React.CSSProperties}
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleFlip('gather', e);
+                          setTimeout(() => scrollToContact(), 300);
+                        }}
+                        className="px-6 py-3 bg-[#4D9384] text-white rounded-full font-medium hover:bg-[#4D9384]/90 transition-colors"
+                      >
+                        Get in Touch!
+                      </button>
                     </div>
                   </div>
                 </div>
 
                 {/* Mentor */}
-                <div 
+                <div
                   className="transition-all duration-300 hover:scale-105"
+                  style={{ perspective: "1000px" }}
                 >
-                  <div 
-                    className="relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full hover:ring-2 hover:ring-offset-2 hover:ring-[#E6A54C]"
-                    onClick={() => setActiveElement('mentor')}
-                    onMouseEnter={() => setActiveElement('mentor')}
-                    onMouseLeave={() => setActiveElement('')}
+                  <div
+                    onClick={(e) => toggleFlip('mentor', e)}
+                    onMouseEnter={() => !flippedCards.has('mentor') && setActiveElement('mentor')}
+                    onMouseLeave={() => !flippedCards.has('mentor') && setActiveElement('')}
+                    className="relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full hover:ring-2 hover:ring-offset-2 hover:ring-[#E6A54C] cursor-pointer"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: flippedCards.has('mentor') ? "rotateY(180deg)" : "rotateY(0deg)",
+                      transitionDuration: "0.6s"
+                    } as React.CSSProperties}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-[#E6A54C]"></div>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-[#E6A54C] bg-opacity-10 rounded-full flex items-center justify-center text-[#E6A54C] mb-4">
-                        {ecosystemElements.mentor.icon}
+                    {/* Front */}
+                    <div
+                      style={{
+                        backfaceVisibility: "hidden",
+                      } as React.CSSProperties}
+                    >
+                      <div className="absolute top-0 left-0 w-full h-1 bg-[#E6A54C]"></div>
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-12 h-12 bg-[#E6A54C] bg-opacity-10 rounded-full flex items-center justify-center text-[#E6A54C] mb-4">
+                          {ecosystemElements.mentor.icon}
+                        </div>
+                        <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.mentor.title}</h3>
+                        <p className="text-primary-600 text-sm">
+                          {ecosystemElements.mentor.description.join(' ')}
+                        </p>
                       </div>
-                      <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.mentor.title}</h3>
-                      <p className="text-primary-600 text-sm">
-                        {ecosystemElements.mentor.description.join(' ')}
-                      </p>
+                    </div>
+
+                    {/* Back */}
+                    <div
+                      className="flex items-center justify-center h-full"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)"
+                      } as React.CSSProperties}
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleFlip('mentor', e);
+                          setTimeout(() => scrollToContact(), 300);
+                        }}
+                        className="px-6 py-3 bg-[#E6A54C] text-white rounded-full font-medium hover:bg-[#E6A54C]/90 transition-colors"
+                      >
+                        Get in Touch!
+                      </button>
                     </div>
                   </div>
                 </div>
 
                 {/* Serve */}
-                <div 
+                <div
                   className="transition-all duration-300 hover:scale-105"
+                  style={{ perspective: "1000px" }}
                 >
-                  <div 
-                    className="relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full hover:ring-2 hover:ring-offset-2 hover:ring-[#8E4D84]"
-                    onClick={() => setActiveElement('serve')}
-                    onMouseEnter={() => setActiveElement('serve')}
-                    onMouseLeave={() => setActiveElement('')}
+                  <div
+                    onClick={(e) => toggleFlip('serve', e)}
+                    onMouseEnter={() => !flippedCards.has('serve') && setActiveElement('serve')}
+                    onMouseLeave={() => !flippedCards.has('serve') && setActiveElement('')}
+                    className="relative p-6 rounded-xl bg-white shadow-lg overflow-hidden transition-all duration-300 h-full hover:ring-2 hover:ring-offset-2 hover:ring-[#8E4D84] cursor-pointer"
+                    style={{
+                      transformStyle: "preserve-3d",
+                      transform: flippedCards.has('serve') ? "rotateY(180deg)" : "rotateY(0deg)",
+                      transitionDuration: "0.6s"
+                    } as React.CSSProperties}
                   >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-[#8E4D84]"></div>
-                    <div className="flex flex-col items-center text-center">
-                      <div className="w-12 h-12 bg-[#8E4D84] bg-opacity-10 rounded-full flex items-center justify-center text-[#8E4D84] mb-4">
-                        {ecosystemElements.serve.icon}
+                    {/* Front */}
+                    <div
+                      style={{
+                        backfaceVisibility: "hidden",
+                      } as React.CSSProperties}
+                    >
+                      <div className="absolute top-0 left-0 w-full h-1 bg-[#8E4D84]"></div>
+                      <div className="flex flex-col items-center text-center">
+                        <div className="w-12 h-12 bg-[#8E4D84] bg-opacity-10 rounded-full flex items-center justify-center text-[#8E4D84] mb-4">
+                          {ecosystemElements.serve.icon}
+                        </div>
+                        <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
+                        <p className="text-primary-600 text-sm">
+                          {ecosystemElements.serve.description.join(' ')}
+                        </p>
                       </div>
-                      <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
-                      <p className="text-primary-600 text-sm">
-                        {ecosystemElements.serve.description.join(' ')}
-                      </p>
+                    </div>
+
+                    {/* Back */}
+                    <div
+                      className="flex items-center justify-center h-full"
+                      style={{
+                        backfaceVisibility: "hidden",
+                        transform: "rotateY(180deg)"
+                      } as React.CSSProperties}
+                    >
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          toggleFlip('serve', e);
+                          setTimeout(() => scrollToContact(), 300);
+                        }}
+                        className="px-6 py-3 bg-[#8E4D84] text-white rounded-full font-medium hover:bg-[#8E4D84]/90 transition-colors"
+                      >
+                        Get in Touch!
+                      </button>
                     </div>
                   </div>
                 </div>
