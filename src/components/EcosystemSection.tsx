@@ -231,6 +231,7 @@ export default function EcosystemSection() {
                 <div
                   className="transition-all duration-300 hover:scale-105"
                   style={{ perspective: "1000px" }}
+                  suppressHydrationWarning
                 >
                   <div
                     onClick={(e) => toggleFlip('gather', e)}
@@ -242,6 +243,7 @@ export default function EcosystemSection() {
                       transform: flippedCards.has('gather') ? "rotateY(180deg)" : "rotateY(0deg)",
                       transitionDuration: "0.6s"
                     } as React.CSSProperties}
+                    suppressHydrationWarning
                   >
                     {/* Front */}
                     {!flippedCards.has('gather') && (
@@ -282,6 +284,7 @@ export default function EcosystemSection() {
                 <div
                   className="transition-all duration-300 hover:scale-105"
                   style={{ perspective: "1000px" }}
+                  suppressHydrationWarning
                 >
                   <div
                     onClick={(e) => toggleFlip('mentor', e)}
@@ -293,6 +296,7 @@ export default function EcosystemSection() {
                       transform: flippedCards.has('mentor') ? "rotateY(180deg)" : "rotateY(0deg)",
                       transitionDuration: "0.6s"
                     } as React.CSSProperties}
+                    suppressHydrationWarning
                   >
                     {/* Front */}
                     {!flippedCards.has('mentor') && (
@@ -333,6 +337,7 @@ export default function EcosystemSection() {
                 <div
                   className="transition-all duration-300 hover:scale-105"
                   style={{ perspective: "1000px" }}
+                  suppressHydrationWarning
                 >
                   <div
                     onClick={(e) => toggleFlip('serve', e)}
@@ -344,6 +349,7 @@ export default function EcosystemSection() {
                       transform: flippedCards.has('serve') ? "rotateY(180deg)" : "rotateY(0deg)",
                       transitionDuration: "0.6s"
                     } as React.CSSProperties}
+                    suppressHydrationWarning
                   >
                     {/* Front */}
                     {!flippedCards.has('serve') && (
