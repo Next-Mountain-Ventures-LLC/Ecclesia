@@ -123,7 +123,13 @@ const gatherings = [
             
             <!-- Content -->
             <div class="order-2">
-              <div class={`inline-block rounded-full px-4 py-1 bg-${gathering.color}-100 text-${gathering.color}-700 font-medium text-xs mb-4`}>
+              <div
+                class="inline-block rounded-full px-4 py-1 font-medium text-xs mb-4"
+                style={{
+                  backgroundColor: gathering.color === 'primary' ? '#e9e5dc' : gathering.color === 'secondary' ? '#dff0ea' : '#ffebd6',
+                  color: gathering.color === 'primary' ? '#5f513d' : gathering.color === 'secondary' ? '#336058' : '#c43408'
+                }}
+              >
                 {gathering.time}
               </div>
               <h2 class="text-3xl font-display font-medium text-primary-800 mb-4">
