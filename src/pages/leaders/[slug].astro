@@ -97,7 +97,12 @@ const description = `Learn more about ${leader.name}, leaders of the ${leader.ga
               />
             </div>
             
-            <div class={`bg-${leader.gatheringColor}-50 p-6 rounded-xl`}>
+            <div
+              class="p-6 rounded-xl"
+              style={{
+                backgroundColor: leader.gatheringColor === 'primary' ? '#f6f5f2' : leader.gatheringColor === 'secondary' ? '#f3f8f6' : '#fff6ed'
+              }}
+            >
               <h2 class="text-xl font-display font-medium text-primary-800 mb-4">
                 Quick Info
               </h2>
