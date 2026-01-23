@@ -6,19 +6,16 @@ import seoImage from "../assets/logo-wood-1-1_nw_845a8ea5.jpg";
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
-  ogImage?: URL | undefined;
+  ogImage?: string | undefined;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const defaultOgImage = new URL(seoImage.src, Astro.site).toString();
 
-if (Astro.props.ogImage === undefined) {
-  Astro.props.ogImage = new URL(seoImage.src, Astro.site);
-}
-
-const { 
-  title = "Ecclesia Tulsa | A Community of Home Churches", 
-  description = "Ecclesia Tulsa is a community of believers gathering in homes throughout Tulsa to live out Acts 2:42-47 through authentic fellowship, meaningful discipleship, and transformative service.", 
-  ogImage 
+const {
+  title = "Ecclesia Tulsa | A Community of Home Churches",
+  description = "Ecclesia Tulsa is a community of believers gathering in homes throughout Tulsa to live out Acts 2:42-47 through authentic fellowship, meaningful discipleship, and transformative service.",
+  ogImage = defaultOgImage
 } = Astro.props;
 ---
 
@@ -41,13 +38,13 @@ const {
 <meta property="og:url" content={canonicalURL.toString()} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(seoImage.src, Astro.site).toString()} />
+<meta property="og:image" content={ogImage} />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={canonicalURL.toString()} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(seoImage.src, Astro.site).toString()} />
+<meta property="twitter:image" content={ogImage} />
 
 <!-- DO NOT REMOVE - Plausible Analytics must always be enabled -->
 <script is:inline>
