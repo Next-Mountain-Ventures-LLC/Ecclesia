@@ -263,12 +263,13 @@ export default function EcosystemSection() {
 
                     {/* Back */}
                     <div
-                      className="flex items-center justify-center h-full"
+                      className="flex flex-col items-center justify-center h-full bg-white"
                       style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)"
                       } as React.CSSProperties}
                     >
+                      <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -277,7 +278,7 @@ export default function EcosystemSection() {
                         }}
                         className="px-6 py-3 bg-[#4D9384] text-white rounded-full font-medium hover:bg-[#4D9384]/90 transition-colors"
                       >
-                        Get in Touch!
+                        Get in touch!
                       </button>
                     </div>
                   </div>
@@ -319,12 +320,13 @@ export default function EcosystemSection() {
 
                     {/* Back */}
                     <div
-                      className="flex items-center justify-center h-full"
+                      className="flex flex-col items-center justify-center h-full bg-white"
                       style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)"
                       } as React.CSSProperties}
                     >
+                      <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -333,7 +335,7 @@ export default function EcosystemSection() {
                         }}
                         className="px-6 py-3 bg-[#E6A54C] text-white rounded-full font-medium hover:bg-[#E6A54C]/90 transition-colors"
                       >
-                        Get in Touch!
+                        Get in touch!
                       </button>
                     </div>
                   </div>
@@ -375,12 +377,13 @@ export default function EcosystemSection() {
 
                     {/* Back */}
                     <div
-                      className="flex items-center justify-center h-full"
+                      className="flex flex-col items-center justify-center h-full bg-white"
                       style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)"
                       } as React.CSSProperties}
                     >
+                      <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -389,7 +392,7 @@ export default function EcosystemSection() {
                         }}
                         className="px-6 py-3 bg-[#8E4D84] text-white rounded-full font-medium hover:bg-[#8E4D84]/90 transition-colors"
                       >
-                        Get in Touch!
+                        Get in touch!
                       </button>
                     </div>
                   </div>
