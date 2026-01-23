@@ -405,6 +405,7 @@ export default function EcosystemSection() {
                         borderTopColor: element.color,
                         perspective: "1000px"
                       }}
+                      suppressHydrationWarning
                     >
                       <div
                         style={{
