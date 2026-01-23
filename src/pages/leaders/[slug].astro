@@ -156,9 +156,12 @@ const description = `Learn more about ${leader.name}, leaders of the ${leader.ga
               </div>
               
               <div class="mt-6">
-                <a 
-                  href={`/${leader.gatheringSlug}`} 
-                  class={`inline-flex items-center text-${leader.gatheringColor}-700 hover:text-${leader.gatheringColor}-800 transition-colors text-sm font-medium`}
+                <a
+                  href={`/${leader.gatheringSlug}`}
+                  class="inline-flex items-center transition-colors text-sm font-medium"
+                  style={{
+                    color: leader.gatheringColor === 'primary' ? '#5f513d' : leader.gatheringColor === 'secondary' ? '#336058' : '#c43408'
+                  }}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
                     <path d="M19 12H5" />
