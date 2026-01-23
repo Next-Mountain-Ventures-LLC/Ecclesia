@@ -455,12 +455,13 @@ export default function EcosystemSection() {
 
                         {/* Back */}
                         <div
-                          className="flex items-center justify-center min-h-[150px]"
+                          className="flex flex-col items-center justify-center min-h-[150px] bg-white"
                           style={{
                             backfaceVisibility: "hidden",
                             transform: "rotateY(180deg)"
                           } as React.CSSProperties}
                         >
+                          <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
@@ -470,7 +471,7 @@ export default function EcosystemSection() {
                             className="px-6 py-3 text-white rounded-full font-medium hover:opacity-90 transition-opacity"
                             style={{ backgroundColor: element.color }}
                           >
-                            Get in Touch!
+                            Get in touch!
                           </button>
                         </div>
                       </div>
