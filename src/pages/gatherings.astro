@@ -180,16 +180,20 @@ const gatherings = [
               </div>
               
               <div>
-                <a 
-                  href="#join-form" 
-                  class={`inline-flex items-center justify-center rounded-full bg-${gathering.color} px-6 py-3 text-sm font-medium text-${gathering.color}-foreground shadow transition-colors hover:bg-${gathering.color}/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-${gathering.color} focus-visible:ring-offset-2`}
-                >
-                  Join this gathering
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </a>
+                <a
+                href="#join-form"
+                class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  backgroundColor: gathering.color === 'primary' ? '#5f513d' : gathering.color === 'secondary' ? '#336058' : '#c43408',
+                  color: 'white'
+                }}
+              >
+                Join this gathering
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </a>
               </div>
             </div>
           </div>
