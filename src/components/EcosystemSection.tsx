@@ -3,6 +3,27 @@ import React, { useState, useEffect, useRef } from "react";
 export default function EcosystemSection() {
   const [activeElement, setActiveElement] = useState("");
   const [isHovering, setIsHovering] = useState(false);
+  const [flippedCards, setFlippedCards] = useState<Set<string>>(new Set());
+
+  const scrollToContact = () => {
+    const contactElement = document.getElementById("contact");
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const toggleFlip = (cardKey: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setFlippedCards(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(cardKey)) {
+        newSet.delete(cardKey);
+      } else {
+        newSet.add(cardKey);
+      }
+      return newSet;
+    });
+  };
   
   // No animation or auto-rotation
 
