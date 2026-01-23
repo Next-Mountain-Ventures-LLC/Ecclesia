@@ -85,8 +85,14 @@ const gatherings = [
     <div class="mt-16 space-y-24">
       {gatherings.map((gathering, index) => (
         <div class="relative" id={gathering.id}>
-          <div class={`absolute inset-0 bg-${gathering.color}-50 rounded-3xl -mx-4 lg:mx-0 transform rotate-1`} style={{ zIndex: "-1" }}></div>
-          
+          <div
+            class="absolute inset-0 rounded-3xl -mx-4 lg:mx-0 transform rotate-1"
+            style={{
+              zIndex: "-1",
+              backgroundColor: gathering.color === 'primary' ? '#f6f5f2' : gathering.color === 'secondary' ? '#f3f8f6' : '#fff6ed'
+            }}
+          ></div>
+
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <!-- Image Gallery -->
             <div class="order-1 lg:order-none">
@@ -117,7 +123,13 @@ const gatherings = [
             
             <!-- Content -->
             <div class="order-2">
-              <div class={`inline-block rounded-full px-4 py-1 bg-${gathering.color}-100 text-${gathering.color}-700 font-medium text-xs mb-4`}>
+              <div
+                class="inline-block rounded-full px-4 py-1 font-medium text-xs mb-4"
+                style={{
+                  backgroundColor: gathering.color === 'primary' ? '#e9e5dc' : gathering.color === 'secondary' ? '#dff0ea' : '#ffebd6',
+                  color: gathering.color === 'primary' ? '#5f513d' : gathering.color === 'secondary' ? '#336058' : '#c43408'
+                }}
+              >
                 {gathering.time}
               </div>
               <h2 class="text-3xl font-display font-medium text-primary-800 mb-4">
@@ -168,16 +180,20 @@ const gatherings = [
               </div>
               
               <div>
-                <a 
-                  href="#join-form" 
-                  class={`inline-flex items-center justify-center rounded-full bg-${gathering.color} px-6 py-3 text-sm font-medium text-${gathering.color}-foreground shadow transition-colors hover:bg-${gathering.color}/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-${gathering.color} focus-visible:ring-offset-2`}
-                >
-                  Join this gathering
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
-                    <path d="M5 12h14" />
-                    <path d="m12 5 7 7-7 7" />
-                  </svg>
-                </a>
+                <a
+                href="#join-form"
+                class="inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2"
+                style={{
+                  backgroundColor: gathering.color === 'primary' ? '#5f513d' : gathering.color === 'secondary' ? '#336058' : '#c43408',
+                  color: 'white'
+                }}
+              >
+                Join this gathering
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </a>
               </div>
             </div>
           </div>

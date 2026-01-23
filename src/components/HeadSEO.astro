@@ -50,16 +50,29 @@ const {
 <script is:inline>
   // Plausible Analytics - Dynamic Domain Detection
   // This script automatically detects the current domain and loads Plausible analytics
-  (function() {
-    const hostname = window.location.hostname;
-    
-    // Only track production domains (exclude localhost, IP addresses, etc.)
-    if (hostname !== 'localhost' && !hostname.match(/^\d+\.\d+\.\d+\.\d+$/)) {
-      const script = document.createElement('script');
-      script.defer = true;
-      script.setAttribute('data-domain', hostname);
-      script.src = 'https://plausible.io/js/script.js';
-      document.head.appendChild(script);
-    }
-  })();
+  if (typeof window !== 'undefined') {
+    (function() {
+      const hostname = window.location.hostname;
+
+      // Only track production domains (exclude localhost, IP addresses, etc.)
+      if (hostname !== 'localhost' && !hostname.match(/^\d+\.\d+\.\d+$/)) {
+        // Defer script loading to avoid DOM manipulation conflicts
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', function() {
+            const script = document.createElement('script');
+            script.defer = true;
+            script.setAttribute('data-domain', hostname);
+            script.src = 'https://plausible.io/js/script.js';
+            document.head.appendChild(script);
+          });
+        } else {
+          const script = document.createElement('script');
+          script.defer = true;
+          script.setAttribute('data-domain', hostname);
+          script.src = 'https://plausible.io/js/script.js';
+          document.head.appendChild(script);
+        }
+      }
+    })();
+  }
 </script>

@@ -42,25 +42,25 @@ export default function HeroSection() {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary-800 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-primary-800 mb-6 leading-tight">
               {/* Desktop order */}
               <div className="hidden sm:block">
-                <span className="block">The Church is</span>
-                <span className="block text-accent-600">People, Not Places</span>
+                <span className="block text-accent-600">Following Jesus</span>
+                <span className="block">Together</span>
               </div>
-              
+
               {/* Mobile order */}
               <div className="sm:hidden">
                 {/* Correct text order */}
                 <div>
-                  <span className="block">The Church is</span>
-                  <span className="block text-accent-600">People, Not Places</span>
+                  <span className="block text-accent-600">Following Jesus</span>
+                  <span className="block">Together</span>
                 </div>
               </div>
             </h1>
             
             <p className="text-lg md:text-xl text-primary-700 mb-8 max-w-lg">
-              Ecclesia is a community of believers gathering in homes throughout Tulsa to experience authentic fellowship, meaningful discipleship, and transformative service.
+              Ecclesia is a community of believers gathering in homes throughout Tulsa to experience authentic community, intentional discipleship, and transformative service.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
