@@ -85,8 +85,14 @@ const gatherings = [
     <div class="mt-16 space-y-24">
       {gatherings.map((gathering, index) => (
         <div class="relative" id={gathering.id}>
-          <div class={`absolute inset-0 bg-${gathering.color}-50 rounded-3xl -mx-4 lg:mx-0 transform rotate-1`} style={{ zIndex: "-1" }}></div>
-          
+          <div
+            class="absolute inset-0 rounded-3xl -mx-4 lg:mx-0 transform rotate-1"
+            style={{
+              zIndex: "-1",
+              backgroundColor: gathering.color === 'primary' ? '#f6f5f2' : gathering.color === 'secondary' ? '#f3f8f6' : '#fff6ed'
+            }}
+          ></div>
+
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <!-- Image Gallery -->
             <div class="order-1 lg:order-none">
