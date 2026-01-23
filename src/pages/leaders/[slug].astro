@@ -109,7 +109,13 @@ const description = `Learn more about ${leader.name}, leaders of the ${leader.ga
               
               <div class="space-y-4">
                 <div class="flex items-start">
-                  <div class={`bg-${leader.gatheringColor}-100 p-2 rounded-full mr-3 text-${leader.gatheringColor}-700 shrink-0`}>
+                  <div
+                    class="p-2 rounded-full mr-3 shrink-0"
+                    style={{
+                      backgroundColor: leader.gatheringColor === 'primary' ? '#e9e5dc' : leader.gatheringColor === 'secondary' ? '#dff0ea' : '#ffebd6',
+                      color: leader.gatheringColor === 'primary' ? '#5f513d' : leader.gatheringColor === 'secondary' ? '#336058' : '#c43408'
+                    }}
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
                       <circle cx="9" cy="7" r="4" />
