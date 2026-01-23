@@ -28,7 +28,7 @@ export default function GatheringForm() {
       const response = await fetch("https://api.new.website/api/submit-form/", {
         method: "POST",
         headers: {
-          "Content-Type": "multipart/form-data",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
