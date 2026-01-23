@@ -19,16 +19,7 @@ export default function GatheringsSection() {
           <div className="relative group gathering-card">
             <div className="rounded-xl overflow-hidden bg-white shadow-md h-full transition-all duration-300 group-hover:shadow-xl">
               <div className="h-48 bg-primary-200 overflow-hidden flex items-center justify-center">
-                <svg viewBox="0 0 200 200" className="w-full h-full text-primary-300" fill="currentColor">
-                  <rect width="200" height="200" fill="#f0f9f7"/>
-                  <circle cx="100" cy="100" r="50" fill="none" stroke="#4d9384" strokeWidth="2"/>
-                  <path d="M 100 80 L 115 120 L 100 110 L 85 120 Z" fill="#4d9384"/>
-                  <path d="M 70 70 L 85 75 L 80 90 Z" fill="#e8a539" opacity="0.6"/>
-                  <path d="M 130 75 L 145 80 L 140 95 Z" fill="#e8a539" opacity="0.6"/>
-                  <circle cx="50" cy="40" r="8" fill="#4d9384" opacity="0.5"/>
-                  <circle cx="150" cy="160" r="8" fill="#4d9384" opacity="0.5"/>
-                  <text x="100" y="165" fontSize="16" fontWeight="bold" textAnchor="middle" fill="#4d9384">Midtown</text>
-                </svg>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F38e23c486fbd481fbce149c220746355?format=webp&width=800&height=1200" alt="Midtown Tulsa Gathering Location" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
                 <div className="inline-block rounded-full px-4 py-1 bg-primary-100 text-primary-700 font-medium text-xs mb-4">
@@ -49,16 +40,7 @@ export default function GatheringsSection() {
           <div className="relative group gathering-card">
             <div className="rounded-xl overflow-hidden bg-white shadow-md h-full transition-all duration-300 group-hover:shadow-xl">
               <div className="h-48 bg-secondary-200 overflow-hidden flex items-center justify-center">
-                <svg viewBox="0 0 200 200" className="w-full h-full text-secondary-300" fill="currentColor">
-                  <rect width="200" height="200" fill="#fef5e7"/>
-                  <circle cx="100" cy="100" r="50" fill="none" stroke="#d97706" strokeWidth="2"/>
-                  <path d="M 100 80 L 115 120 L 100 110 L 85 120 Z" fill="#d97706"/>
-                  <path d="M 70 70 L 85 75 L 80 90 Z" fill="#6b7280" opacity="0.6"/>
-                  <path d="M 130 75 L 145 80 L 140 95 Z" fill="#6b7280" opacity="0.6"/>
-                  <circle cx="50" cy="40" r="8" fill="#d97706" opacity="0.5"/>
-                  <circle cx="150" cy="160" r="8" fill="#d97706" opacity="0.5"/>
-                  <text x="100" y="165" fontSize="16" fontWeight="bold" textAnchor="middle" fill="#d97706">Southwest</text>
-                </svg>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F30d0c99954ac493fad10db59a98c04dd?format=webp&width=800&height=1200" alt="Southwest Tulsa Gathering Location" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
                 <div className="inline-block rounded-full px-4 py-1 bg-secondary-100 text-secondary-700 font-medium text-xs mb-4">
@@ -79,16 +61,7 @@ export default function GatheringsSection() {
           <div className="relative group gathering-card">
             <div className="rounded-xl overflow-hidden bg-white shadow-md h-full transition-all duration-300 group-hover:shadow-xl">
               <div className="h-48 bg-accent-200 overflow-hidden flex items-center justify-center">
-                <svg viewBox="0 0 200 200" className="w-full h-full text-accent-300" fill="currentColor">
-                  <rect width="200" height="200" fill="#fef3e2"/>
-                  <circle cx="100" cy="100" r="50" fill="none" stroke="#dc2626" strokeWidth="2"/>
-                  <path d="M 100 80 L 115 120 L 100 110 L 85 120 Z" fill="#dc2626"/>
-                  <path d="M 70 70 L 85 75 L 80 90 Z" fill="#1f2937" opacity="0.6"/>
-                  <path d="M 130 75 L 145 80 L 140 95 Z" fill="#1f2937" opacity="0.6"/>
-                  <circle cx="50" cy="40" r="8" fill="#dc2626" opacity="0.5"/>
-                  <circle cx="150" cy="160" r="8" fill="#dc2626" opacity="0.5"/>
-                  <text x="100" y="165" fontSize="14" fontWeight="bold" textAnchor="middle" fill="#dc2626">Youth</text>
-                </svg>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F4ac6e519d809424489f0bc31aef08058?format=webp&width=800&height=1200" alt="Youth Gathering Location" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
                 <div className="inline-block rounded-full px-4 py-1 bg-accent-100 text-accent-700 font-medium text-xs mb-4">
