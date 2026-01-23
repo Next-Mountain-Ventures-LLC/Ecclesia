@@ -408,54 +408,51 @@ export default function EcosystemSection() {
                         } as React.CSSProperties}
                       >
                         {/* Front */}
-                        <div
-                          style={{
-                            backfaceVisibility: "hidden",
-                          } as React.CSSProperties}
-                        >
-                          <div className="flex items-center mb-3">
-                            <div
-                              className="w-10 h-10 rounded-full flex items-center justify-center mr-4"
-                              style={{
-                                backgroundColor: `${element.color}20`,
-                                color: element.color
-                              }}
-                            >
-                              {element.icon}
-                            </div>
-                            <div>
-                              <h4 className="font-medium text-primary-800">{element.title}</h4>
-                            </div>
-                          </div>
-
+                        {!isFlipped && (
                           <div>
-                            <p className="text-sm text-primary-600">
-                              {element.description.join(' ')}
-                            </p>
+                            <div className="flex items-center mb-3">
+                              <div
+                                className="w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                                style={{
+                                  backgroundColor: `${element.color}20`,
+                                  color: element.color
+                                }}
+                              >
+                                {element.icon}
+                              </div>
+                              <div>
+                                <h4 className="font-medium text-primary-800">{element.title}</h4>
+                              </div>
+                            </div>
+
+                            <div>
+                              <p className="text-sm text-primary-600">
+                                {element.description.join(' ')}
+                              </p>
+                            </div>
                           </div>
-                        </div>
+                        )}
 
                         {/* Back */}
-                        <div
-                          className="flex flex-col items-center justify-center min-h-[150px] bg-white"
-                          style={{
-                            backfaceVisibility: "hidden",
-                            transform: "rotateY(180deg)"
-                          } as React.CSSProperties}
-                        >
-                          <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              toggleFlip(key, e);
-                              setTimeout(() => scrollToContact(), 300);
-                            }}
-                            className="px-6 py-3 text-white rounded-full font-medium hover:opacity-90 transition-opacity"
-                            style={{ backgroundColor: element.color }}
+                        {isFlipped && (
+                          <div
+                            className="flex flex-col items-center justify-center min-h-[150px] bg-white"
+                            style={{ transform: "rotateY(180deg)" }}
                           >
-                            Get in touch!
-                          </button>
-                        </div>
+                            <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                toggleFlip(key, e);
+                                setTimeout(() => scrollToContact(), 300);
+                              }}
+                              className="px-6 py-3 text-white rounded-full font-medium hover:opacity-90 transition-opacity"
+                              style={{ backgroundColor: element.color }}
+                            >
+                              Get in touch!
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   );
