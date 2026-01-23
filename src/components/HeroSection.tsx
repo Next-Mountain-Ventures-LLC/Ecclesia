@@ -45,16 +45,16 @@ export default function HeroSection() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium text-primary-800 mb-6 leading-tight">
               {/* Desktop order */}
               <div className="hidden sm:block">
-                <span className="block text-accent-600">Life Together</span>
-                <span className="block">With Christ</span>
+                <span className="block text-accent-600">Following Jesus</span>
+                <span className="block">Together</span>
               </div>
 
               {/* Mobile order */}
               <div className="sm:hidden">
                 {/* Correct text order */}
                 <div>
-                  <span className="block text-accent-600">Life Together</span>
-                  <span className="block">With Christ</span>
+                  <span className="block text-accent-600">Following Jesus</span>
+                  <span className="block">Together</span>
                 </div>
               </div>
             </h1>
