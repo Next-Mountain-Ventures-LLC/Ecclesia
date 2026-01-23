@@ -404,31 +404,72 @@ export default function EcosystemSection() {
               {/* Elements */}
               <div className="space-y-6">
                 {Object.entries(ecosystemElements).map(([key, element]) => {
+                  const isFlipped = flippedCards.has(key);
                   return (
-                    <div 
+                    <div
                       key={key}
-                      className="p-5 rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg border-t-4"
-                      style={{ borderTopColor: element.color }}
+                      onClick={(e) => toggleFlip(key, e)}
+                      className="p-5 rounded-xl bg-white shadow-md transition-all duration-300 hover:shadow-lg border-t-4 cursor-pointer"
+                      style={{
+                        borderTopColor: element.color,
+                        perspective: "1000px"
+                      }}
                     >
-                      <div className="flex items-center mb-3">
-                        <div 
-                          className="w-10 h-10 rounded-full flex items-center justify-center mr-4"
-                          style={{ 
-                            backgroundColor: `${element.color}20`,
-                            color: element.color
-                          }}
+                      <div
+                        style={{
+                          transformStyle: "preserve-3d",
+                          transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                          transitionDuration: "0.6s"
+                        } as React.CSSProperties}
+                      >
+                        {/* Front */}
+                        <div
+                          style={{
+                            backfaceVisibility: "hidden",
+                          } as React.CSSProperties}
                         >
-                          {element.icon}
+                          <div className="flex items-center mb-3">
+                            <div
+                              className="w-10 h-10 rounded-full flex items-center justify-center mr-4"
+                              style={{
+                                backgroundColor: `${element.color}20`,
+                                color: element.color
+                              }}
+                            >
+                              {element.icon}
+                            </div>
+                            <div>
+                              <h4 className="font-medium text-primary-800">{element.title}</h4>
+                            </div>
+                          </div>
+
+                          <div>
+                            <p className="text-sm text-primary-600">
+                              {element.description.join(' ')}
+                            </p>
+                          </div>
                         </div>
-                        <div>
-                          <h4 className="font-medium text-primary-800">{element.title}</h4>
+
+                        {/* Back */}
+                        <div
+                          className="flex items-center justify-center min-h-[150px]"
+                          style={{
+                            backfaceVisibility: "hidden",
+                            transform: "rotateY(180deg)"
+                          } as React.CSSProperties}
+                        >
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              toggleFlip(key, e);
+                              setTimeout(() => scrollToContact(), 300);
+                            }}
+                            className="px-6 py-3 text-white rounded-full font-medium hover:opacity-90 transition-opacity"
+                            style={{ backgroundColor: element.color }}
+                          >
+                            Get in Touch!
+                          </button>
                         </div>
-                      </div>
-                      
-                      <div>
-                        <p className="text-sm text-primary-600">
-                          {element.description.join(' ')}
-                        </p>
                       </div>
                     </div>
                   );
