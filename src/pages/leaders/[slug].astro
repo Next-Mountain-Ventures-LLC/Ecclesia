@@ -180,7 +180,13 @@ const description = `Learn more about ${leader.name}, leaders of the ${leader.ga
             {leader.name}
           </h1>
           
-          <div class={`inline-block mb-6 rounded-full px-4 py-1 bg-${leader.gatheringColor}-100 text-${leader.gatheringColor}-700 font-medium text-xs`}>
+          <div
+            class="inline-block mb-6 rounded-full px-4 py-1 font-medium text-xs"
+            style={{
+              backgroundColor: leader.gatheringColor === 'primary' ? '#e9e5dc' : leader.gatheringColor === 'secondary' ? '#dff0ea' : '#ffebd6',
+              color: leader.gatheringColor === 'primary' ? '#5f513d' : leader.gatheringColor === 'secondary' ? '#336058' : '#c43408'
+            }}
+          >
             {leader.gathering} Leader
           </div>
           
