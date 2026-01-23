@@ -107,9 +107,6 @@ export default function GatheringsSection() {
         </div>
         
         <div className="mt-12 text-center">
-          <p className="text-lg text-primary-800 max-w-2xl mx-auto mb-6">
-            We believe in growth by division. As our gatherings grow, we encourage them to multiply and form new communities.
-          </p>
           <a
             href="#contact"
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
