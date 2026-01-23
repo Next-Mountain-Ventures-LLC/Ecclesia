@@ -60,7 +60,7 @@ export default function HeroSection() {
             </h1>
             
             <p className="text-lg md:text-xl text-primary-700 mb-8 max-w-lg">
-              Ecclesia is a community of believers gathering in homes throughout Tulsa to experience authentic fellowship, meaningful discipleship, and transformative service.
+              Ecclesia is a community of believers gathering in homes throughout Tulsa to experience authentic community, intentional discipleship, and transformative service.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
