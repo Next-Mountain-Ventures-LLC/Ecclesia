@@ -244,43 +244,37 @@ export default function EcosystemSection() {
                     } as React.CSSProperties}
                   >
                     {/* Front */}
-                    <div
-                      style={{
-                        backfaceVisibility: "hidden",
-                      } as React.CSSProperties}
-                    >
-                      <div className="absolute top-0 left-0 w-full h-1 bg-[#4D9384]"></div>
-                      <div className="flex flex-col items-center text-center">
-                        <div className="w-12 h-12 bg-[#4D9384] bg-opacity-10 rounded-full flex items-center justify-center text-[#4D9384] mb-4">
-                          {ecosystemElements.gather.icon}
+                    {!flippedCards.has('gather') && (
+                      <div>
+                        <div className="absolute top-0 left-0 w-full h-1 bg-[#4D9384]"></div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-12 h-12 bg-[#4D9384] bg-opacity-10 rounded-full flex items-center justify-center text-[#4D9384] mb-4">
+                            {ecosystemElements.gather.icon}
+                          </div>
+                          <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
+                          <p className="text-primary-600 text-sm">
+                            {ecosystemElements.gather.description.join(' ')}
+                          </p>
                         </div>
-                        <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
-                        <p className="text-primary-600 text-sm">
-                          {ecosystemElements.gather.description.join(' ')}
-                        </p>
                       </div>
-                    </div>
+                    )}
 
                     {/* Back */}
-                    <div
-                      className="flex flex-col items-center justify-center h-full bg-white"
-                      style={{
-                        backfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)"
-                      } as React.CSSProperties}
-                    >
-                      <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleFlip('gather', e);
-                          setTimeout(() => scrollToContact(), 300);
-                        }}
-                        className="px-6 py-3 bg-[#4D9384] text-white rounded-full font-medium hover:bg-[#4D9384]/90 transition-colors"
-                      >
-                        Get in touch!
-                      </button>
-                    </div>
+                    {flippedCards.has('gather') && (
+                      <div className="flex flex-col items-center justify-center h-full bg-white" style={{ transform: "rotateY(180deg)" }}>
+                        <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleFlip('gather', e);
+                            setTimeout(() => scrollToContact(), 300);
+                          }}
+                          className="px-6 py-3 bg-[#4D9384] text-white rounded-full font-medium hover:bg-[#4D9384]/90 transition-colors"
+                        >
+                          Get in touch!
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -301,43 +295,37 @@ export default function EcosystemSection() {
                     } as React.CSSProperties}
                   >
                     {/* Front */}
-                    <div
-                      style={{
-                        backfaceVisibility: "hidden",
-                      } as React.CSSProperties}
-                    >
-                      <div className="absolute top-0 left-0 w-full h-1 bg-[#E6A54C]"></div>
-                      <div className="flex flex-col items-center text-center">
-                        <div className="w-12 h-12 bg-[#E6A54C] bg-opacity-10 rounded-full flex items-center justify-center text-[#E6A54C] mb-4">
-                          {ecosystemElements.mentor.icon}
+                    {!flippedCards.has('mentor') && (
+                      <div>
+                        <div className="absolute top-0 left-0 w-full h-1 bg-[#E6A54C]"></div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-12 h-12 bg-[#E6A54C] bg-opacity-10 rounded-full flex items-center justify-center text-[#E6A54C] mb-4">
+                            {ecosystemElements.mentor.icon}
+                          </div>
+                          <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.mentor.title}</h3>
+                          <p className="text-primary-600 text-sm">
+                            {ecosystemElements.mentor.description.join(' ')}
+                          </p>
                         </div>
-                        <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.mentor.title}</h3>
-                        <p className="text-primary-600 text-sm">
-                          {ecosystemElements.mentor.description.join(' ')}
-                        </p>
                       </div>
-                    </div>
+                    )}
 
                     {/* Back */}
-                    <div
-                      className="flex flex-col items-center justify-center h-full bg-white"
-                      style={{
-                        backfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)"
-                      } as React.CSSProperties}
-                    >
-                      <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleFlip('mentor', e);
-                          setTimeout(() => scrollToContact(), 300);
-                        }}
-                        className="px-6 py-3 bg-[#E6A54C] text-white rounded-full font-medium hover:bg-[#E6A54C]/90 transition-colors"
-                      >
-                        Get in touch!
-                      </button>
-                    </div>
+                    {flippedCards.has('mentor') && (
+                      <div className="flex flex-col items-center justify-center h-full bg-white" style={{ transform: "rotateY(180deg)" }}>
+                        <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleFlip('mentor', e);
+                            setTimeout(() => scrollToContact(), 300);
+                          }}
+                          className="px-6 py-3 bg-[#E6A54C] text-white rounded-full font-medium hover:bg-[#E6A54C]/90 transition-colors"
+                        >
+                          Get in touch!
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -358,43 +346,37 @@ export default function EcosystemSection() {
                     } as React.CSSProperties}
                   >
                     {/* Front */}
-                    <div
-                      style={{
-                        backfaceVisibility: "hidden",
-                      } as React.CSSProperties}
-                    >
-                      <div className="absolute top-0 left-0 w-full h-1 bg-[#8E4D84]"></div>
-                      <div className="flex flex-col items-center text-center">
-                        <div className="w-12 h-12 bg-[#8E4D84] bg-opacity-10 rounded-full flex items-center justify-center text-[#8E4D84] mb-4">
-                          {ecosystemElements.serve.icon}
+                    {!flippedCards.has('serve') && (
+                      <div>
+                        <div className="absolute top-0 left-0 w-full h-1 bg-[#8E4D84]"></div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="w-12 h-12 bg-[#8E4D84] bg-opacity-10 rounded-full flex items-center justify-center text-[#8E4D84] mb-4">
+                            {ecosystemElements.serve.icon}
+                          </div>
+                          <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
+                          <p className="text-primary-600 text-sm">
+                            {ecosystemElements.serve.description.join(' ')}
+                          </p>
                         </div>
-                        <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
-                        <p className="text-primary-600 text-sm">
-                          {ecosystemElements.serve.description.join(' ')}
-                        </p>
                       </div>
-                    </div>
+                    )}
 
                     {/* Back */}
-                    <div
-                      className="flex flex-col items-center justify-center h-full bg-white"
-                      style={{
-                        backfaceVisibility: "hidden",
-                        transform: "rotateY(180deg)"
-                      } as React.CSSProperties}
-                    >
-                      <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          toggleFlip('serve', e);
-                          setTimeout(() => scrollToContact(), 300);
-                        }}
-                        className="px-6 py-3 bg-[#8E4D84] text-white rounded-full font-medium hover:bg-[#8E4D84]/90 transition-colors"
-                      >
-                        Get in touch!
-                      </button>
-                    </div>
+                    {flippedCards.has('serve') && (
+                      <div className="flex flex-col items-center justify-center h-full bg-white" style={{ transform: "rotateY(180deg)" }}>
+                        <p className="text-primary-800 font-medium mb-4">Want to know more?</p>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            toggleFlip('serve', e);
+                            setTimeout(() => scrollToContact(), 300);
+                          }}
+                          className="px-6 py-3 bg-[#8E4D84] text-white rounded-full font-medium hover:bg-[#8E4D84]/90 transition-colors"
+                        >
+                          Get in touch!
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
