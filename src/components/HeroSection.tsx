@@ -42,7 +42,7 @@ export default function HeroSection() {
               </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-primary-800 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-sans font-medium text-primary-800 mb-6 leading-tight">
               {/* Desktop order */}
               <div className="hidden sm:block">
                 <span className="block text-accent-600">Following Jesus</span>
