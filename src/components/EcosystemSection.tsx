@@ -47,11 +47,8 @@ export default function EcosystemSection() {
       color: "#4D9384"
     },
     mentor: {
-      title: "Coaching & Discipleship",
-      description: [
-        "Each gathering creates an environment for mentorship through micro-bands of people (no larger than six) that meet together regularly. These meetings are designed to help people grow deeper in their relationship with Jesus and the power of the Holy Spirit.",
-        "Our mentorship meetings include prayer, confession, Bible study, mutual support, and fellowship—creating space for authentic spiritual growth and community."
-      ],
+      title: "Discipleship",
+      description: "Besides our different weekly gatherings, we also have different  discipleship groups for men and women for prayer, confession, Bible study, personal mentorship, and encouragement.  ",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
