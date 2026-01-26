@@ -6,7 +6,7 @@ interface Article {
   id: string;
   number: number;
   title: string;
-  description: string;
+  description: string | React.ReactNode;
 }
 
 const articles: Article[] = [
@@ -20,7 +20,16 @@ const articles: Article[] = [
     id: "jesus-christ",
     number: 2,
     title: "Jesus Christ",
-    description: "We believe Jesus Christ is God's Son. He became human through Mary, lived a perfect life, died on the cross for our sins, and rose from the dead. He now prays for us and will return again."
+    description: (
+      <>
+        <p className="mb-4">
+          We believe in Jesus Christ, the Second Person of the Triune Godhead, eternally one with the Father. He became incarnate by the Holy Spirit and was born of the Virgin Mary. In Him, two whole and perfect natures—divine and human—are united in one Person: very God and very man.
+        </p>
+        <p>
+          We believe that Jesus Christ died for our sins and truly rose from the dead with His perfected body. He ascended into heaven, where He continues in intercession for us.
+        </p>
+      </>
+    )
   },
   {
     id: "holy-spirit",
@@ -80,7 +89,7 @@ const articles: Article[] = [
     id: "baptism",
     number: 12,
     title: "Baptism",
-    description: "We believe in Christian baptism as commanded by Jesus. Baptism symbolizes acceptance of Jesus' forgiveness and joining Christ's body, the Church. Believers should be baptized to show their commitment to obedience and holiness. Baptism can be done by sprinkling, pouring, or immersion."
+    description: "We believe in Christian baptism as commanded by Jesus. Baptism symbolizes acceptance of Jesus' forgiveness and joining Christ's body, the Church. Believers should be baptized to show their commitment to obedience and holiness."
   },
   {
     id: "communion",
