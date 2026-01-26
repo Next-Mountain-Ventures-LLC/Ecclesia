@@ -30,10 +30,8 @@ export default function EcosystemSection() {
   const ecosystemElements = {
     gather: {
       title: "Gathering Together",
-      description: [
-        "People in Ecclesia gather together weekly to grow together. We do this around the table because we believe that food not only brings people together but is biblical (Acts 2:46, Luke 22:14-20, Acts 20:7).",
-        "We share food, brainstorm ways we can help those around us, and enjoy each other's company. Currently, we meet every Friday night in Midtown and are constantly looking for additional opportunities to hang out."
-      ],
+      description: "People in Ecclesia gather together weekly to grow together. We do this around the table because we believe that food brings people together and is a biblical spiritual discipline (Acts 2:46, Luke 22:14-20, Acts 20:7). We read scripture together and have a time of discussion and prayer. ",
+      descriptionJSX: true,
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
