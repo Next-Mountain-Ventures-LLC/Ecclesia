@@ -66,10 +66,7 @@ export default function EcosystemSection() {
     },
     serve: {
       title: "Serving Our Community",
-      description: [
-        "We strive to serve as Jesus served. We encourage everyone to identify needs in the community and invite their friends and neighbors along for the journey. We have multiple ways to serve every month and are continually looking for more opportunities.",
-        "You do not need to attend a gathering to serve with us. If you would like to serve alongside us, please reach out and let us know how to get plugged in."
-      ],
+      description: "We strive to serve as Jesus served. We encourage everyone to find practical ways to love their neighbor. We meet needs person-to-person through shared generosity and acts of service.  ",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m7 11 2-2-2-2" />
