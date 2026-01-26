@@ -89,7 +89,7 @@ const articles: Article[] = [
     id: "baptism",
     number: 12,
     title: "Baptism",
-    description: "We believe in Christian baptism as commanded by Jesus. Baptism symbolizes acceptance of Jesus' forgiveness and joining Christ's body, the Church. Believers should be baptized to show their commitment to obedience and holiness. Baptism can be done by sprinkling, pouring, or immersion."
+    description: "We believe in Christian baptism as commanded by Jesus. Baptism symbolizes acceptance of Jesus' forgiveness and joining Christ's body, the Church. Believers should be baptized to show their commitment to obedience and holiness."
   },
   {
     id: "communion",
