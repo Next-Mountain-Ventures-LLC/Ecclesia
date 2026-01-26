@@ -426,7 +426,7 @@ export default function EcosystemSection() {
 
                             <div>
                               <p className="text-sm text-primary-600">
-                                {element.description.join(' ')}
+                                {typeof element.description === 'string' ? element.description : element.description.join(' ')}
                               </p>
                             </div>
                           </div>
