@@ -20,7 +20,16 @@ const articles: Article[] = [
     id: "jesus-christ",
     number: 2,
     title: "Jesus Christ",
-    description: "We believe Jesus Christ is God's Son. He became human through Mary, lived a perfect life, died on the cross for our sins, and rose from the dead. He now prays for us and will return again."
+    description: (
+      <>
+        <p className="mb-4">
+          We believe in Jesus Christ, the Second Person of the Triune Godhead; that He was eternally one with the Father; that He became incarnate by the Holy Spirit and was born of the Virgin Mary, so that two whole and perfect natures, that is to say the Godhead and manhood, are thus united in one Person very God and very man, the God-man.
+        </p>
+        <p>
+          We believe that Jesus Christ died for our sins, and that He truly arose from the dead and took again His body, together with all things appertaining to the perfection of man's nature, wherewith He ascended into heaven and is there engaged in intercession for us.
+        </p>
+      </>
+    )
   },
   {
     id: "holy-spirit",
