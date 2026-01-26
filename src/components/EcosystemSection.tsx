@@ -247,7 +247,7 @@ export default function EcosystemSection() {
                           </div>
                           <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
                           <p className="text-primary-600 text-sm">
-                            {ecosystemElements.gather.description.join(' ')}
+                            {ecosystemElements.gather.description}
                           </p>
                         </div>
                       </div>
