@@ -6,7 +6,7 @@ interface Article {
   id: string;
   number: number;
   title: string;
-  description: string;
+  description: string | React.ReactNode;
 }
 
 const articles: Article[] = [
