@@ -353,7 +353,7 @@ export default function EcosystemSection() {
                           </div>
                           <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
                           <p className="text-primary-600 text-sm">
-                            {ecosystemElements.serve.description.join(' ')}
+                            {ecosystemElements.serve.description}
                           </p>
                         </div>
                       </div>
