@@ -30,10 +30,7 @@ export default function EcosystemSection() {
   const ecosystemElements = {
     gather: {
       title: "Gathering Together",
-      description: [
-        "People in Ecclesia gather together weekly to grow together. We do this around the table because we believe that food not only brings people together but is biblical (Acts 2:46, Luke 22:14-20, Acts 20:7).",
-        "We share food, brainstorm ways we can help those around us, and enjoy each other's company. Currently, we meet every Friday night in Midtown and are constantly looking for additional opportunities to hang out."
-      ],
+      description: "People in Ecclesia gather together weekly to grow together. We do this around the table because we believe that food brings people together and is a biblical spiritual discipline (Acts 2:46, Luke 22:14-20, Acts 20:7). We read scripture together and have a time of discussion and prayer. ",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -49,11 +46,8 @@ export default function EcosystemSection() {
       color: "#4D9384"
     },
     mentor: {
-      title: "Coaching & Discipleship",
-      description: [
-        "Each gathering creates an environment for mentorship through micro-bands of people (no larger than six) that meet together regularly. These meetings are designed to help people grow deeper in their relationship with Jesus and the power of the Holy Spirit.",
-        "Our mentorship meetings include prayer, confession, Bible study, mutual support, and fellowship—creating space for authentic spiritual growth and community."
-      ],
+      title: "Discipleship",
+      description: "Besides our different weekly gatherings, we also have different  discipleship groups for men and women for prayer, confession, Bible study, personal mentorship, and encouragement.  ",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -71,10 +65,7 @@ export default function EcosystemSection() {
     },
     serve: {
       title: "Serving Our Community",
-      description: [
-        "We strive to serve as Jesus served. We encourage everyone to identify needs in the community and invite their friends and neighbors along for the journey. We have multiple ways to serve every month and are continually looking for more opportunities.",
-        "You do not need to attend a gathering to serve with us. If you would like to serve alongside us, please reach out and let us know how to get plugged in."
-      ],
+      description: "We strive to serve as Jesus served. We encourage everyone to find practical ways to love their neighbor. We meet needs person-to-person through shared generosity and acts of service.  ",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m7 11 2-2-2-2" />
@@ -255,7 +246,7 @@ export default function EcosystemSection() {
                           </div>
                           <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.gather.title}</h3>
                           <p className="text-primary-600 text-sm">
-                            {ecosystemElements.gather.description.join(' ')}
+                            {ecosystemElements.gather.description}
                           </p>
                         </div>
                       </div>
@@ -308,7 +299,7 @@ export default function EcosystemSection() {
                           </div>
                           <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.mentor.title}</h3>
                           <p className="text-primary-600 text-sm">
-                            {ecosystemElements.mentor.description.join(' ')}
+                            {ecosystemElements.mentor.description}
                           </p>
                         </div>
                       </div>
@@ -361,7 +352,7 @@ export default function EcosystemSection() {
                           </div>
                           <h3 className="text-xl font-display font-medium text-primary-800 mb-3">{ecosystemElements.serve.title}</h3>
                           <p className="text-primary-600 text-sm">
-                            {ecosystemElements.serve.description.join(' ')}
+                            {ecosystemElements.serve.description}
                           </p>
                         </div>
                       </div>
@@ -434,7 +425,7 @@ export default function EcosystemSection() {
 
                             <div>
                               <p className="text-sm text-primary-600">
-                                {element.description.join(' ')}
+                                {typeof element.description === 'string' ? element.description : element.description.join(' ')}
                               </p>
                             </div>
                           </div>
