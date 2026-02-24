@@ -22,9 +22,6 @@ export default function GatheringsSection() {
                 <img src="https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F38e23c486fbd481fbce149c220746355?format=webp&width=800&height=1200" alt="Midtown Tulsa Gathering Location" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
-                <div className="inline-block rounded-full px-4 py-1 bg-primary-100 text-primary-700 font-medium text-xs mb-4">
-                  Sundays at 5:00 PM
-                </div>
                 <h3 className="text-xl font-display font-medium text-primary-800 mb-2">
                   Midtown Gathering
                 </h3>
@@ -43,9 +40,6 @@ export default function GatheringsSection() {
                 <img src="https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F30d0c99954ac493fad10db59a98c04dd?format=webp&width=800&height=1200" alt="Southwest Tulsa Gathering Location" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
-                <div className="inline-block rounded-full px-4 py-1 bg-secondary-100 text-secondary-700 font-medium text-xs mb-4">
-                  Thursdays at 6:00 PM
-                </div>
                 <h3 className="text-xl font-display font-medium text-primary-800 mb-2">
                   Southwest Gathering
                 </h3>
@@ -64,9 +58,6 @@ export default function GatheringsSection() {
                 <img src="https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F4ac6e519d809424489f0bc31aef08058?format=webp&width=800&height=1200" alt="Youth Gathering Location" className="w-full h-full object-cover" />
               </div>
               <div className="p-6">
-                <div className="inline-block rounded-full px-4 py-1 bg-accent-100 text-accent-700 font-medium text-xs mb-4">
-                  Wednesdays at 7:00 PM
-                </div>
                 <h3 className="text-xl font-display font-medium text-primary-800 mb-2">
                   Youth Gathering
                 </h3>
