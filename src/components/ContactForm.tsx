@@ -18,13 +18,16 @@ export default function ContactForm() {
     setSubmitStatus(null);
 
     try {
-      const response = await fetch("https://api.new.website/api/submit-form/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://dqmynlnukxufiesnixgr.supabase.co/functions/v1/submit-form",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         setSubmitStatus("success");
