@@ -17,30 +17,12 @@ export default function EventsSection() {
   const events: Event[] = [
     {
       id: "1",
-      title: "Summer Baptism Celebration",
-      date: "July 23, 2024",
-      time: "10:00 AM",
-      location: "Keystone Lake",
-      description: "Join us for a day of celebration as we baptize new believers at Keystone Lake. We'll have food, worship, and community time afterward.",
-      image: "/assets/baptism_nw_f24fce58.jpg"
-    },
-    {
-      id: "2",
-      title: "All-Church Cookout",
-      date: "August 12, 2024",
-      time: "6:30 PM",
-      location: "Woodward Park",
-      description: "Our monthly all-church gathering bringing together all Ecclesia communities. Bring a dish to share and lawn chairs!",
-      image: "/assets/1763402076513-27_nw_21514e97.jpg"
-    },
-    {
-      id: "3",
-      title: "Prayer & Worship Night",
-      date: "June 30, 2024",
-      time: "7:00 PM",
-      location: "Midtown Home",
-      description: "An evening dedicated to prayer and worship as we seek God's presence together. Open to all Ecclesia members and guests.",
-      image: "/assets/1763402076513-29_nw_72ed5df2.jpg"
+      title: "Easter Date 4-5-2026",
+      date: "April 5, 2026",
+      time: "9:30 AM",
+      location: "Sapulpa, OK",
+      description: "Combined Easter service. Continental breakfast and a time of worship and communion together. Crafts and fun activities for kids, including a bounce house obstacle course.",
+      image: "https://cdn.builder.io/api/v1/image/assets%2F5193f7a05d654f0c98a0a70f48ef2387%2F96bd0ba8492a436da2f9c0a9b79e283c?format=webp&width=800&height=1200"
     }
   ];
 
