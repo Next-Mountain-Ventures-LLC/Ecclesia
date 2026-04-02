@@ -17,7 +17,7 @@ export default function EventsSection() {
   const events: Event[] = [
     {
       id: "1",
-      title: "Easter Date 4-5-2026",
+      title: "Easter",
       date: "April 5, 2026",
       time: "9:30 AM",
       location: "Sapulpa, OK",
