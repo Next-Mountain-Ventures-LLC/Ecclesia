@@ -41,6 +41,19 @@ import '../styles/gathering-animation.css';
   <!-- <EventsSection client:load /> -->
   
   <ContactSection client:load />
+
+  <!-- Hidden form for Netlify form detection -->
+  <form name="ecclesia-contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="ecclesia-contact" />
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="gathering" />
+    <textarea name="message"></textarea>
+    <input type="hidden" name="form_name" />
+    <input type="hidden" name="formType" />
+    <input type="hidden" name="subject" />
+  </form>
 </BaseLayout>
 
 <script src="../scripts/gathering-animation.js"></script>
