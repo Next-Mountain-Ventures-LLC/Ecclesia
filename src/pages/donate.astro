@@ -2,12 +2,12 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const title = "Donate | Ecclesia Tulsa";
-const description = "Support Ecclesia through PayPal or Cash App.";
+const description = "Support Ecclesia through PayPal, Cash App, or Zelle.";
 ---
 
 <BaseLayout {title} {description}>
   <div class="container py-20 md:py-32">
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-4xl mx-auto">
       <!-- Header -->
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-display font-medium text-primary-800 mb-4">
@@ -19,7 +19,7 @@ const description = "Support Ecclesia through PayPal or Cash App.";
       </div>
 
       <!-- Donation Options -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- PayPal Option -->
         <a
           href="https://www.paypal.com/donate/?hosted_button_id=RM8SJ6QPAXN8Q"
@@ -48,6 +48,19 @@ const description = "Support Ecclesia through PayPal or Cash App.";
             class="h-24 w-auto mb-6"
           />
           <p class="text-sm text-muted-foreground text-center">Donate Via Cash App</p>
+        </a>
+        <!-- Zelle Option -->
+        <a
+          href="https://enroll.zellepay.com/qr-codes?data=eyJuYW1lIjoiVFVMU0EgRUNDTEVTSUEgQ0hVUkNIIE9GIFRIRSBOQVpBUkVORSIsInRva2VuIjoicmFuZG9tYXh4QGdtYWlsLmNvbSJ9"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex flex-col items-center justify-center p-12 bg-white rounded-2xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 border border-gray-200"
+        >
+          <svg class="h-24 w-auto mb-6" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" aria-label="Zelle logo">
+            <rect width="200" height="80" rx="12" fill="#6D1ED4"/>
+            <text x="100" y="54" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="-1">zelle</text>
+          </svg>
+          <p class="text-sm text-muted-foreground text-center">Donate via Zelle</p>
         </a>
       </div>
 
